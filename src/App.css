@@ -111,14 +111,20 @@ table {
 .header { display: none; }
 
 
-.section { border: 1px solid red; }
+.section { 
+	overflow: hidden;
+	border: 1px solid red;
+}
 
 .section__bg {
-	position: fixed;
+	/* position: fixed;
 	left: 0;
+	height: 100%;
+	background-color: lavender; */
 }
 
 .section__heading {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -128,7 +134,7 @@ table {
 }
 
 .is-fixed {
-	display: none;
+	/* display: none; */
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -145,4 +151,10 @@ table {
 	font-size: 4vw;
 }
 
-.section.is-active .is-fixed { display: block }
+/* .section.is-active .is-fixed { display: block } */
+
+.section__desc {
+	padding-top: 50vh;
+	font-size: 30px;
+}
+.section__desc strong { font-size: 50px; }

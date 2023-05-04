@@ -1,6 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
+
+import { throttle } from 'lodash';
+
+
 
 const Index = () => {
+  const sectionRef = useRef([]);
+
+  const throttledScroll = useMemo(
+    () =>
+      throttle(() => {
+        console.log('스크롤 이벤트');
+        // if (!tabSelectorRef.current) return;
+        // const nextTabnavOn = window.scrollY > tabSelectorRef.current.offsetTop + 100;
+        // if (nextTabnavOn !== isTabnavOn) setIsTabnavOn(nextTabnavOn);
+      }, 300),
+    []
+  );
+  
+  useEffect(() => {
+    window.addEventListener('scroll', throttledScroll);
+    return () => {
+      window.removeEventListener('scroll', throttledScroll);
+    };
+  }, [throttledScroll]); // 여기에 throttledScroll 대신 isTabnavon을 넣어줘도 정상작동한다
 
   useEffect(() => {
     let yOffset = 0; // window.pageYOffset 대신 쓸 변수
@@ -97,7 +120,7 @@ const Index = () => {
   return (
     <div className="container">
       
-      <section className="section">
+      <section className="section" ref={(el) => (sectionRef.current[0] = el)}>
         <div className="section__heading">
           <h1 className="heading">Hello World</h1>
         </div>
@@ -118,20 +141,18 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" ref={(el) => (sectionRef.current[1] = el)}>
         <div className="section__desc">
           <p><strong>보통 스크롤 영역</strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae est ipsa minima, eligendi error cum vel dolorum pariatur officia facilis ipsam voluptatibus ad quasi porro quod quisquam quidem tempora accusantium accusamus, quaerat aliquam velit exercitationem incidunt? Id vitae quisquam saepe quasi accusantium tempore enim! Aperiam dolorum a vero repellat dolor, inventore ab odit totam molestias expedita? Enim quia dolor maiores veniam ea! Quam illo, est incidunt ipsa reiciendis modi quisquam reprehenderit fuga velit dolorem odit sequi autem blanditiis, ullam commodi quibusdam. Accusamus repellat aperiam quis neque laudantium, dignissimos hic nisi magnam praesentium enim beatae sint architecto cum numquam inventore rerum animi sed nostrum quae delectus, voluptas molestiae placeat aliquid! Vel quaerat error officiis magnam dolorum iste aspernatur at est! Quo, consequuntur? Reiciendis, dolor. Quo at cupiditate in iure obcaecati voluptatum vel ea! Ab vel harum facere hic fuga ducimus sapiente dolore dolorem, nobis sint perferendis cumque esse! Omnis fugiat sint error laborum eveniet labore nam ducimus quisquam in repudiandae impedit excepturi dignissimos tenetur libero placeat rerum maxime tempore, aut nihil. Qui, quam? Voluptate fuga possimus itaque quas nesciunt iste, facilis mollitia illo qui placeat temporibus inventore obcaecati. Recusandae, sequi dignissimos in natus eum maiores dolorem, deleniti nobis accusantium, aspernatur beatae.</p>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" ref={(el) => (sectionRef.current[1] = el)}>
         <div className="section__desc">
           <p><strong>Retina 머그</strong>아이디어를 광활하게 펼칠 아름답고 부드러운 음료 공간.</p>
         </div>
 
-        <div className="section__sticky">
-          <canvas className="blend-image"></canvas>
-        </div>
+        <canvas className="image-blend"></canvas>
 
         <div className="section__desc">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae est ipsa minima, eligendi error cum vel dolorum pariatur officia facilis ipsam voluptatibus ad quasi porro quod quisquam quidem tempora accusantium accusamus, quaerat aliquam velit exercitationem incidunt? Id vitae quisquam saepe quasi accusantium tempore enim! Aperiam dolorum a vero repellat dolor, inventore ab odit totam molestias expedita? Enim quia dolor maiores veniam ea! Quam illo, est incidunt ipsa reiciendis modi quisquam reprehenderit fuga velit dolorem odit sequi autem blanditiis, ullam commodi quibusdam. Accusamus repellat aperiam quis neque laudantium, dignissimos hic nisi magnam praesentium enim beatae sint architecto cum numquam inventore rerum animi sed nostrum quae delectus, voluptas molestiae placeat aliquid! Vel quaerat error officiis magnam dolorum iste aspernatur at est! Quo, consequuntur? Reiciendis, dolor. Quo at cupiditate in iure obcaecati voluptatum vel ea! Ab vel harum facere hic fuga ducimus sapiente dolore dolorem, nobis sint perferendis cumque esse! Omnis fugiat sint error laborum eveniet labore nam ducimus quisquam in repudiandae impedit excepturi dignissimos tenetur libero placeat rerum maxime tempore, aut nihil. Qui, quam? Voluptate fuga possimus itaque quas nesciunt iste, facilis mollitia illo qui placeat temporibus inventore obcaecati. Recusandae, sequi dignissimos in natus eum maiores dolorem, deleniti nobis accusantium, aspernatur beatae.</p>

@@ -4,7 +4,7 @@ const SpinerItem = () => {
   const result = [];
 
   for (let i = 0; i <= 12; i ++) {
-    result.push(<span></span>);
+    result.push(<span key={i}></span>);
   }
 
   return result;
