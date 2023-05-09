@@ -1,29 +1,7 @@
-import React, { useEffect, useRef, useState, useMemo } from 'react';
-
-import { throttle } from 'lodash';
-
-
+import React, { useEffect, useRef, useState } from 'react';
 
 const Index = () => {
   const sectionRef = useRef([]);
-
-  const throttledScroll = useMemo(
-    () =>
-      throttle(() => {
-        console.log('스크롤 이벤트');
-        // if (!tabSelectorRef.current) return;
-        // const nextTabnavOn = window.scrollY > tabSelectorRef.current.offsetTop + 100;
-        // if (nextTabnavOn !== isTabnavOn) setIsTabnavOn(nextTabnavOn);
-      }, 300),
-    []
-  );
-  
-  useEffect(() => {
-    window.addEventListener('scroll', throttledScroll);
-    return () => {
-      window.removeEventListener('scroll', throttledScroll);
-    };
-  }, [throttledScroll]); // 여기에 throttledScroll 대신 isTabnavon을 넣어줘도 정상작동한다
 
   useEffect(() => {
     let yOffset = 0; // window.pageYOffset 대신 쓸 변수
@@ -88,8 +66,8 @@ const Index = () => {
         currentSection--;
       }
 
-      sectionInfo.forEach((sec) => sec.objs.container.classList.remove('is-active'));
-      sectionInfo[currentSection].objs.container.classList.add('is-active');
+      // sectionInfo.forEach((sec) => sec.objs.container.classList.remove('is-active'));
+      // sectionInfo[currentSection].objs.container.classList.add('is-active');
       document.body.setAttribute('class', `is-active-section-${currentSection}`);
 
       if (enterNewSection) return;
