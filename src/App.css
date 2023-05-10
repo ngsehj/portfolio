@@ -110,7 +110,6 @@ table {
 
 .header { display: none; }
 
-
 .section { 
 	overflow: hidden;
 	border: 1px solid red;
@@ -154,7 +153,18 @@ table {
 /* .section.is-active .is-fixed { display: block } */
 
 .section__desc {
-	padding-top: 50vh;
+	padding-top: 20vh;
 	font-size: 30px;
 }
 .section__desc strong { font-size: 50px; }
+
+.section__list {
+	display: flex;
+}
+
+.section__item {
+	width: calc(30% - 20px);
+	height: 300px;
+	background-color: violet;
+	margin: 10px;
+}

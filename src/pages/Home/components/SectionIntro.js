@@ -1,18 +1,16 @@
-import { forwardRef, useContext, useEffect } from "react";
-import { ScrollDataContext } from "../../pages/ScrollContainer";
+import { useContext, useEffect } from "react";
+import { ScrollDataContext } from "../Home";
 
-const SectionIntro = forwardRef((props, ref) => {
+const SectionIntro = () => {
   const { currentY, viewportHeight } = useContext(ScrollDataContext);
+  const pageHeight = viewportHeight * 5;
 
   useEffect(() => {
-    console.log(ref);
-
-
     window.addEventListener('scroll', () => {
     });
   }, [])
 
-  const textContent = [
+  const text = [
     { text: "message 111" },
     { text: "message 222" },
     { text: "message 333" },
@@ -20,15 +18,15 @@ const SectionIntro = forwardRef((props, ref) => {
   ]
 
   return (
-    <section className="section" ref={ref} style={{height: `${viewportHeight * 5}px`}}>
-      <div className="section__heading" style={{color: 'red', opacity: `${1 - (currentY / viewportHeight)}`}}>
+    <section className="section" style={{height: `${pageHeight}px`}}>
+      <div className="section__heading" style={{color: 'violet', opacity: `${1 - (currentY / viewportHeight)}`}}>
         <h1 className="heading">Hello World</h1>
       </div>
       <div className="section__bg is-fixed">
         <canvas id="video-canvas-0" width="1920" height="1080"></canvas>
       </div>
 
-      {textContent.map((item, idx) => (
+      {text.map((item, idx) => (
         <div 
           className="section__text is-fixed" 
           style={{ height: `${viewportHeight}px`}}
@@ -39,10 +37,6 @@ const SectionIntro = forwardRef((props, ref) => {
       ))}
     </section>
   )
-});
-
-
-//   
-// })
+};
 
 export default SectionIntro;
