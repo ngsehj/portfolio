@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-// import Loading from './components/Loading';
+import Loading from './components/Loading';
 // import Index from './pages/Index';
 import TopButton from './components/TopButton';
 import Home from './pages/Home/Home';
@@ -15,7 +15,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        {/* <Loading /> */}
+        <Loading />
         <Header />
 
         <Routes>

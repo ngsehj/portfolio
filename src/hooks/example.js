@@ -1,7 +1,7 @@
 
 let observers = [];
 
-startup = () => {
+const startup = () => {
   let wrapper = document.querySelector(".wrapper");
 
   // Options for the observers
@@ -55,7 +55,7 @@ startup = () => {
   document.scrollingElement.scrollLeft = 750;
 };
 
-intersectionCallback = (entries) => {
+const intersectionCallback = (entries) => {
   entries.forEach((entry) => {
     let box = entry.target;
     let visiblePct = `${Math.floor(entry.intersectionRatio * 100)}%`;
