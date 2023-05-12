@@ -1,6 +1,6 @@
 import { useRef, useCallback, useEffect } from 'react';
 
-const useScrollCalc = (type='opacity', fixed=false, values, threshold) => {
+const useScrollCalc = (type='opacity', values, threshold) => {
   const element = useRef();
 
   let thresholdSet = [];
@@ -12,11 +12,13 @@ const useScrollCalc = (type='opacity', fixed=false, values, threshold) => {
   const onScroll = useCallback(([entry]) => {
     const { current } = element;
     let ratio = entry.intersectionRatio;
+    let ratio2 = entry.intersectionRect.y  
     let value = values.start + ((values.end - values.start) * ratio);
     // let value = ratio * (values.end + values.start) + values.start;
     let valuePct = value * 100;
+    // ratio = ( ratio >= 0.5) ? ratio : ++ ratio 
 
-    console.log(value)
+    console.log(ratio2)
 
     if(ratio) {
       switch(type) {
@@ -34,18 +36,12 @@ const useScrollCalc = (type='opacity', fixed=false, values, threshold) => {
           break;
         case 'right': 
           current.style.textAlign = 'right';
-          if(ratio <= 0.5) current.style.transform = `translate3d(${valuePct * -10}px, 0, 0)`;
+          if(ratio <= 0.5) current.style.transform = `translate3d(-${valuePct}%, 0, 0)`;
           break;
         default: 
           return;
       }
     }
-
-    // if(ratio < 0.9 && fixed) {
-    //   current.classList.add('is-fixed')
-    // } else {
-    //   current.classList.remove('is-fixed')
-    // }
   },[]);
 
   useEffect(() => {

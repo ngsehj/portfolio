@@ -1,21 +1,31 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import SectionIntro from './components/SectionIntro';
 import SectionFadeIn from './components/SectionFadeIn';
-import SectionDesc from './components/SectionDesc';
+import SectionHorizontal from './components/SectionHorizontal';
 export const ScrollDataContext = React.createContext();
 export const ScrollPageContext = React.createContext();
 
 const Home = () => {
-  const init = 0;
+  const initScrollData = {
+    currentY: 0, // window.pageYOffset
+    viewportHeight: 0,
+    totalPage: 0,
+    totalHeight: 0,
+    totalProgress: 0,
+    realPage: 0,
+    currentPage: 0,
+    currentProgress: 0,
+  }
+
   const children = [
+    <SectionFadeIn />,
     <SectionIntro />,
-    // <SectionDesc />,
-    // <SectionIntro />,
-    // <SectionFadeIn />,
+    <SectionHorizontal />,
+    <SectionFadeIn />,
   ]
 
   return (
-    <ScrollDataContext.Provider value={init}>
+    <ScrollDataContext.Provider value={initScrollData}>
 
       {children.map((section, idx) => (
         <ScrollPageContext.Provider 
