@@ -10,18 +10,19 @@ const text = [
 
 const SectionIntro = () => {
   const animatedElement = {
-    0 : useScrollCalc('scale', {start: 1, end: 2})
+    0 : useScrollCalc('scale', {start: 1, end: 1.5}),
+    1: useScrollCalc('opacity', {start: 0, end: 1})
   }
 
   const animatedItem = {
-    0: useScrollCalc('scale', {start: 0, end: 1}),
-    1: useScrollCalc('right', {start: 0, end: 1}, [0, 0.5]),
-    2: useScrollCalc('left', {start: 0, end: 1}, [0, 0.5]),
+    0: useScrollCalc('left ', {start: 0, end: 1}),
+    1: useScrollCalc('right', {start: 0, end: 1}),
+    2: useScrollCalc('left', {start: 0, end: 1}),
     3: useScrollCalc('opacity', {start: 0, end: 1}),
   };
 
   return (
-    <section className="section">
+    <section className="section" {...animatedElement[1]}>
       <div className="section__bg"></div>
       <div className="section__heading" style={{color: '#fff'}}>
           <h1 className="heading"
@@ -29,16 +30,17 @@ const SectionIntro = () => {
           >KAZUHA forever win</h1>
       </div>
 
-      {text.map((item, idx) => (
-        <div className="section__desc" key={item.text}>
+      {/* {text.map((item, idx) => (
+        <div className="section__desc" key={idx}>
           <div 
             className="inner" 
-            // {...animatedItem[idx]}
+            {...animatedItem[idx]}
           >
             <p>{item.text}</p>
           </div>
         </div>
-      ))}
+      ))} */}
+
     </section>
   )
 };

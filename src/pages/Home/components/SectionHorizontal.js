@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback, useState, useContext } from 'react';
+import { ScrollDataContext } from "../Home";
+import { useScrollHorizontal } from '../../../hooks';
 
 const items = [
   { img: 'https://www.etude.com/wp-content/uploads/2023/03/curlfix2023_kazuha_01.jpg' },
@@ -12,87 +14,84 @@ const items = [
 ]
 
 const SectionHorizontal = () => {
-  let thresholdSet = [];
+  const { viewportWidth } = useContext(ScrollDataContext);
+  let sliderMoveMax = 0;
+  let sliderPos = 0;
 
-  for (let i = 0; i <= 1.0; i += 0.001) {
-    thresholdSet.push(i);
+  console.log(viewportWidth)
+  
+  const sectionRef = useRef();
+  const sliderRef = useRef();
+  const [height, setHeight] = useState(null);
+  
+  const onScrollHorizontal = useCallback((amount, max) => {
+    sliderMoveMax = max;
+    sliderPos = amount;
+    // console.log(sliderPos, sliderMoveMax)
+
+    if (sliderPos < sliderMoveMax) {
+      sliderPos = sliderMoveMax;
+      return;
+    } else if (sliderPos > 0) {
+      sliderPos = 0;
+      return;
+    }
+
+    sliderRef.current.style.transform = `translateX(${sliderPos}px)`;
+    setTimeout(() => {
+    }, 1000);
+
+  }, []);
+
+
+  useEffect(() => {
+    const width = sliderRef.current.offsetWidth;
+    setHeight(width);
+
+    window.addEventListener('scroll', function () {
+      let sectionY = sectionRef.current.getBoundingClientRect().top;
+      let maxY = -(width - viewportWidth);
+
+      console.log(maxY)
+
+      if (sectionY <= 0 && sectionY >= maxY) {
+        onScrollHorizontal(sectionY, maxY);
+      }
+    });
+
+    // window.addEventListener('resize', function() {
+    //   let sectionY = sectionRef.current.getBoundingClientRect().top;
+    //   let maxY = -(width - viewportWidth);
+
+    //   if (sectionY <= 0 && sectionY >= maxY) {
+    //     onScrollHorizontal(sectionY, maxY);
+    //   }
+    // })
+
+  }, []);
+
+
+  const animatedElement = {
+    0 : useScrollHorizontal()
   }
-
-  const section = useRef();
-  const fixed = useRef();
-  const slider = useRef();
-
-  // const sliderW = section.current.scrollWidth;
-  //   let winW = window.innerWidth;
-  //   let sliderMoveMax = sliderW - winW;
-  //   let sliderPos = 0;
-
-  // const onScroll = useCallback(([entry]) => {
-  //   let ratio = entry.intersectionRatio.toFixed(2);
-
-  //   if (ratio > 0.9) {
-  //     section.current.children[0].classList.add('is-fixed')
-  //   } else if( ratio < 0.1 ) {
-  //     section.current.children[0].classList.remove('is-fixed')
-  //   }
-  // },[]);
-
-  // const onScrollHorizontal = useCallback((amount, e) => {sliderPos -= amount;
-
-  //     function remove() {}
-      
-  //     if ( sliderPos > 0 ) {
-  //       sliderPos = 0;
-  //       remove();
-  //       return;
-  //     } else if ( sliderPos <= -sliderMoveMax ) {
-  //       sliderPos = -sliderMoveMax;
-  //       remove();
-  //       return;
-  //     } else {
-  //       e.preventDefault();
-  //     }
-      
-  //     slider.current.style.transform = `translateX(${sliderPos}px)`;
-
-  // }, []);
   
-  // useEffect(() => {
-  
-  //   section.current.addEventListener('wheel', function(e) {
-      
-  //     onScrollHorizontal(e.deltaY, e);
-  //   });
-
-  //   let observer;
-
-  //   if(section.current) {
-  //     observer = new IntersectionObserver(onScroll, { threshold: thresholdSet })
-  //     observer.observe(section.current);
-  //   }
-
-  //   return () => observer && observer.disconnect();
-
-  // }, []);
-
   return (
-    <section className="section section__vertical" ref={section}>
-      <div ref={fixed} style={{backgroundColor: '#fff'}}>
-        <div className="inner" >
-          <div className="slider" ref={slider}>
+    <section className="section section__horizontal"
+      ref={sectionRef}
+      style={{ height: height }}
+      // {...animatedElement[0]}
+    >
+      <div className="section__sticky">
+        <div className="slider__wrap">
+          <div className="slider" ref={sliderRef}>
             {items.map((item, idx) => (
               <div className="slide" key={idx}>
                 <img src={item.img} alt="kazuha" />
               </div>
             ))}
           </div>
-
         </div>
-
       </div>
-
-
-
     </section>
   )
 }

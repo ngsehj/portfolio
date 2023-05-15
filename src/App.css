@@ -24,7 +24,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
   font-family: 'Noto Serif KR', serif;
-	vertical-align: baseline;
+	horizontal-align: baseline;
 }
 
 button, select, input, textarea {
@@ -187,29 +187,34 @@ table {
 	background: url("https://www.etude.com/wp-content/uploads/2023/03/playlist01_Kazuha_PC_main.jpg") no-repeat;
 	background-attachment: fixed;
 }
-.section__vertical > div { 
-	transition: all .3s ease;
-}
-.section__vertical .inner {
+.section__horizontal { overflow: visible; } /* overflow: hidden 때문에 sticky 작동 안 됨 */
+.section__horizontal .slider__wrap {
 	overflow: hidden;
 	position: absolute;
 	width: 100%;
 	height: 100vh;
 }
 
-.section__vertical .slider {
+.section__horizontal .slider {
 	position: absolute;
 	top: 0;
 	left: 0;
 	display: flex;
 	align-items: center;
+	height: 100vh;
 	transition: transform .3s ease-out;
 	padding: 0 50px
 }
 
-.section__vertical .slide {
+.section__horizontal .slide {
 	width: 600px;
 	padding: 50px;
 }
 
-.section__vertical .slide img { width: 100%; }
+.section__horizontal .slide img { width: 100%; }
+.section__sticky {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	transition: all .3s ease;
+}

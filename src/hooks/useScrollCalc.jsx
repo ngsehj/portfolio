@@ -1,55 +1,55 @@
 import { useRef, useCallback, useEffect } from 'react';
 
-const useScrollCalc = (type='opacity', values, threshold) => {
+const useScrollCalc = (type='opacity', values) => {
   const element = useRef();
-
-  let thresholdSet = [];
-
-  for (let i = 0; i <= 1.0; i += 0.01) {
-    thresholdSet.push(i);
-  }
 
   const onScroll = useCallback(([entry]) => {
     const { current } = element;
     let ratio = entry.intersectionRatio;
-    let ratio2 = entry.intersectionRect.y  
-    let value = values.start + ((values.end - values.start) * ratio);
-    // let value = ratio * (values.end + values.start) + values.start;
+    let currentY = entry.intersectionRect.y; 
+    let totalY = entry.boundingClientRect.height;
+    let ratio2 = 1 - (currentY / totalY)
+    let value = values.start + ((values.end - values.start) * ratio2);
     let valuePct = value * 100;
-    // ratio = ( ratio >= 0.5) ? ratio : ++ ratio 
+    // console.log(entry)
 
-    console.log(ratio2)
-
-    if(ratio) {
-      switch(type) {
-        case 'scale':
-          current.style.transform = `scale(${value})`;
-          break;
-        case 'width':
-          current.style.width = `${valuePct}%`
-          break;
-        case 'opacity': 
-          current.style.opacity = value;
-          break;
-        case 'left': 
-          if(ratio <= 0.5) current.style.transform = `translate3d(${valuePct}%, 0, 0)`;
-          break;
-        case 'right': 
-          current.style.textAlign = 'right';
-          if(ratio <= 0.5) current.style.transform = `translate3d(-${valuePct}%, 0, 0)`;
-          break;
-        default: 
-          return;
+    if (entry.isIntersecting) {
+      if (ratio) {
+        switch (type) {
+          case 'scale':
+            current.style.transform = `scale(${value})`;
+            break;
+          case 'width':
+            current.style.width = `${valuePct}%`
+            break;
+          case 'opacity':
+            current.style.opacity = value;
+            break;
+          case 'left':
+            current.style.transform = `translate3d(${valuePct}px, 0, 0)`;
+            break;
+          case 'right':
+            current.style.textAlign = 'right';
+            current.style.transform = `translate3d(-${valuePct}px, 0, 0)`;
+            break;
+          default:
+            return;
+        }
       }
     }
   },[]);
 
   useEffect(() => {
     let observer;
+    let thresholdSet = [];
+
+    for (let i = 0; i <= 1.0; i += 0.01) {
+      thresholdSet.push(i);
+    }
 
     if(element.current) {
       observer = new IntersectionObserver(onScroll, { threshold: thresholdSet })
-      observer.observe(element.current.parentNode);
+      observer.observe(element.current);
     }
 
     return () => observer && observer.disconnect();
