@@ -1,44 +1,51 @@
-import { useRef, useCallback, useEffect } from 'react';
+import { useEffect, useRef, useCallback, useState, useContext } from 'react';
+import { GlobalDataContext } from '../pages/Home/Home';
 
 const useScrollHorizontal = () => {
-  const element = useRef();
+  const { viewportWidth } = useContext(GlobalDataContext);
+  const sectionRef = useRef(null);
+  const sliderRef = useRef(null);
+  const sliderMoveMaxRef = useRef(0);
+  const sliderPosRef = useRef(0);
+  const [sectionHeight, setSectionHeight] = useState(0);
 
-  const onScroll = useCallback(([entry]) => {
-    const { current } = element;
-    let currentY = entry.intersectionRect.y; 
-    let totalY = entry.boundingClientRect.height;
-    let ratio = currentY / totalY;
-    let w = entry.boundingClientRect.width;
-    let moveX = -(totalY - w)
+  const onScrollHorizontal = useCallback((amount, max) => {
+    sliderPosRef.current = amount;
+    sliderMoveMaxRef.current = max;
 
-    console.log(current.offsetTop)
-
-    if (entry.isIntersecting) {
-      current.children[0].children[0].children[0].style.transform = `translateX(${moveX}px)`;
-      
+    if (sliderPosRef.current < sliderMoveMaxRef.current) {
+      sliderPosRef.current = sliderMoveMaxRef.current;
+      return;
+    } else if (sliderPosRef.current > 0) {
+      sliderPosRef.current = 0;
+      return;
     }
-  },[]);
+    
+    sliderRef.current.style.transform = `translateX(${sliderPosRef.current}px)`;
+  }, []);
+
+  const handleEvent = useCallback(() => {
+    const sliderW = sliderRef.current.offsetWidth;
+    const sectionY = sectionRef.current.getBoundingClientRect().top;
+    const maxY = viewportWidth - sliderW;
+    setSectionHeight(sliderW);
+
+    if (sectionY <= 0 && sectionY >= maxY) {
+      onScrollHorizontal(sectionY, maxY);
+    }
+  }, [onScrollHorizontal, viewportWidth]);
 
   useEffect(() => {
-    let observer;
-    let thresholdSet = [];
+    window.addEventListener("resize", handleEvent);
+    window.addEventListener("scroll", handleEvent);
 
-    for (let i = 0; i <= 1.0; i += 0.001) {
-      thresholdSet.push(i);
-    }
-
-    if(element.current) {
-      observer = new IntersectionObserver(onScroll, { threshold: thresholdSet })
-      observer.observe(element.current);
-      return () => observer && observer.disconnect();
-    }
-
-
-  }, [onScroll]);
-
-  return {
-    ref: element
-  }
+    return () => {
+      window.removeEventListener("resize", handleEvent);
+      window.removeEventListener("scroll", handleEvent);
+    };
+  }, [handleEvent]);
+  
+  return { sectionRef, sliderRef, sectionHeight };
 }
 
 export default useScrollHorizontal;

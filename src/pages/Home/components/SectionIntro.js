@@ -10,7 +10,7 @@ const text = [
 
 const SectionIntro = () => {
   const animatedElement = {
-    0 : useScrollCalc('scale', {start: 1, end: 1.5}),
+    0 : useScrollCalc('scale', {start: 8, end: 1}),
     1: useScrollCalc('opacity', {start: 0, end: 1})
   }
 
@@ -22,12 +22,13 @@ const SectionIntro = () => {
   };
 
   return (
-    <section className="section" {...animatedElement[1]}>
+    <section className="section section__intro" {...animatedElement[1]}>
       <div className="section__bg"></div>
       <div className="section__heading" style={{color: '#fff'}}>
           <h1 className="heading"
             {...animatedElement[0]}
-          >KAZUHA forever win</h1>
+            style={{ color: '#000' }}
+          >POCHACCO</h1>
       </div>
 
       {/* {text.map((item, idx) => (

@@ -140,11 +140,17 @@ table {
 	height: 100%;
 }
 
-.section__list { display: flex; }
+.section__list { 
+	height: 100vh;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
 .section__item {
 	width: calc(30% - 20px);
 	height: 300px;
-	background-color: violet;
+	background-color: rgba(148,205,246, 1);
 	margin: 10px;
 }
 
@@ -181,11 +187,19 @@ table {
 
 .section__desc strong { font-size: 50px; }
 
+.section__intro {
+	background: url("http://sanriokorea.co.kr/wp-content/themes/sanrio/images/bg_crt.png") no-repeat;
+	background-size: cover;
+	background-position: center bottom;
+}
 .section__bg {
+	z-index: 10;
 	position: relative;
 	height: 100vh;
-	background: url("https://www.etude.com/wp-content/uploads/2023/03/playlist01_Kazuha_PC_main.jpg") no-repeat;
+	background: url("http://sanriokorea.co.kr/wp-content/themes/sanrio/images/pochacco.png") no-repeat;
 	background-attachment: fixed;
+	background-size: auto;
+	background-position: center center;
 }
 .section__horizontal { overflow: visible; } /* overflow: hidden 때문에 sticky 작동 안 됨 */
 .section__horizontal .slider__wrap {
@@ -207,8 +221,30 @@ table {
 }
 
 .section__horizontal .slide {
-	width: 600px;
+	overflow: hidden;
+	position: relative;
+	max-width: 600px;
+	width: 30vw;
 	padding: 50px;
+}
+
+.circle {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: block;
+	width: 10px;
+	height: 10px;
+	background: radial-gradient(circle, rgba(238,174,202,.1) 0%, rgba(148,187,233,0.2) 100%);
+	border-radius: 50%;
+	transform: scale(0);
+	transition: all 1s;
+}
+
+.kazuha .slide { overflow: hidden;}
+.kazuha .slide img { transition: transform .3s ease-in-out; }
+.kazuha .slide:hover img {
+	transform: scale(1.1);
 }
 
 .section__horizontal .slide img { width: 100%; }
@@ -218,3 +254,4 @@ table {
 	height: 100vh;
 	transition: all .3s ease;
 }
+

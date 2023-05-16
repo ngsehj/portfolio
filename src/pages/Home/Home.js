@@ -2,41 +2,40 @@ import React, { useCallback, useEffect, useState } from 'react';
 import SectionIntro from './components/SectionIntro';
 import SectionFadeIn from './components/SectionFadeIn';
 import SectionHorizontal from './components/SectionHorizontal';
-export const ScrollDataContext = React.createContext();
+import SectionHorizontalUseHook from './components/SectionHorizontalUseHook';
+export const GlobalDataContext = React.createContext();
 export const ScrollPageContext = React.createContext();
 
-const scrollParent = window || HTMLElement;
-const initScrollData = {
-  currentY: 0, // window.pageYOffset
-  viewportHeight: 0,
-  viewportWidth: 0,
-}
-
 const Home = () => {
+  const initGlobalData = {
+    viewportHeight: window.innerHeight,
+    viewportWidth: window.innerWidth
+  }
 
-  const [scrollData, setScrollData] = useState(initScrollData);
+  const [globalData, setGlobalData] = useState(initGlobalData);
 
-  const handleScroll = useCallback(() => {
-    const currentY = scrollParent.pageYOffset,
-          viewportHeight = scrollParent.innerHeight,
-          viewportWidth = scrollParent.innerWidth
-
-    setScrollData({
-      ...scrollData,
-      currentY,
+  const handleResize = useCallback(() => {
+    const viewportHeight = window.innerHeight;
+    const viewportWidth = window.innerWidth;
+  
+    setGlobalData(() => ({
+      ...globalData,
       viewportHeight,
       viewportWidth
-    });
-  }, [setScrollData]);
+    }));
+  }, [globalData]);
 
   useEffect(() => {
-    handleScroll();
-    scrollParent.addEventListener('scroll', handleScroll);
-    scrollParent.addEventListener('resize', handleScroll);
-  }, [handleScroll]);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [handleResize]);
 
   const children = [
     <SectionFadeIn />,
+    <SectionHorizontalUseHook />,
     <SectionIntro />,
     <SectionHorizontal />,
     <SectionFadeIn />,
@@ -44,18 +43,16 @@ const Home = () => {
   ]
 
   return (
-    <ScrollDataContext.Provider value={scrollData}>
-
+    <GlobalDataContext.Provider value={globalData}>
       {children.map((section, idx) => (
         <ScrollPageContext.Provider 
           value={{page: idx}} 
-          key={`scroll-page-${idx}`} 
+          key={idx} 
         >
           {section}
         </ScrollPageContext.Provider>
-        
       ))}
-    </ScrollDataContext.Provider>
+    </GlobalDataContext.Provider>
   )
 }
 
