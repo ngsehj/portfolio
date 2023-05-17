@@ -3,6 +3,7 @@ import SectionIntro from './components/SectionIntro';
 import SectionFadeIn from './components/SectionFadeIn';
 import SectionHorizontal from './components/SectionHorizontal';
 import SectionHorizontalUseHook from './components/SectionHorizontalUseHook';
+import SectionText from './components/SectionText';
 export const GlobalDataContext = React.createContext();
 export const ScrollPageContext = React.createContext();
 
@@ -35,11 +36,12 @@ const Home = () => {
 
   const children = [
     <SectionFadeIn />,
+    <SectionText />,
     <SectionHorizontalUseHook />,
     <SectionIntro />,
     <SectionHorizontal />,
-    <SectionFadeIn />,
-    <SectionFadeIn />,
+    // <SectionFadeIn />,
+    // <SectionFadeIn />,
   ]
 
   return (

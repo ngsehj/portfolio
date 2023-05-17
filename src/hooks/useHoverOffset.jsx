@@ -1,0 +1,42 @@
+import { useCallback, useEffect, useRef } from "react";
+
+const useHoverCursor = () => {
+  const targetRef = useRef([]);
+
+  const handleMouseenter = useCallback((e) => {
+    const cursor = e.target.querySelector('.cursor');
+    if (cursor) {
+      const pos = { x: e.offsetX, y: e.offsetY };
+      cursor.style.transform = `translate(${pos.x}px, ${pos.y}px) scale(100)`;
+    }
+  }, []);
+
+  const handleMouseleave = useCallback((e) => {
+    const cursor = e.target.querySelector('.cursor');
+    if (cursor) {
+      const pos = { x: e.offsetX, y: e.offsetY };
+      cursor.style.transform = `translate(${pos.x}px, ${pos.y}px) scale(0.1)`;
+    }
+  }, []);
+
+  useEffect(() => {
+    const targetRefs = targetRef.current;
+
+    targetRefs.forEach((target) => {
+      target.addEventListener('mouseenter', handleMouseenter);
+      target.addEventListener('mouseleave', handleMouseleave);
+    });
+
+    return () => {
+      targetRefs.forEach((target) => {
+        target.removeEventListener('mouseenter', handleMouseenter);
+        target.removeEventListener('mouseleave', handleMouseleave);
+      });
+    };
+  }, [handleMouseenter, handleMouseleave]);
+
+  return { targetRef }
+
+}
+
+export default useHoverCursor;

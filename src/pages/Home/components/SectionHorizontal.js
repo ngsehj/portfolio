@@ -1,5 +1,6 @@
 import { useScrollHorizontal } from '../../../hooks';
 
+
 const items = [
   { img: 'https://www.etude.com/wp-content/uploads/2023/03/curlfix2023_kazuha_01.jpg' },
   { img: 'https://www.etude.com/wp-content/uploads/2023/03/curlfix2023_kazuha_02.jpg'},
