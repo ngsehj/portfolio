@@ -9,12 +9,14 @@ import Loading from './components/Loading';
 // import Index from './pages/Index';
 import TopButton from './components/TopButton';
 import Home from './pages/Home/Home';
+import Modal from './components/Modal';
 
 function App() {
 
   return (
     <BrowserRouter>
       <div className="App">
+        <Modal visible={false} heading={'dddd'}>안녕핳세?</Modal>
         <Loading />
         <Header />
 
@@ -26,6 +28,7 @@ function App() {
         </Routes>
         <Footer />
         <TopButton />
+        
       </div>
     </BrowserRouter>
   );

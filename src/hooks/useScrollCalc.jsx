@@ -1,25 +1,20 @@
 import { useRef, useCallback, useEffect } from 'react';
 
-const useScrollCalc = (type='opacity', values, delay = 0) => {
+const useScrollCalc = (type='opacity', values, calcYtoTop=false) => {
   const element = useRef();
 
   const onScroll = useCallback(([entry]) => {
     const { current } = element;
-    let ratio1 = entry.intersectionRatio;
-
+    // let ratio = entry.intersectionRatio;
     let currentY = entry.boundingClientRect.height - entry.boundingClientRect.top;
     let totalY = entry.boundingClientRect.height * 2;
-    let ratio2 = currentY / totalY;
-    let value = ratio2 * (values.end - values.start) + values.start;
+    let ratio = currentY / totalY;
+    let value = ratio * (values.end - values.start) + values.start;
     let valuePct = value * 100;
-
-    console.log(ratio2)
+    let calcY = calcYtoTop ? entry.boundingClientRect.top >= 0 : ratio >= 0 && ratio <= 1; // Y 계산 = top이 0일때 까지 계산 : 전체 계산
 
     if (entry.isIntersecting) {
-
-      current.style.transitionDelay = `${delay}s`;
-      // if (entry.boundingClientRect.top) {
-      if (ratio2 >= 0 && ratio2 <= 1) {
+      if (calcY) {
         switch (type) {
           case 'scale':
             current.style.transform = `scale(${value})`;

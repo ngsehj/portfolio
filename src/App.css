@@ -161,9 +161,9 @@ table {
 
 
 .section__desc {
-	height: 25vh;
-	font-size: 10vw;
-	line-height: 25vh;
+	height: 16.6vh;
+	font-size: 10vh;
+	line-height: 20vh;
 	transition: all .5s ease-out;
 }
 .section__desc:nth-child(odd) { color: crimson; }

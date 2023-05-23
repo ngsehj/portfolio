@@ -4,10 +4,14 @@ import SectionFadeIn from './components/SectionFadeIn';
 import SectionHorizontal from './components/SectionHorizontal';
 import SectionHorizontalUseHook from './components/SectionHorizontalUseHook';
 import SectionText from './components/SectionText';
+import Cursor from '../../components/Cursor';
 export const GlobalDataContext = React.createContext();
+export const CursorContext = React.createContext();
 export const ScrollPageContext = React.createContext();
 
 const Home = () => {
+  const [cursor, setCursor] = useState({ active: false });
+
   const initGlobalData = {
     viewportHeight: window.innerHeight,
     viewportWidth: window.innerWidth
@@ -18,7 +22,7 @@ const Home = () => {
   const handleResize = useCallback(() => {
     const viewportHeight = window.innerHeight;
     const viewportWidth = window.innerWidth;
-  
+
     setGlobalData(() => ({
       ...globalData,
       viewportHeight,
@@ -35,25 +39,28 @@ const Home = () => {
   }, [handleResize]);
 
   const children = [
+    <SectionIntro />,
     <SectionFadeIn />,
     <SectionText />,
     <SectionHorizontalUseHook />,
-    <SectionIntro />,
     <SectionHorizontal />,
-    // <SectionFadeIn />,
-    // <SectionFadeIn />,
   ]
 
   return (
     <GlobalDataContext.Provider value={globalData}>
-      {children.map((section, idx) => (
-        <ScrollPageContext.Provider 
-          value={{page: idx}} 
-          key={idx} 
-        >
-          {section}
-        </ScrollPageContext.Provider>
-      ))}
+      <CursorContext.Provider value={[cursor, setCursor]}>
+        <Cursor />
+        {children.map((section, idx) => (
+          <ScrollPageContext.Provider
+            value={{ page: idx }}
+            key={idx}
+          >
+            {section}
+          </ScrollPageContext.Provider>
+        ))}
+
+      </CursorContext.Provider>
+
     </GlobalDataContext.Provider>
   )
 }
