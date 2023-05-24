@@ -16,7 +16,7 @@ const text = [
 ]
 
 const SectionText = () => {
-  
+ 
   const animatedText = {
     0: useScrollCalc('left', {start: 0, end: .4}, true),
     1: useScrollCalc('right', {start: 0, end: .4}, true),

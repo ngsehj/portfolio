@@ -1,0 +1,50 @@
+.loading {
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.loading-spinner {
+  position: relative;
+  color: #333;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+
+  span {
+    display: block;
+    transform-origin: 40px 40px;
+    animation: loading-spinner 1.2s linear infinite;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 3px;
+      left: 37px;
+      width: 6px;
+      height: 18px;
+      border-radius: 20%;
+      background: #333;
+    }
+  }
+
+  @for $i from 1 through 12 {
+    span:nth-child(#{$i}) {
+      transform: rotate(30deg * $i - 30deg);
+      animation-delay: -1.2s +  (0.1 * $i);
+    }
+  } 
+}
+
+@keyframes loading-spinner {
+	0% { opacity: 1; }
+	100% { opacity: 0; }
+}

@@ -4,15 +4,15 @@ import { useScrollCalc } from '../../../hooks';
 const SectionIntro = () => {
 
   const animatedElement = {
-    0 : useScrollCalc('scale', {start: 5, end: 1}),
+    heading : useScrollCalc('scale', {start: 5, end: 1}),
   }
 
   return (
-    <section className="section section__intro" {...animatedElement[1]}>
+    <section className="section section__intro">
       <div className="section__bg"></div>
       <div className="section__heading" style={{color: '#fff'}}>
           <h1 className="heading"
-            {...animatedElement[0]}
+            {...animatedElement['heading']}
             style={{ color: '#000' }}
           >POCHACCO</h1>
       </div>

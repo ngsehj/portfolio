@@ -5,6 +5,7 @@ import SectionHorizontal from './components/SectionHorizontal';
 import SectionHorizontalUseHook from './components/SectionHorizontalUseHook';
 import SectionText from './components/SectionText';
 import Cursor from '../../components/Cursor';
+import SectionWork from './components/SectionWork';
 export const GlobalDataContext = React.createContext();
 export const CursorContext = React.createContext();
 export const ScrollPageContext = React.createContext();
@@ -40,7 +41,7 @@ const Home = () => {
 
   const children = [
     <SectionIntro />,
-    <SectionFadeIn />,
+    <SectionWork />,
     <SectionText />,
     <SectionHorizontalUseHook />,
     <SectionHorizontal />,
@@ -49,7 +50,7 @@ const Home = () => {
   return (
     <GlobalDataContext.Provider value={globalData}>
       <CursorContext.Provider value={[cursor, setCursor]}>
-        <Cursor />
+        {/* <Cursor /> */}
         {children.map((section, idx) => (
           <ScrollPageContext.Provider
             value={{ page: idx }}

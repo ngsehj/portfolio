@@ -1,10 +1,12 @@
 import { useRef, useEffect, useCallback } from 'react';
 
-const useScrollFadeIn = (direction = 'up', duration = 1, delay = 0) => {
+const useScrollFadeIn = (direction = 'no', duration = 1, delay = 0) => {
   const element = useRef();
 
   const handleDirection = (name) => {
     switch (name) {
+      case 'no':
+        return 'translate3d(0, 0, 0)';
       case 'up':
         return 'translate3d(0, 50%, 0)';
       case 'down':

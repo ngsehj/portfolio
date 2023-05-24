@@ -1,4 +1,3 @@
-
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -16,7 +15,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Modal visible={false} heading={'dddd'}>안녕핳세?</Modal>
+        {/* <Modal visible={false} heading={'dddd'}>안녕핳세?</Modal> */}
         <Loading />
         <Header />
 

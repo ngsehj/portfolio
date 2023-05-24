@@ -37,7 +37,7 @@ const SectionFadeIn = () => {
         {items.map((item, idx) => (
           <div className="section__item" 
             key={item.title} 
-            {...animatedItem[idx]}
+            // {...animatedItem[idx]}
             // ref={(el) => (targetRef.current[idx] = el)}
           >
             <strong>{item.title}</strong>
