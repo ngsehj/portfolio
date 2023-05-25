@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import SectionIntro from './components/SectionIntro';
-import SectionFadeIn from './components/SectionFadeIn';
 import SectionHorizontal from './components/SectionHorizontal';
 import SectionHorizontalUseHook from './components/SectionHorizontalUseHook';
 import SectionText from './components/SectionText';

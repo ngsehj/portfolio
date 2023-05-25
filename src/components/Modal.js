@@ -12,61 +12,63 @@ function Portal({ children, elementId }) {
 const Modal = ({
   onClose,
   maskClosable,
-  visible,
-  closable,
+  closeVisible,
   heading,
   children
 }) => {
   const onMaskClick = (e) => {
     if (e.target === e.currentTarget) {
+      console.log(e.target, e.currentTarget)
       onClose(e);
     }
   }
 
   const close = (e) => {
     if (e.target === e.currentTarget) {
+      console.log(e.target, e.currentTarget)
       onClose(e);
     }
   }
 
   useEffect(() => {
     document.body.style.cssText = `position: fixed;top: -${window.scrollY}px`;
+    // document.body.style.cssText = `overflow: hidden;`;
 
     return () => {
       const scrollY = document.body.style.top;
       document.body.style.cssText = `position: ''; top: '';`;
       window.scrollTo(0, parseInt(scrollY || 0) * -1);
+      // document.body.style.cssText = `overflow: '';`;
     }
   }, [])
 
   return (
     // <Portal elementId="portalModal"></Portal>
-    <>
-      <div className="dim" visible={visible}></div>
+    <div className="modal">
+      <div 
+        className="modal__dim"
+        onClick={maskClosable ? onMaskClick : null}  
+      ></div>
       <div
         className="modal__layer"
-        onClick={maskClosable ? onMaskClick : null}
         tabIndex="-1"
-        visible={visible}
       >
         <div className="modal__header">
-          <strong className="heading">{heading}</strong>
-          {closable && <div className="modal-btn-close" onClick={close}>X</div>}
+          <strong className="modal-heading">{heading}</strong>
+          {closeVisible && <button className="modal-btn-close" onClick={close}>X</button>}
         </div>
-        <div className="modal__container">
+        <div className="modal__content">
           {children}
         </div>
+        <div className="modal__footer"></div>
       </div>
-    
-    </>
-
+    </div>
   )
 }
 
 Modal.defaultProps = {
-  closable: true,
-  maskClosable: true,
-  visible: false
+  closeVisible: true,
+  maskClosable: true
 }
 
 export default Modal;

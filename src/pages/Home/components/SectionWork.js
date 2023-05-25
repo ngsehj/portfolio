@@ -1,3 +1,6 @@
+import { useState } from "react";
+import Modal from "../../../components/Modal";
+
 const SectionWork = () => {
   const works = [
     {
@@ -75,8 +78,26 @@ const SectionWork = () => {
   //   9: useScrollFadeIn(),
   // }
 
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const openModal = () => {
+    setModalVisible(true);
+  }
+
+  const closeModal = () => {
+    setModalVisible(false);
+  }
+
   return (
     <section className="section section__work">
+
+      <button onClick={openModal}>open modal</button>
+      {
+        modalVisible && <Modal
+          maskClosable={false}
+          heading={'반가워요'}
+          onClose={closeModal}>hello</Modal>
+      }
 
       <div className="work__list">
         {works.map((item, idx) => (
@@ -90,6 +111,7 @@ const SectionWork = () => {
             <strong className="heading">{item.title}</strong>
             <span className="time">{item.time}</span>
             <span className="skill">{item.skill}</span>
+
           </div>
         ))}
       </div>
