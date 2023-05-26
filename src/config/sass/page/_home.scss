@@ -129,29 +129,46 @@
 }
 
 .section__work {
+	background-color: $bg-color;
+
 	.work__list {
-		
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		grid-auto-flow: row dense;
+		grid-gap: 1rem;
 	}
 
 	.work__item {
-		float: left;
-		width: 500px;
-		height: 500px;
-		border: 1px solid #222;
-
+		// width: 500px;
+		// height: 500px;
+		border-radius: 1rem;
+		overflow: hidden;
+		background-color: #fff;
+		
 		.image {
-			@include photo(500px, 300px, 0);
+			background-color: $second-color;
+			@include photo(100%, 300px, 0);
+			min-width: 350px;
+
 		}
 
 		.heading {
-			color: $text-color-dark;
+			display: block;
+			color: $second-color;
 			font-size: 20px;
+			font-weight: 700;
+			line-height: 1.5;
+			padding: 2rem;
+			border-bottom: 1px solid $line-color;
 		}
 
 		.time, .skill {
 			display: block;
-			color: $text-color;
+			color: $second-color;
 			font-size: 16px;
+			line-height: 1.5;
+			padding: 1.5rem 2rem;
+			border-bottom: 1px solid $line-color;
 		}
 	}
 }

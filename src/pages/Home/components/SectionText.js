@@ -13,7 +13,9 @@ const text = [
   // { text: '일정을 잘 준수하고', },
   // { text: '새로운 기술과 트렌드에 대해', },
   // { text: '끊임없이 배우는 중입니다.', },
-]
+];
+
+const skills = ['HTML5', 'CSS3', 'SCSS', 'JavaScript', 'jQuery', 'React', 'Vue.js', 'Photoshop', 'Figma', 'Git'];
 
 const SectionText = () => {
  
@@ -28,6 +30,18 @@ const SectionText = () => {
 
   return (
     <section className="section">
+      <div className="marquee">
+        <ul>
+          {skills.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <ul>
+          {skills.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
       {text.map((item, idx) => (
         <div className="section__desc" 
           {...animatedText[idx]}
