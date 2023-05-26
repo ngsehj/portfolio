@@ -54,8 +54,8 @@
 	line-height: 20vh;
 	transition: all .5s ease-out;
 }
-.section__desc:nth-child(odd) { color: crimson; }
-.section__desc:nth-child(even) { color: #333; }
+.section__desc:nth-child(odd) { color: $primary-color; }
+.section__desc:nth-child(even) { color: $dgray; }
 .section__desc p { white-space: nowrap; }
 
 .section__intro {
@@ -146,7 +146,6 @@
 		background-color: #fff;
 		
 		.image {
-			background-color: $second-color;
 			@include photo(100%, 300px, 0);
 			min-width: 350px;
 
