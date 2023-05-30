@@ -4,6 +4,7 @@
    License: none (public domain)
 */
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Noto+Serif+Display:ital,wght@0,400;0,900;1,400;1,900&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -51,7 +52,7 @@ table {
 }
 
 html {
-  font-family: "Noto Serif KR", serif;
+  font-family: "Montserrat", "Noto Serif KR", serif;
   font-weight: 400;
   font-size: 10px;
   line-height: 1;
@@ -387,57 +388,44 @@ button,
   min-height: 100vh;
 }
 
-.section__heading {
+.section__intro .intro-bg {
+  height: 100vh;
+  background: url("https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600") no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  margin: 0 auto;
+}
+.section__intro .intro-heading {
   z-index: 1;
   position: absolute;
   left: 0;
   top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+.section__intro .intro-heading .heading {
+  padding: 1vw;
+}
+.section__intro .intro-heading span {
   overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 100vh;
-  width: 100%;
-  font-size: 8vw;
-  text-align: center;
-  line-height: 100vh;
-}
-
-.is-fixed {
-  position: fixed !important;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.section__list {
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.section__item {
+  z-index: 10;
   position: relative;
-  width: calc(30% - 20px);
-  height: 300px;
-  background-color: rgb(148, 205, 246);
-  margin: 10px;
+  display: block;
+  color: #fcfaf8;
+  font-size: 1vw;
+  font-weight: 700;
+  text-align: left;
+  line-height: 1.5;
 }
 
 .section__desc {
@@ -447,112 +435,15 @@ button,
   -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
-
+.section__desc p {
+  white-space: nowrap;
+  text-align: center;
+}
 .section__desc:nth-child(odd) {
   color: #58B0BA;
 }
-
 .section__desc:nth-child(even) {
   color: #333;
-}
-
-.section__desc p {
-  white-space: nowrap;
-}
-
-.section__intro {
-  background: url("http://sanriokorea.co.kr/wp-content/themes/sanrio/images/bg_crt.png") no-repeat;
-  background-size: cover;
-  background-position: center bottom;
-}
-
-.section__bg {
-  z-index: 10;
-  position: relative;
-  height: 100vh;
-  background: url("http://sanriokorea.co.kr/wp-content/themes/sanrio/images/pochacco.png") no-repeat;
-  background-attachment: fixed;
-  background-size: auto;
-  background-position: center center;
-}
-
-.section__horizontal {
-  overflow: visible;
-} /* overflow: hidden 때문에 sticky 작동 안 됨 */
-.section__horizontal .slider__wrap {
-  overflow: hidden;
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-}
-
-.section__horizontal .slider {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100vh;
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  transition: -webkit-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
-  padding: 0 50px;
-}
-
-.section__horizontal .slide {
-  overflow: hidden;
-  position: relative;
-  max-width: 600px;
-  width: 30vw;
-  padding: 50px;
-}
-
-.section__horizontal .slide .cursor {
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: block;
-  width: 10px;
-  height: 10px;
-  background: radial-gradient(circle, rgba(238, 174, 202, 0.1) 0%, rgba(148, 187, 233, 0.2) 100%);
-  border-radius: 50%;
-  -webkit-transform: scale(0.1);
-          transform: scale(0.1);
-  -webkit-transition: all 0.8s;
-  transition: all 0.8s;
-}
-
-.kazuha .slide {
-  overflow: hidden;
-}
-
-.kazuha .slide img {
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-  transition: -webkit-transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-}
-
-.kazuha .slide:hover img {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
-.section__horizontal .slide img {
-  width: 100%;
-}
-
-.section__sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
 }
 
 .section__work {
@@ -574,10 +465,9 @@ button,
   position: relative;
   display: inline-block;
   width: 100%;
-  height: 300px;
+  padding-top: 60%;
   border-radius: 0;
   vertical-align: middle;
-  min-width: 350px;
 }
 .section__work .work__item .image img {
   position: absolute;
@@ -608,4 +498,93 @@ button,
   line-height: 1.5;
   padding: 1.5rem 2rem;
   border-bottom: 1px solid rgba(65, 65, 65, 0.3);
+}
+
+.section__horizontal {
+  overflow: visible; /* overflow: hidden 때문에 sticky 작동 안 됨 */
+}
+.section__horizontal .section__sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100vh;
+}
+.section__horizontal .section__sticky.is-fixed {
+  position: fixed;
+  width: 100%;
+}
+.section__horizontal .slider__wrap {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  padding: 0 30vw;
+}
+.section__horizontal .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  padding: 0 50px;
+}
+.section__horizontal .slide {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  width: 30vw;
+  padding-top: 20vw;
+  border-radius: 0;
+  vertical-align: middle;
+  margin: 50px;
+}
+.section__horizontal .slide img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: auto;
+  min-width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-object-fit: cover;
+     object-fit: cover;
+  image-rendering: auto;
+}
+.section__horizontal .slide .hoverbox {
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.section__horizontal .slide:hover .hoverbox {
+  opacity: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.section__horizontal .slide .hover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  -webkit-transform: scale(0.1);
+          transform: scale(0.1);
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  background-color: #eee;
+  mix-blend-mode: difference;
 }/*# sourceMappingURL=main.css.map */

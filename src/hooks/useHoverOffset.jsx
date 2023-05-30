@@ -4,18 +4,18 @@ const useHoverCursor = () => {
   const targetRef = useRef([]);
 
   const handleMouseenter = useCallback((e) => {
-    const cursor = e.target.querySelector('.cursor');
-    if (cursor) {
+    const hover = e.target.querySelector('.hover');
+    if (hover) {
       const pos = { x: e.offsetX, y: e.offsetY };
-      cursor.style.transform = `translate(${pos.x}px, ${pos.y}px) scale(100)`;
+      hover.style.transform = `translate(${pos.x}px, ${pos.y}px) scale(100)`;
     }
   }, []);
 
   const handleMouseleave = useCallback((e) => {
-    const cursor = e.target.querySelector('.cursor');
-    if (cursor) {
+    const hover = e.target.querySelector('.hover');
+    if (hover) {
       const pos = { x: e.offsetX, y: e.offsetY };
-      cursor.style.transform = `translate(${pos.x}px, ${pos.y}px) scale(0.1)`;
+      hover.style.transform = `translate(${pos.x}px, ${pos.y}px) scale(0.1)`;
     }
   }, []);
 

@@ -4,128 +4,66 @@
 	min-height: 100vh;
 }
 
-.section__heading {
-	z-index: 1;
-	position: absolute;
-	left: 0;
-	top: 0;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100vh;
-	width: 100%;
-	font-size: 8vw;
-	text-align: center;
-	line-height: 100vh;
+.section__intro {
+	.intro-bg {
+		height: 100vh;
+		background: url("https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600") no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+		background-position: center center;
+		margin: 0 auto;
+	}
+
+	.intro-heading {
+		z-index: 1;
+		position: absolute;
+		left: 0;
+		top: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		width: 100%;
+		
+		.heading { padding: 1vw; }
+	
+		span {
+			overflow: hidden;
+			z-index: 10;
+			position: relative;
+			display: block;
+			color: $bg-color;
+			font-size: 1vw;
+			font-weight: 700;
+			text-align: left;
+			line-height: 1.5;
+			// -webkit-text-stroke-width: 0.1rem;
+			// -webkit-text-stroke-color: $red;
+			// -webkit-text-fill-color: transparent;
+			// background-image: linear-gradient($red, $red);
+			// background-size: 100% 100%;
+			// background-position: bottom;
+			// background-repeat: no-repeat;
+			// background-clip: text;
+			// -webkit-background-clip: text;
+			// color: transparent;
+		}
+	}
 }
-
-// .heading { max-height: 100vh; }
-
-.is-fixed {
-	position: fixed !important;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-}
-
-.section__list { 
-	height: 100vh;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
-}
-.section__item {
-	position: relative;
-	width: calc(30% - 20px);
-	height: 300px;
-	background-color: rgba(148,205,246, 1);
-	margin: 10px;
-}
-
-
-
 
 .section__desc {
 	height: 16.6vh;
 	font-size: 10vh;
 	line-height: 20vh;
 	transition: all .5s ease-out;
-}
-.section__desc:nth-child(odd) { color: $primary-color; }
-.section__desc:nth-child(even) { color: $dgray; }
-.section__desc p { white-space: nowrap; }
 
-.section__intro {
-	background: url("http://sanriokorea.co.kr/wp-content/themes/sanrio/images/bg_crt.png") no-repeat;
-	background-size: cover;
-	background-position: center bottom;
-}
-.section__bg {
-	z-index: 10;
-	position: relative;
-	height: 100vh;
-	background: url("http://sanriokorea.co.kr/wp-content/themes/sanrio/images/pochacco.png") no-repeat;
-	background-attachment: fixed;
-	background-size: auto;
-	background-position: center center;
-}
-.section__horizontal { overflow: visible; } /* overflow: hidden 때문에 sticky 작동 안 됨 */
-.section__horizontal .slider__wrap {
-	overflow: hidden;
-	position: absolute;
-	width: 100%;
-	height: 100vh;
-}
+	p { 
+		white-space: nowrap;
+		text-align: center;
+	}
 
-.section__horizontal .slider {
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: flex;
-	align-items: center;
-	height: 100vh;
-	transition: transform .3s ease-out;
-	padding: 0 50px
-}
-
-.section__horizontal .slide {
-	overflow: hidden;
-	position: relative;
-	max-width: 600px;
-	width: 30vw;
-	padding: 50px;
-
-	
-}
-
-.section__horizontal .slide .cursor {
-	position: absolute;
-	left: 0;
-	top: 0;
-	display: block;
-	width: 10px;
-	height: 10px;
-	background: radial-gradient(circle, rgba(238,174,202,.1) 0%, rgba(148,187,233,0.2) 100%);
-	border-radius: 50%;
-	transform: scale(.1);
-	transition: all .8s;
-}
-
-.kazuha .slide { overflow: hidden;}
-.kazuha .slide img { transition: transform .3s ease-in-out; }
-.kazuha .slide:hover img {
-	transform: scale(1.1);
-}
-
-.section__horizontal .slide img { width: 100%; }
-.section__sticky {
-	position: sticky;
-	top: 0;
-	height: 100vh;
-	transition: all .3s ease;
+	&:nth-child(odd) { color: $primary-color; }
+	&:nth-child(even) { color: $dgray; }
 }
 
 .section__work {
@@ -139,16 +77,12 @@
 	}
 
 	.work__item {
-		// width: 500px;
-		// height: 500px;
 		border-radius: 1rem;
 		overflow: hidden;
 		background-color: #fff;
 		
 		.image {
-			@include photo(100%, 300px, 0);
-			min-width: 350px;
-
+			@include photo(100%, 60%, 0);
 		}
 
 		.heading {
@@ -168,6 +102,75 @@
 			line-height: 1.5;
 			padding: 1.5rem 2rem;
 			border-bottom: 1px solid $line-color;
+		}
+	}
+}
+
+.section__horizontal { 
+	overflow: visible; /* overflow: hidden 때문에 sticky 작동 안 됨 */
+
+	.section__sticky {
+		position: sticky;
+		top: 0;
+		left: 0;
+		height: 100vh;
+	}
+
+	.section__sticky.is-fixed {
+		position: fixed;
+		width: 100%;
+	}
+
+	.slider__wrap {
+		overflow: hidden;
+		position: absolute;
+		width: 100%;
+		height: 100vh;
+		padding: 0 30vw;
+	}
+
+	.slider {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		height: 100vh;
+		transition: transform .3s ease-out;
+		padding: 0 50px
+	}
+
+	.slide {
+		@include photo(30vw, 20vw, 0);
+		margin: 50px;
+
+		// img { width: 100%; }
+		.hoverbox {
+			opacity: 0;
+			transition: all .3s ease;
+		}
+
+		&:hover .hoverbox {
+			opacity: 1;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.hover {
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: block;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			transform: scale(.1);
+			transition: all .8s;
+			background-color: #eee;
+			mix-blend-mode: difference;
 		}
 	}
 }

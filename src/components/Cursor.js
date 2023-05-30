@@ -33,6 +33,7 @@ const Cursor = () => {
         right: 0,
         zIndex: 9999,
         pointerEvents: 'none',
+        mixBlendMode: 'difference'
       }}
     >
       <span

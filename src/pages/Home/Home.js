@@ -1,10 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import SectionIntro from './components/SectionIntro';
-import SectionHorizontal from './components/SectionHorizontal';
-import SectionHorizontalUseHook from './components/SectionHorizontalUseHook';
-import SectionText from './components/SectionText';
 import Cursor from '../../components/Cursor';
+import SectionIntro from './components/SectionIntro';
+import SectionText from './components/SectionText';
 import SectionWork from './components/SectionWork';
+import SectionInflearn from './components/SectionInflearn';
 export const GlobalDataContext = React.createContext();
 export const CursorContext = React.createContext();
 export const ScrollPageContext = React.createContext();
@@ -32,18 +31,20 @@ const Home = () => {
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
+    document.body.style.overflowX = 'hidden';
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      document.body.style.overflowX = null;
     };
   }, [handleResize]);
 
   const children = [
+    // <SectionText />,
     <SectionIntro />,
-    <SectionWork />,
     <SectionText />,
-    <SectionHorizontalUseHook />,
-    <SectionHorizontal />,
+    <SectionInflearn />,
+    <SectionWork />,
   ]
 
   return (
