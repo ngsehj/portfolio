@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Cursor from '../../components/Cursor';
 import SectionIntro from './components/SectionIntro';
-import SectionText from './components/SectionText';
+import SectionAbout from './components/SectionAbout';
 import SectionWork from './components/SectionWork';
 import SectionInflearn from './components/SectionInflearn';
 export const GlobalDataContext = React.createContext();
@@ -40,9 +40,8 @@ const Home = () => {
   }, [handleResize]);
 
   const children = [
-    // <SectionText />,
     <SectionIntro />,
-    <SectionText />,
+    <SectionAbout />,
     <SectionInflearn />,
     <SectionWork />,
   ]
