@@ -29,7 +29,6 @@ const useScrollCalc = (type='opacity', values, calcYtoTop=false) => {
             current.style.transform = `translate3d(${valuePct}%, 0, 0)`;
             break;
           case 'right':
-            current.style.textAlign = 'right';
             current.style.transform = `translate3d(-${valuePct}%, 0, 0)`;
             break;
           default:

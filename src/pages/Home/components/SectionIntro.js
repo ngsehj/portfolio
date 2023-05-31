@@ -1,35 +1,32 @@
 import React from 'react';
-import { useScrollCalc, useScrollFadeIn } from '../../../hooks';
+import { useScrollCalc, useScrollFadeIn, useScrollTranslate } from '../../../hooks';
 
 const SectionIntro = () => {
 
   const animatedElement = {
-    0: useScrollFadeIn('up', 1, 0.1),
-    1: useScrollFadeIn('right', 1, 0.2),
-    2: useScrollFadeIn('left', 1, 0.3),
+    0: useScrollTranslate(1, 0.1),
+    1: useScrollTranslate(1, 0.2),
+    2: useScrollTranslate(1, 0.3),
     bg: useScrollCalc('width', {start: 0, end: 1.2}, false),
-    heading : useScrollCalc('scale', {start: 1, end: 10}),
+    heading : useScrollCalc('scale', {start: 1, end: 12}),
   }
 
   const text = [
-    'Expanding',
-    'Web Possibilities',
-    'as a Web Publisher',
+    "Transforming Concepts",
+    "into Web Realities :",
+    "Web Publisher's Portfolio"
   ]
 
   return (
     <section className="section section__intro">
       <div className="intro-bg"></div>
-      <div className="intro-heading" style={{color: '#fff'}}>
-          <h1 className="heading"
-            {...animatedElement['heading']}
-            style={{ color: '#000' }}
-          >
-            {text.map((item, idx) => (
-              <span {...animatedElement[idx]} key={item}>{item}</span>
-            ))}
-          </h1>
-      </div>
+      <h1 className="intro-heading" {...animatedElement['heading']} >
+        {text.map((item, idx) => (
+          <div className="inner">
+            <span className={`heading${idx}`} {...animatedElement[idx]} key={item}>{item}</span>
+          </div>
+        ))}
+      </h1>
     </section>
   )
 };

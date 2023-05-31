@@ -1,0 +1,17 @@
+.ust-up-heading {
+	display: flex;
+	align-items: center;
+	height: 15vw;
+
+	.inner { overflow: hidden; }
+
+	span {
+		display: inline-block;
+		color: $dgray;
+		font-size: 10vw;
+		font-weight: 700;
+		line-height: 1;
+		transform: translate3d(0, 100%, 0) rotate(45deg);
+	}
+}
+

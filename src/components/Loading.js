@@ -20,9 +20,10 @@ const Loading = () =>  {
 
   return (
     <div className="loading" ref={loadingRef}>
-      <div className="loading-spinner">
+      {/* <div className="loading-spinner">
         <SpinerItem />
-      </div>
+      </div> */}
+      <div className="loading-text">Loading</div>
     </div>
   )
 }

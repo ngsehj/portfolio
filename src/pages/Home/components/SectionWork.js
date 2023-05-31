@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Modal from "../../../components/Modal";
 import { useScrollFadeIn } from "../../../hooks";
+import UstHeading from "../../../components/UstHeading";
 
 const SectionWork = () => {
   const works = [
@@ -153,9 +154,11 @@ const SectionWork = () => {
     setModalVisible(false);
   }
 
+  const headingText = ['W', 'O', 'R', 'K'];
+
   return (
     <section className="section section__work">
-      <h2 className="heading">Work</h2>
+      <UstHeading words={headingText} />
       <div className="work__list">
         {works.map((item, idx) => (
           <div className="work__item" key={item.title}>
