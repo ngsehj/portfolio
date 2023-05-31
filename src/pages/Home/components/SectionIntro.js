@@ -12,8 +12,8 @@ const SectionIntro = () => {
   }
 
   const text = [
-    "Transforming Concepts",
-    "into Web Realities :",
+    "Transforming Ideas",
+    "into Stunning Web Realities :",
     "Web Publisher's Portfolio"
   ]
 

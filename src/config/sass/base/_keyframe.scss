@@ -4,13 +4,14 @@
   overflow: hidden;
   line-height: 1.5;
   -ms-overflow-style: none; 
+  background-color: $bg-color;
 
   ul {
+    overflow: hidden;
     min-width: 100%;
     display: flex;
     flex: 0 0 auto;
-    overflow: hidden;
-    padding-left: 30px;
+    padding-left: 3rem;
     animation: marquee 40s linear infinite;
 
     &:nth-of-type(2) {
@@ -26,7 +27,7 @@
   li {
     color: $dgray;
     font-size: 5rem;
-    font-weight: 700;
+    font-weight: 500;
     margin: 0 1.5vw;
   }
 }

@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="footer">footer</footer>
+    <footer className="footer">cCopyright © 2023. HYEJIN LEE All Rights Reserved.</footer>
   )
 }
 
