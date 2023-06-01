@@ -1,6 +1,6 @@
 import { useRef, useEffect, useCallback } from 'react';
 
-const useScrollFadeIn = (direction = 'no', duration = 1, delay = 0) => {
+const useScrollFadeIn = (direction = 'no', duration = 1, delay = 0, value = '100%') => {
   const element = useRef();
 
   const handleDirection = (name) => {
@@ -8,13 +8,13 @@ const useScrollFadeIn = (direction = 'no', duration = 1, delay = 0) => {
       case 'no':
         return 'translate3d(0, 0, 0)';
       case 'up':
-        return 'translate3d(0, 5rem, 0)';
+        return `translate3d(0, ${value}, 0)`;
       case 'down':
-        return 'translate3d(0, -5rem, 0)';
+        return `translate3d(0, -${value}, 0)`;
       case 'left':
-        return 'translate3d(5rem, 0, 0)';
+        return `translate3d(${value}, 0, 0)`;
       case 'right':
-        return 'translate3d(-5rem, 0, 0)';
+        return `translate3d(-${value}, 0, 0)`;
       default:
         return;
     }

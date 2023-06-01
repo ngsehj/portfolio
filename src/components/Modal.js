@@ -18,27 +18,25 @@ const Modal = ({
 }) => {
   const onMaskClick = (e) => {
     if (e.target === e.currentTarget) {
-      console.log(e.target, e.currentTarget)
       onClose(e);
     }
   }
 
   const close = (e) => {
     if (e.target === e.currentTarget) {
-      console.log(e.target, e.currentTarget)
       onClose(e);
     }
   }
 
   useEffect(() => {
-    document.body.style.cssText = `position: fixed;top: -${window.scrollY}px`;
-    // document.body.style.cssText = `overflow: hidden;`;
+    // document.body.style.cssText = `overflow: hidden;position: fixed;top: -${window.scrollY}px`;
+    document.body.style.cssText = `overflow: hidden;`;
 
     return () => {
       const scrollY = document.body.style.top;
-      document.body.style.cssText = `;position: ''; top: '';`;
-      window.scrollTo(0, parseInt(scrollY || 0) * -1);
-      // document.body.style.cssText = `overflow: '';`;
+      // document.body.style.cssText = `overflow: '';position: ''; top: '';`;
+      document.body.style.cssText = `overflow: '';`;
+      // window.scrollTo(0, parseInt(scrollY || 0) * -1);
     }
   }, [])
 

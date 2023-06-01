@@ -6,7 +6,8 @@ import UstHeading from "../../../components/UstHeading";
 const SectionWork = () => {
   const works = [
     {
-      title: '하이클래스 리뉴얼, 신규 서비스 구축 및 유지보수 (PC / WebView / 반응협 웹)',
+      type: 'PC / WebView / Responsive Web',
+      title: '하이클래스 리뉴얼, 신규 서비스 구축 및 유지보수',
       time: '2020.10 ~ 2023.06',
       skill: 'HTML, CSS, SCSS, JavaScript, jQuery, vuejs, git',
       img: 'https://abhishekjha.me/template/assets/project1/img3.jpg',
@@ -18,7 +19,8 @@ const SectionWork = () => {
       ]
     },
     {
-      title: '하이스토어 유지보수 (반응형 웹)',
+      type: 'Responsive Web',
+      title: '하이스토어 유지보수',
       time: '2020.06 ~ 2020.09',
       skill: 'HTML, CSS, JavaScript, jQuery',
       img: 'https://abhishekjha.me/template/assets/project1/img3.jpg',
@@ -29,7 +31,8 @@ const SectionWork = () => {
       ]
     },
     {
-      title: '사피언스 Qna 신규 구축 (반응형 웹)',
+      type: 'Responsive Web',
+      title: '사피언스 Qna 신규 구축',
       time: '2020.01 ~ 2020.02',
       skill: 'HTML, CSS, JavaScript, jQuery, jsp, jstl, Photoshop, SVN',
       img: 'https://abhishekjha.me/template/assets/project1/img3.jpg',
@@ -40,7 +43,8 @@ const SectionWork = () => {
       ]
     },
     {
-      title: '사피언스 인공지능 성향분석 매칭을 통한 팀빌딩 플랫폼 리뉴얼 및 유지보수 (반응형 웹)',
+      type: 'Responsive Web',
+      title: '사피언스 인공지능 성향분석 매칭을 통한 팀빌딩 플랫폼 리뉴얼 및 유지보수',
       time: '2018.12 ~ 2019.12',
       skill: 'HTML, CSS, JavaScript, jQuery, jsp, jstl, Photoshop, SVN',
       img: 'https://abhishekjha.me/template/assets/project1/img3.jpg',
@@ -51,7 +55,8 @@ const SectionWork = () => {
       ]
     },
     {
-      title: '플라이프그래프 항공권 검색 및 예약 서비스 유지보수 (PC / Mobile Web)',
+      type: 'PC / Mobile Web',
+      title: '플라이프그래프 항공권 검색 및 예약 서비스 유지보수',
       time: '2017.12 ~ 2018.10',
       skill: 'HTML, CSS, SCSS, JavaScript, jQuery, Photoshop, git, gulp',
       img: 'https://abhishekjha.me/template/assets/project1/img3.jpg',
@@ -63,7 +68,8 @@ const SectionWork = () => {
       ]
     },
     {
-      title: '제네시스 홈페이지 리뉴얼 (PC / Mobile Web)',
+      type: 'PC / Mobile Web',
+      title: '제네시스 홈페이지 리뉴얼',
       time: '2017.06 ~ 2017.11',
       skill: 'HTML, CSS, JavaScript, jQuery, Photoshop, SVN',
       img: 'https://abhishekjha.me/template/assets/project1/img3.jpg',
@@ -76,7 +82,8 @@ const SectionWork = () => {
       ]
     },
     {
-      title: '에이스생명 홈페이지 유지보수 (PC / Mobile Web)',
+      type: 'PC / Mobile Web',
+      title: '에이스생명 홈페이지 유지보수',
       time: 'HTML, CSS, jQuery, Photoshop',
       skill: '2016.03 ~ 2016.09',
       img: 'https://abhishekjha.me/template/assets/project1/img3.jpg',
@@ -89,7 +96,8 @@ const SectionWork = () => {
       ]
     },
     {
-      title: '더 한섬닷컴 쇼핑몰 유지보수 (PC / Mobile Web)',
+      type: 'PC / Mobile Web',
+      title: '더 한섬닷컴 쇼핑몰 유지보수',
       time: '2016.02 ~ 2016.09',
       skill: 'HTML, CSS, jQuery, Photoshop, SVN',
       img: 'https://abhishekjha.me/template/assets/project1/img3.jpg',
@@ -102,7 +110,8 @@ const SectionWork = () => {
       ]
     },
     {
-      title: '더 한섬닷컴 쇼핑몰 신규 구축 (PC / Mobile Web)',
+      type: 'PC / Mobile Web',
+      title: '더 한섬닷컴 쇼핑몰 신규 구축',
       time: '2015.08 ~ 2016.01',
       skill: 'HTML, CSS, jQuery, Photoshop, SVN',
       img: 'https://abhishekjha.me/template/assets/project1/img3.jpg',
@@ -115,7 +124,8 @@ const SectionWork = () => {
       ]
     },
     {
-      title: 'GS리테일 홈페이지 리뉴얼 (PC / Mobile Web)',
+      type: 'PC / Mobile Web',
+      title: 'GS리테일 홈페이지 리뉴얼',
       time: '2015.03 ~ 2015.07',
       skill: 'HTML, CSS, jQuery, Photoshop, SVN',
       rate: '참여율: 30%',
@@ -128,6 +138,8 @@ const SectionWork = () => {
       img: 'https://abhishekjha.me/template/assets/project1/img3.jpg'
     },
   ];
+  
+  const headingText = ['W', 'O', 'R', 'K'];
 
   const animatedItem = {
     0: useScrollFadeIn(),
@@ -141,20 +153,11 @@ const SectionWork = () => {
     8: useScrollFadeIn(),
     9: useScrollFadeIn(),
   }
-
   const [modalVisible, setModalVisible] = useState(false);
-
   const [selectedModal, setSelectedModal] = useState(null);
 
-  const openModal = () => {
-    setModalVisible(true);
-  }
-
-  const closeModal = () => {
-    setModalVisible(false);
-  }
-
-  const headingText = ['W', 'O', 'R', 'K'];
+  const openModal = () => { setModalVisible(true); }
+  const closeModal = () => { setModalVisible(false); }
 
   return (
     <section className="section section__work">
@@ -168,6 +171,7 @@ const SectionWork = () => {
                 alt="Sanrio" 
               />
             </div>
+            <span className="time">{item.type}</span>
             <strong className="heading">{item.title}</strong>
             <span className="time">{item.time}</span>
             <span className="skill">{item.skill}</span>

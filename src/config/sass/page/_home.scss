@@ -1,47 +1,58 @@
-body { overflow-x: hidden; }
+.l-page-home { overflow-x: hidden; }
 
 .section {
-	overflow: hidden;
 	position: relative;
 	min-height: 100vh;
+	box-sizing: border-box;
 }
 
 .section__intro {
+	overflow: hidden;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
+	background-color: $dgray;
 
 	.intro-bg {
+		overflow: hidden;
+		z-index: 1;
 		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100vh;
-		background: url("https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600") no-repeat;
-		background-attachment: fixed;
-		background-size: cover;
-		background-position: center center;
-		margin: 0 auto;
+		right: 10%;
+		top: 10%;
+		width: 60%;
+		height: 80vh;
+
+		span {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: url("https://images.unsplash.com/photo-1667372393138-3a5dc3ba517d") no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+			background-position: center center;
+			// transition: transform .5s ease-in-out;
+			border-radius: 10rem 0 0 10rem;
+		}
 	}
 
 	.intro-heading {
+		z-index: 10;
 		transition: transform .1s ease;
-		perspective: 100px;
-		margin-top: 15%;
-	
+		margin-top: 20%;
+
 		.inner {overflow: hidden;}
 
 		span {
-			z-index: 10;
 			position: relative;
 			display: block;
 			color: $bg-color;
 			font-size: .4vw;
-			font-weight: 700;
+			font-weight: 400;
 			text-align: left;
 			line-height: 1.2;
-			text-shadow: 0.05rem 0.05rem 0.05rem rgba(0,0,0,.1);
 			transform: translate3d(0, 100%, 0);
 			
 			&.heading2 {
@@ -53,72 +64,34 @@ body { overflow-x: hidden; }
 	}
 }
 
-
-.section__desc {
-	font-family: 'Playfair Display', serif;
-	height: 16.6vh;
-	font-size: 14vh;
-	font-weight: 700;
-	line-height: 20vh;
-	transition: all .5s ease-out;
-
-	&:nth-child(even) { 
-		color: $dgray;
-		text-align: right;
-	}
-	
-	&:nth-child(odd) { 
-		color: $primary-color;
-		text-align: left;
-	}
-	
-	p { white-space: nowrap; }
+.career__list {
+	width: 90%;
+	margin: 0 auto;
 }
 
-.section__work {
-	background-color: $bg-color;
+.career__item {
+	display: flex;
+	border-top: 1px solid $dgray;
+	padding: 5rem 0;
 
-	.work__list {
-		width: 80%;
-		margin: 0 auto;
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-		grid-auto-flow: row dense;
-		grid-gap: 1rem;
+	.career__heading {
+		width: 50%;
+		font-size: 5rem;
+		font-weight: 700;
+		color: $bg-color;
+		-webkit-text-stroke: 1px $dgray;
 	}
 
-	.work__item {
-		border-radius: 1rem;
-		overflow: hidden;
-		background-color: #fff;
-		
-		.image {
-			@include photo(100%, 60%, 0);
-		}
-
-		.heading {
-			display: block;
-			color: $second-color;
-			font-size: 20px;
-			font-weight: 700;
-			line-height: 1.5;
-			padding: 2rem;
-			border-bottom: 1px solid $line-color;
-		}
-
-		.time, .skill {
-			display: block;
-			color: $second-color;
-			font-size: 16px;
-			line-height: 1.5;
-			padding: 1.5rem 2rem;
-			border-bottom: 1px solid $line-color;
-		}
+	.career__info {
+		color: $dgray;
+		font-size: 3rem;
+		line-height: 1.5;
 	}
 }
 
 .section__horizontal { 
-	overflow: visible; /* overflow: hidden 때문에 sticky 작동 안 됨 */
+	overflow-y: visible; /* overflow: hidden 때문에 sticky 작동 안 됨 */
+	background-color: $dgray;
 
 	.section__sticky {
 		position: sticky;
@@ -180,33 +153,138 @@ body { overflow-x: hidden; }
 			border-radius: 50%;
 			transform: scale(.1);
 			transition: all .8s;
-			background-color: rgba(255,255,255,0.8);
-			mix-blend-mode: difference;
+			background-color: $white;
+			mix-blend-mode: color;
 		}
 	}
 }
 
-.career__list {
-	width: 80%;
-	margin: 0 auto;
-}
+.section__work {
+	background-color: $bg-color;
+	padding: 0 0 10rem;
 
-.career__item {
-	display: flex;
-	border-top: 1px solid $dgray;
-	padding: 5rem 0;
-
-	.career__heading {
-		width: 50%;
-		font-size: 5rem;
-		font-weight: 700;
-		color: $bg-color;
-		-webkit-text-stroke: 1px $dgray;
+	.work__list {
+		width: 90%;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		grid-auto-flow: row dense;
+		grid-gap: 2rem;
 	}
 
-	.career__info {
-		color: $dgray;
-		font-size: 3rem;
-		line-height: 1.5;
+	.work__item {
+		border-radius: 1rem;
+		overflow: hidden;
+		background-color: $white;
+		
+		.image { 
+			@include photo(100%, 60%, 0);
+		}
+
+		.heading {
+			display: block;
+			color: $dgray;
+			font-size: 2rem;
+			font-weight: 500;
+			line-height: 1.5;
+			padding: 0 2rem;
+		}
+
+		span {
+			display: block;
+			color: $dgray;
+			font-size: 1.3rem;
+			line-height: 1.5;
+			padding: 0 2rem;
+		}
+	}
+}
+
+.section__text {
+	overflow: hidden;
+	background: linear-gradient(180deg, rgb(252, 250, 251) 0%, rgb(255, 255, 255) 10%);
+	padding: 20rem 0;
+
+	.is-animated-text {
+		font-family: 'Playfair Display', serif;
+		height: 20vh;
+		font-size: 14vh;
+		font-weight: 700;
+		line-height: 20vh;
+		transition: all .5s ease-out;
+	
+		&:nth-child(even) { 
+			color: transparent;
+			-webkit-text-stroke: 2px $dgray;
+			text-align: right;
+		}
+		
+		&:nth-child(odd) { 
+			color: $primary-color;
+			text-align: left;
+		}
+		
+		p { white-space: nowrap; }
+	}
+}
+
+.section__inner {
+
+	&.is-sticky {
+		overflow: hidden;
+		z-index: -1;
+		position: sticky;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		background: url("https://images.unsplash.com/photo-1633356122544-f134324a6cee") no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+		background-position: center center;
+		margin: 0 auto;
+		white-space: nowrap;
+		
+
+		&::after {
+			content: "";
+			z-index: -1;
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			background-color: rgb(0,0,0,.3);
+		}
+
+		span {
+			position: absolute;
+			font-size: 16vw;
+			color: transparent;
+			width: 100%;
+			text-align: center;
+			color: $white;
+			opacity: .3;
+		}
+
+		p {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			height: 100%;
+			color: $bg-color;
+			font-size: 4rem;
+			font-weight: 400;
+			line-height: 1.5;
+			text-align: right;
+			padding: 5rem;
+			text-shadow: 1px 1px 5px rgba(0,0,0,.2);
+			margin-top: 10rem;
+		}
+	}
+
+	&.bg-color {
+		min-height: 100vh;
+		background-color: $bg-color;
 	}
 }

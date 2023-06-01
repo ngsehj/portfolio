@@ -2,13 +2,13 @@ import React from 'react';
 import { useScrollCalc, useScrollFadeIn, useScrollTranslate } from '../../../hooks';
 
 const SectionIntro = () => {
-
   const animatedElement = {
-    0: useScrollTranslate(1, 0.1),
-    1: useScrollTranslate(1, 0.2),
-    2: useScrollTranslate(1, 0.3),
-    bg: useScrollCalc('width', {start: 0, end: 1.2}, false),
+
     heading : useScrollCalc('scale', {start: 1, end: 12}),
+    bg: useScrollFadeIn('left', 1, 0, '25%'),
+    0: useScrollTranslate(1, 0.5),
+    1: useScrollTranslate(1, 0.6),
+    2: useScrollTranslate(1, 0.7),
   }
 
   const text = [
@@ -19,7 +19,9 @@ const SectionIntro = () => {
 
   return (
     <section className="section section__intro">
-      <div className="intro-bg"></div>
+      <div className="intro-bg">
+          <span className="bg" {...animatedElement['bg']}></span>
+      </div>
       <h1 className="intro-heading" {...animatedElement['heading']} >
         {text.map((item, idx) => (
           <div className="inner">

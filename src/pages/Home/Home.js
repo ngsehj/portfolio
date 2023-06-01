@@ -4,6 +4,8 @@ import SectionIntro from './components/SectionIntro';
 import SectionAbout from './components/SectionAbout';
 import SectionWork from './components/SectionWork';
 import SectionInflearn from './components/SectionInflearn';
+import SectionText from './components/SectionText';
+import SectionLast from './components/SectionLast';
 export const GlobalDataContext = React.createContext();
 export const CursorContext = React.createContext();
 export const ScrollPageContext = React.createContext();
@@ -31,11 +33,11 @@ const Home = () => {
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-    document.body.style.overflowX = 'hidden';
+    document.body.classList.add('l-page-home');
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      document.body.style.overflowX = null;
+      document.body.classList.remove('l-page-home');
     };
   }, [handleResize]);
 
@@ -44,6 +46,8 @@ const Home = () => {
     <SectionAbout />,
     <SectionInflearn />,
     <SectionWork />,
+    <SectionText />,
+    <SectionLast />
   ]
 
   return (

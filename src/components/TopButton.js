@@ -31,7 +31,7 @@ const TopButton = () => {
   }
 
   return showButton && (
-    <div className="scroll__container" style={{height: "100px"}}>
+    <div className="scroll__container">
       <button
         style={Object.assign({}, styles.button)} 
         onClick={scrollToTop} 

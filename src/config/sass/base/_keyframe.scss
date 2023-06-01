@@ -5,6 +5,8 @@
   line-height: 1.5;
   -ms-overflow-style: none; 
   background-color: $bg-color;
+  border-top: 1px solid $dgray;
+  border-bottom: 1px solid $dgray;
 
   ul {
     overflow: hidden;
@@ -14,9 +16,7 @@
     padding-left: 3rem;
     animation: marquee 40s linear infinite;
 
-    &:nth-of-type(2) {
-      animation-name: marquee2;
-    }
+    &:nth-of-type(2) { animation-name: marquee2; }
   }
   
   &:hover ul {
@@ -26,9 +26,14 @@
 
   li {
     color: $dgray;
-    font-size: 5rem;
+    font-size: 7rem;
     font-weight: 500;
     margin: 0 1.5vw;
+    opacity: 1;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 

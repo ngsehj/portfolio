@@ -25,6 +25,9 @@ const useScrollCalc = (type='opacity', values, calcYtoTop=false) => {
           case 'opacity':
             current.style.opacity = value;
             break;
+          case 'up':
+            current.style.transform = `translate3d(0, -${valuePct}%, 0)`;
+            break;
           case 'left':
             current.style.transform = `translate3d(${valuePct}%, 0, 0)`;
             break;
