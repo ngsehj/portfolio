@@ -1,18 +1,21 @@
-import { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useContext } from 'react';
 import { throttle } from 'lodash';
+import { GlobalDataContext } from '../App';
+// import { ScrollDataContext {}
 
 const TopButton = () => {
+  const { viewportHeight } = useContext(GlobalDataContext);
   const [showButton, setShowButton] = useState(false);
   
   const throttledScroll = useMemo(
     () =>
       throttle(() => {
-        if (window.scrollY > 500) {
+        if (window.scrollY > viewportHeight) {
           setShowButton(true);
         } else {
           setShowButton(false);
         }
-      }, 300),
+      }, 100),
     []
   );
   

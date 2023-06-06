@@ -1,33 +1,57 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-
+import React, { useState, useEffect, useCallback } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Loading from './components/Loading';
-// import Index from './pages/Index';
 import TopButton from './components/TopButton';
 import Home from './pages/Home/Home';
-import Modal from './components/Modal';
+
+export const GlobalDataContext = React.createContext();
 
 function App() {
+  const initGlobalData = {
+    viewportHeight: window.innerHeight,
+    viewportWidth: window.innerWidth
+  }
+
+  const [globalData, setGlobalData] = useState(initGlobalData);
+
+  const handleResize = useCallback(() => {
+    const viewportHeight = window.innerHeight;
+    const viewportWidth = window.innerWidth;
+
+    setGlobalData(() => ({
+      ...globalData,
+      viewportHeight,
+      viewportWidth
+    }));
+  }, [globalData]);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [handleResize]);
 
   return (
     <BrowserRouter>
       <div className="App">
-        {/* <Modal visible={false} heading={'dddd'}>안녕핳세?</Modal> */}
-        <Loading />
-        <Header />
 
-        <Routes>
-          {/* <Route path="/" element={<Index />} /> */}
-          <Route path="/" element={<Home />} />
-          
-          
-        </Routes>
-        <Footer />
-        <TopButton />
-        
+        <GlobalDataContext.Provider value={globalData}>
+          <Loading />
+          <Header />
+
+          <Routes>
+            {/* <Route path="/" element={<Index />} /> */}
+            <Route path="/" element={<Home />} />
+
+          </Routes>
+          <Footer />
+          <TopButton />
+        </GlobalDataContext.Provider>
       </div>
     </BrowserRouter>
   );

@@ -12,16 +12,15 @@
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
-	background-color: $dgray;
 
 	.intro-bg {
 		overflow: hidden;
 		z-index: 1;
 		position: absolute;
-		right: 10%;
-		top: 10%;
-		width: 60%;
-		height: 80vh;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100vh;
 
 		span {
 			position: absolute;
@@ -33,8 +32,6 @@
 			background-attachment: fixed;
 			background-size: cover;
 			background-position: center center;
-			// transition: transform .5s ease-in-out;
-			border-radius: 10rem 0 0 10rem;
 		}
 	}
 
@@ -120,15 +117,18 @@
 		display: flex;
 		align-items: center;
 		height: 100vh;
-		transition: transform .3s ease-out;
-		padding: 0 50px
+		transition: transform .1s linear;
+		padding: 0 50px;
+
+		&.is-fixed {
+			position: fixed;
+		}
 	}
 
 	.slide {
-		@include photo(30vw, 20vw, 0);
-		margin: 50px;
+		@include photo(25vw, 15vw, 0);
+		margin: 3rem;
 
-		// img { width: 100%; }
 		.hoverbox {
 			opacity: 0;
 			transition: all .3s ease;
@@ -236,13 +236,14 @@
 		position: sticky;
 		top: 0;
 		left: 0;
-		height: 100vh;
+		min-height: 100vh;
 		background: url("https://images.unsplash.com/photo-1633356122544-f134324a6cee") no-repeat;
 		background-attachment: fixed;
 		background-size: cover;
 		background-position: center center;
 		margin: 0 auto;
 		white-space: nowrap;
+		transition: all .3s ease;
 		
 
 		&::after {
@@ -271,7 +272,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: flex-end;
-			height: 100%;
+			height: 100vh;
 			color: $bg-color;
 			font-size: 4rem;
 			font-weight: 400;

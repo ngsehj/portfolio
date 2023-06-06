@@ -5,7 +5,7 @@ const SectionIntro = () => {
   const animatedElement = {
 
     heading : useScrollCalc('scale', {start: 1, end: 12}),
-    bg: useScrollFadeIn('left', 1, 0, '25%'),
+    bg: useScrollFadeIn('no', 1, 0),
     0: useScrollTranslate(1, 0.5),
     1: useScrollTranslate(1, 0.6),
     2: useScrollTranslate(1, 0.7),
@@ -24,7 +24,7 @@ const SectionIntro = () => {
       </div>
       <h1 className="intro-heading" {...animatedElement['heading']} >
         {text.map((item, idx) => (
-          <div className="inner">
+          <div className="inner" key={idx}>
             <span className={`heading${idx}`} {...animatedElement[idx]} key={item}>{item}</span>
           </div>
         ))}

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback, useState, useContext } from 'react';
-import { GlobalDataContext } from '../pages/Home/Home';
+import { GlobalDataContext } from '../App';
 
 const useScrollHorizontal = () => {
   const { viewportWidth } = useContext(GlobalDataContext);
@@ -13,15 +13,19 @@ const useScrollHorizontal = () => {
     sliderPosRef.current = amount;
     sliderMoveMaxRef.current = max;
 
-    if (sliderPosRef.current < sliderMoveMaxRef.current) {
+    const add = 150;
+
+    if (sliderPosRef.current <= sliderMoveMaxRef.current + add) {
       sliderPosRef.current = sliderMoveMaxRef.current;
-      return;
-    } else if (sliderPosRef.current > 0) {
+      sliderRef.current.classList.remove('is-fixed');
+    } else if (sliderPosRef.current >= -add) {
       sliderPosRef.current = 0;
-      return;
+      sliderRef.current.classList.remove('is-fixed');
+    } else {
+      sliderRef.current.classList.add('is-fixed');
     }
     
-    sliderRef.current.style.transform = `translateX(${sliderPosRef.current}px)`;
+    sliderRef.current.style.transform = `translate3d(${sliderPosRef.current}px, 0, 0)`;
   }, []);
 
   const handleEvent = useCallback(() => {

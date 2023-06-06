@@ -95,12 +95,12 @@ const SectionAbout = () => {
       <div className="marquee">
         <ul>
           {skills.map((item) => (
-            <li>{item}</li>
+            <li key={item}>{item}</li>
           ))}
         </ul>
         <ul>
           {skills.map((item) => (
-            <li>{item}</li>
+            <li key={item}>{item}</li>
           ))}
         </ul>
       </div>
