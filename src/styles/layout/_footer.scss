@@ -1,0 +1,13 @@
+.footer {
+  height: 5rem;
+  font-size: .5rem;
+  line-height: 5rem;
+  color: $dgray;
+  text-align: center;
+
+  @include breakpoint(tablet) {
+    height: 7rem;
+    font-size: 1rem;
+    line-height: 7rem;
+  }
+}

@@ -1,0 +1,134 @@
+@mixin breakpoint($breakpoint) {
+  @if $breakpoint == "iphone" {
+    @media (min-width: 320px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "mobile" {
+    @media (min-width: 480px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "tablet" {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "laptop" {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "desktop" {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+@mixin photo ($width, $height: $width, $radius: 50%) {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  width: $width;
+  padding-top: $height;
+  border-radius: $radius;
+  vertical-align: middle;
+
+  img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: auto;
+    min-width: 100%;
+    height: 100%;
+    transform: translate(-50%,-50%);
+    object-fit: cover;
+    image-rendering: auto;
+  }
+}
+
+@mixin ellipsis($lines: 1) {
+  @if ($lines==1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+  }
+}
+
+@mixin scrollbar-default($color, $track: $bg-color) {
+  &::-webkit-scrollbar {
+    background-color: $track;
+    width: 2px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $track;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $color;
+  }
+}
+
+@mixin scrollbar-transparent {
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border: 0px solid transparent;
+  }
+  &::-webkit-scrollbar-track { 
+    background-color: transparent;
+  }
+}
+
+@mixin bullet($width, $height, $color) {
+  content: "";
+  display: block;
+  position: absolute;
+  width: $width;
+  height: $height;
+  background-color: $color;
+}
+
+@mixin btn-close($size, $color) {
+  overflow: hidden;
+  display: block;
+  width: $size;
+  height: $size;
+  background: transparent;
+  text-indent: -999em;
+  transition: transform .3s ease;
+
+  &:hover {
+    transform: rotate(180deg);
+  }
+
+  &::before {
+      @include bullet(100%, 1px, $color);
+      left: 0;
+      top: 50%;
+      margin-top: -0.5px;
+      transform: rotate(45deg);
+  }
+
+  &::after {
+      @include bullet(100%, 1px, $color);
+      left: 0;
+      top: 50%;
+      margin-top: -0.5px;
+      transform: rotate(-45deg);
+  }
+}
