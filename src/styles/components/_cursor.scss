@@ -6,10 +6,14 @@
   height: 2rem;
   background-color: $red;
   border-radius: 5rem;
-  mix-blend-mode:  difference;
+  mix-blend-mode: difference;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: width 0.15s ease-in-out, height 0.15s ease-in-out, opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+  transition:
+    width 0.15s ease-in-out,
+    height 0.15s ease-in-out,
+    opacity 0.15s ease-in-out,
+    transform 0.15s ease-in-out;
 
   &.is-clickable {
     cursor: pointer;
@@ -20,7 +24,7 @@
     backdrop-filter: blur(1rem);
 
     &::after {
-      content: "VIEW";
+      content: 'VIEW';
       z-index: 1;
       position: absolute;
       width: 100%;
@@ -34,4 +38,3 @@
     }
   }
 }
-

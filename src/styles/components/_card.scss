@@ -22,7 +22,7 @@
     @include photo(100%, 60%, 0);
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       top: 0;
@@ -47,13 +47,13 @@
     line-height: 1.2;
     padding: 0 1rem;
     word-break: keep-all;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
 
   span {
     display: block;
     color: $dgray;
-    font-size: .875rem;
+    font-size: 0.875rem;
     line-height: 1.5;
     padding: 0 1rem;
     margin-top: 1rem;
@@ -85,7 +85,7 @@
 
     .time {
       margin-top: auto;
-      padding-top: .75rem;
+      padding-top: 0.75rem;
     }
   }
 }

@@ -13,7 +13,9 @@
     padding-left: 3rem;
     animation: marquee 100s linear infinite;
 
-    & + ul { animation-name: marquee2; }
+    &+ul {
+      animation-name: marquee2;
+    }
   }
 
   li {
@@ -38,7 +40,9 @@
     ul {
       animation: marqueeReverse2 100s linear infinite;
 
-      & + ul {animation-name: marqueeReverse;}
+      &+ul {
+        animation-name: marqueeReverse;
+      }
     }
   }
 }
