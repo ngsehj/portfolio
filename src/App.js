@@ -2,6 +2,8 @@ import './App.scss';
 import React, { useState, useEffect, useCallback } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from 'pages/home/Home';
+import Footer from 'components/Footer';
+import TopButton from 'components/TopButton';
 
 export const GlobalDataContext = React.createContext();
 
@@ -41,8 +43,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
             </Routes>
-            {/* <Footer />
-            <TopButton /> */}
+            <Footer />
+            <TopButton />
           </GlobalDataContext.Provider>
         </div>
       </BrowserRouter>

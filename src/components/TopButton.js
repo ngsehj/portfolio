@@ -34,12 +34,7 @@ const TopButton = () => {
 
   return (
     showButton && (
-      <button
-        className="btn-top"
-        style={Object.assign({}, styles.button)}
-        onClick={scrollToTop}
-        type="button"
-      >
+      <button className="btn-top" style={Object.assign({}, styles.button)} onClick={scrollToTop} type="button">
         Top
       </button>
     )

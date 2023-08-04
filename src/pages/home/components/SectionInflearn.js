@@ -58,7 +58,7 @@ const SectionInflearn = () => {
   ];
 
   const animatedElement = {
-    sticky: useScrollCalc('width', { start: 0, end: 2.1 }, true),
+    sticky: useScrollCalc('width', { start: -0.5, end: 2.55 }, true),
     inflearn0: useScrollFadeIn('up', 1, 0, '5rem'),
     inflearn1: useScrollFadeIn('up', 1, 0, '5rem'),
     inflearn2: useScrollFadeIn('up', 1, 0, '5rem'),
@@ -93,17 +93,8 @@ const SectionInflearn = () => {
 
         <ul className="inflearn__list">
           {items.map((item, idx) => (
-            <li
-              className="inflearn__item cursor-clickable"
-              key={idx}
-              {...animatedElement[`inflearn${idx}`]}
-            >
-              <a
-                target="_blank"
-                rel="noreferrer"
-                ref={el => (targetRef.current[idx] = el)}
-                href={item.url}
-              >
+            <li className="inflearn__item cursor-clickable" key={idx} {...animatedElement[`inflearn${idx}`]}>
+              <a target="_blank" rel="noreferrer" ref={el => (targetRef.current[idx] = el)} href={item.url}>
                 <img src={item.img} alt="인프런 썸네일" />
                 <div className="hoverbox">
                   <strong>{item.title}</strong>
