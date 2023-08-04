@@ -24,10 +24,7 @@ const SectionIntro = () => {
 
   return (
     <section className="section section__intro" {...animatedElement.bg}>
-      <RotateCircleButton
-        text="Go portfolio * Go Portfolio * Go Portfolio * * * * * * "
-        handleClick={handleClick}
-      />
+      <RotateCircleButton text="Go portfolio * Go Portfolio * Go Portfolio * * * * * * " handleClick={handleClick} />
       <div className="intro-bg">
         <span className="box" />
       </div>

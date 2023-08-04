@@ -41,7 +41,7 @@ function App() {
           <GlobalDataContext.Provider value={globalData}>
             {/* <Header /> */}
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/portfolio" element={<Home />} />
             </Routes>
             <Footer />
             <TopButton />

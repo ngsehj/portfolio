@@ -18,11 +18,7 @@ const SectionContact = () => {
       <svg className="arrow" width="226" height="392" viewBox="0 0 226 392">
         <g>
           <g>
-            <path
-              className="arrow-path1"
-              fill="none"
-              d="M17 5v0s-34.969 255.598 15 202l40-59v0s40.059-64.266 54-9l60 238v0"
-            />
+            <path className="arrow-path1" fill="none" d="M17 5v0s-34.969 255.598 15 202l40-59v0s40.059-64.266 54-9l60 238v0" />
           </g>
           <g>
             <path className="arrow-path2" fill="none" d="M120 327v0l67 56v0l34-96v0" />

@@ -4,10 +4,7 @@ const RotateCircleButton = ({ text, handleClick }) => {
       <div className="rotate">
         <svg version="1.1" x="0px" y="0px" viewBox="0 0 268.6 268.7" space="preserve">
           <defs>
-            <path
-              id="circle"
-              d="M234.3,134.3c0,55.2-44.8,100-100,100s-100-44.8-100-100s44.8-100,100-100 S234.3,79.1,234.3,134.3z"
-            />
+            <path id="circle" d="M234.3,134.3c0,55.2-44.8,100-100,100s-100-44.8-100-100s44.8-100,100-100 S234.3,79.1,234.3,134.3z" />
           </defs>
           <text startOffset="100%">
             <textPath href="#circle">{text}</textPath>

@@ -25,16 +25,7 @@ function Portal({ children, elementId }) {
   return createPortal(children, rootElement);
 }
 
-const ModalPortal = ({
-  type,
-  title,
-  children,
-  handleClose,
-  handleFocusModal,
-  maskClosable = true,
-  closeVisible = true,
-  modalRef,
-}) => {
+const ModalPortal = ({ type, title, children, handleClose, handleFocusModal, maskClosable = true, closeVisible = true, modalRef }) => {
   const modalShowType = ['up', 'fade'].includes(type) ? type : 'default';
 
   useEffect(() => {
@@ -46,13 +37,7 @@ const ModalPortal = ({
 
   return (
     <Portal elementId="modal">
-      <div
-        className={['modal', `modal-${modalShowType}`].join(' ')}
-        ref={modalRef}
-        role="dialog"
-        aria-labelledby="modal-portal"
-        tabIndex="0"
-      >
+      <div className={['modal', `modal-${modalShowType}`].join(' ')} ref={modalRef} role="dialog" aria-labelledby="modal-portal" tabIndex="0">
         <div className="modal__dim" onClick={maskClosable ? handleClose : null} />
         <div className="modal__layer" tabIndex="-1">
           <header className="modal__header">
@@ -62,13 +47,7 @@ const ModalPortal = ({
           </header>
           <section className="modal__content">{children}</section>
           {closeVisible && (
-            <button
-              type="button"
-              className="modal-btn-close"
-              aria-label="모달 닫기"
-              onClick={handleClose}
-              onKeyDown={handleFocusModal}
-            >
+            <button type="button" className="modal-btn-close" aria-label="모달 닫기" onClick={handleClose} onKeyDown={handleFocusModal}>
               X
             </button>
           )}
