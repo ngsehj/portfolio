@@ -69,4 +69,7 @@ sketch
 .history
 .ionide
 
+# ignore all files in the build/ directory
+build/
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,react
