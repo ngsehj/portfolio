@@ -2,12 +2,10 @@ import { useScrollCalc } from 'hooks';
 
 const SectionText = () => {
   const text = [
-    { text: 'I have a passion for my work' },
-    { text: 'I have a passion for my work' },
-    { text: 'I have a passion for my work' },
-    { text: 'I have a passion for my work' },
-    { text: 'I have a passion for my work' },
-    { text: 'I have a passion for my work' },
+    { text: '* Passion for my work * Passion for my work ' },
+    { text: '* Passion for my work * Passion for my work ' },
+    { text: '* Passion for my work * Passion for my work ' },
+    { text: '* Passion for my work * Passion for my work ' },
   ];
 
   const animatedText = {
@@ -15,8 +13,6 @@ const SectionText = () => {
     1: useScrollCalc('right', { start: 0, end: 0.4 }),
     2: useScrollCalc('left', { start: 0, end: 0.4 }),
     3: useScrollCalc('right', { start: 0, end: 0.4 }),
-    4: useScrollCalc('left', { start: 0, end: 0.4 }),
-    5: useScrollCalc('right', { start: 0, end: 0.4 }),
   };
 
   return (

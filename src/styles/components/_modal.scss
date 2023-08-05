@@ -121,14 +121,14 @@ $modalup-height: 90vh;
     .heading {
       display: block;
       color: $dgray;
-      font-size: 2rem;
+      font-size: 1.5rem;
       line-height: 1.4;
       margin-bottom: 1rem;
     }
 
     .desc {
       color: $lgray;
-      font-size: 1.25rem;
+      font-size: 1rem;
       border-bottom: 1px solid $line-color;
       padding-bottom: 1.25rem;
       margin-bottom: 2rem;
@@ -158,10 +158,8 @@ $modalup-height: 90vh;
     .image {
       text-align: center;
       background-color: $white;
-      padding: 2rem;
-      border-radius: 2rem;
-      border: 1px solid $line-color;
-      margin-bottom: 2rem;
+      margin-bottom: 5rem;
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.13);
     }
 
     img {
@@ -185,8 +183,16 @@ $modalup-height: 90vh;
       top: 0;
       width: calc(40% - 3rem);
       height: calc(90vh - 6rem);
-      padding-right: 1.5rem;
-      margin-right: 1.5rem;
+      padding-right: 2rem;
+      margin-right: 2rem;
+
+      .heading {
+        font-size: 2rem;
+      }
+
+      .desc {
+        font-size: 1.25rem;
+      }
     }
 
     .work__photo {

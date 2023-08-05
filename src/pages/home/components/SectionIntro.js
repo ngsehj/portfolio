@@ -6,12 +6,11 @@ import RotateCircleButton from 'components/RotateCircleButton';
 const SectionIntro = () => {
   const text = ['꾸준히 성장하는', '웹 퍼블리셔 이야기', 'Web Publisher Portfolio'];
   const animatedElement = {
-    circle: useScrollCalc('scale', { start: 0.1, end: 1.1 }),
     heading: useScrollCalc('opacity', { start: 2, end: 0 }),
     bg: useScrollFadeIn('no', 1, 0.2),
-    0: useScrollTranslate(1, 0.5),
-    1: useScrollTranslate(1, 0.6),
-    2: useScrollTranslate(1, 0.7),
+    0: useScrollTranslate(1, 1.5),
+    1: useScrollTranslate(1, 1.45),
+    2: useScrollTranslate(1, 1.4),
   };
 
   const scrollPageContext = useContext(ScrollPageContext);
@@ -28,7 +27,7 @@ const SectionIntro = () => {
       <div className="intro-bg">
         <span className="box" />
       </div>
-      <span className="intro-circle" {...animatedElement.circle} />
+      {/* <span className="intro-circle" /> */}
       <h1 className="intro-heading" {...animatedElement.heading}>
         {text.map((item, idx) => (
           <div className="inner" key={idx}>

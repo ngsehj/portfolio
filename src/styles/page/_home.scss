@@ -6,10 +6,6 @@ $home-m-padding: 0 1rem;
   overflow-x: hidden;
 }
 
-.header {
-  display: none;
-}
-
 .section {
   position: relative;
   max-width: 100vw;
@@ -94,17 +90,39 @@ $home-m-padding: 0 1rem;
 
   .intro-circle {
     z-index: 10;
-    position: absolute;
-    left: calc(50% - 80vw);
-    bottom: -40vw;
+    // position: fixed;
+    // left: calc(50% - 80vw);
+    // bottom: -40vw;
     display: inline-block;
-    width: 160vw;
-    height: 160vw;
+    width: 100vw;
+    height: 100vh;
+    // width: 160vw;
+    // height: 160vw;
+    // width: 100vw;
+    // height: 100vh;
+    // left: 50%;
+    // width: 100%;
+
     background-color: $primary-color;
-    border-radius: 50%;
-    opacity: 0.8;
-    transition: transfrom 0.3s ease;
+    // border-radius: 50%;
+    // opacity: 0.8;
+    // transition: transfrom 0.3s ease;
     will-change: transform;
+    animation: introCircle 2s ease both;
+  }
+
+  @keyframes introCircle {
+    70% {
+      position: fixed;
+      top: 0;
+      left: 0;
+      border-radius: 0;
+      // bottom: 0;
+    }
+    100% {
+      position: absolute;
+      top: -100vh;
+    }
   }
 
   @include breakpoint(tablet) {
@@ -132,9 +150,9 @@ $home-m-padding: 0 1rem;
       }
     }
 
-    .intro-circle {
-      bottom: -100vw;
-    }
+    // .intro-circle {
+    //   bottom: -100vw;
+    // }
   }
 }
 
@@ -268,8 +286,8 @@ $home-m-padding: 0 1rem;
   }
 
   .inflearn__item {
-    @include photo(80%, 250px, 2rem);
-    max-width: 300px;
+    @include photo(80%, 250px);
+    max-width: 250px;
     display: block;
     margin: 4rem 1rem;
 
@@ -325,7 +343,8 @@ $home-m-padding: 0 1rem;
     }
 
     .inflearn__item {
-      max-width: none;
+      max-width: 400px;
+      padding-top: 400px;
       margin: 5rem 10vw;
 
       &:nth-child(even) {
@@ -334,50 +353,6 @@ $home-m-padding: 0 1rem;
 
       &:nth-child(odd) {
         align-self: flex-end;
-      }
-
-      &:nth-child(1) {
-        width: 28rem;
-        padding-top: 20rem;
-      }
-
-      &:nth-child(2) {
-        width: 22rem;
-        padding-top: 15rem;
-      }
-
-      &:nth-child(3) {
-        width: 24rem;
-        padding-top: 30rem;
-      }
-
-      &:nth-child(4) {
-        width: 22rem;
-        padding-top: 22rem;
-      }
-
-      &:nth-child(5) {
-        width: 28rem;
-        padding-top: 20rem;
-      }
-
-      &:nth-child(6) {
-        width: 24rem;
-        padding-top: 16rem;
-      }
-
-      &:nth-child(7) {
-        width: 26rem;
-        padding-top: 18rem;
-      }
-
-      &:nth-child(8) {
-        width: 20rem;
-        padding-top: 30rem;
-
-        img {
-          left: -10%;
-        }
       }
 
       .hoverbox {
@@ -414,10 +389,6 @@ $home-m-padding: 0 1rem;
   background-color: $bg-color;
   padding: 0 0 80px;
 
-  .card__list {
-    padding: $home-m-padding;
-  }
-
   @include breakpoint(tablet) {
     .card__list {
       padding: $home-t-padding;
@@ -433,17 +404,23 @@ $home-m-padding: 0 1rem;
 
 .section__text {
   overflow: hidden;
-  min-height: calc(5rem * 6);
-  background: linear-gradient(180deg, rgb(252, 250, 251) 0%, rgb(255, 255, 255) 10%);
+  z-index: -1;
+  position: relative;
+  min-width: 100vh;
+  max-width: 100vh;
+  min-height: 100vw;
+  transform: rotate(90deg);
+  transform-origin: 50vw 50%;
 
   .is-animated-text {
     font-family: 'Playfair Display', serif;
-    height: 5rem;
-    font-size: 3rem;
+    height: 25vw;
+    line-height: 25vw;
+    font-size: 10vh;
     font-weight: 700;
     font-style: italic;
-    line-height: 5rem;
     transition: all 0.5s ease-out;
+    opacity: 0.4;
 
     &:nth-child(odd) {
       color: $primary-color;
@@ -464,16 +441,16 @@ $home-m-padding: 0 1rem;
   }
 
   @include breakpoint(tablet) {
-    .is-animated-text {
-      height: 16vh;
-      font-size: 8vh;
-      line-height: 16vh;
-    }
-  }
+    background: linear-gradient(180deg, rgb(252, 250, 251) 0%, rgb(255, 255, 255) 10%);
+    min-width: 100vw;
+    max-width: 100vw;
+    transform: rotate(0deg);
+    min-height: calc(5rem * 6);
 
-  @include breakpoint(desktop) {
     .is-animated-text {
-      font-size: 12vh;
+      height: 25vh;
+      line-height: 25vh;
+      font-size: 20vh;
     }
   }
 }
@@ -483,13 +460,19 @@ $home-m-padding: 0 1rem;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-height: auto;
+  min-height: calc(100vh - 5rem); // footer 높이 제외
+  margin-top: -100vw;
 
   .ust-up-heading span {
     font-size: 3rem;
     transform: translate3d(0, 100%, 0);
+  }
 
-    @include breakpoint(tablet) {
+  @include breakpoint(tablet) {
+    min-height: 100vh;
+    margin-top: 0;
+
+    .ust-up-heading span {
       font-size: 10vw;
     }
   }
@@ -499,7 +482,7 @@ $home-m-padding: 0 1rem;
     position: relative;
     display: block;
     color: $dgray;
-    font-size: 5vw;
+    font-size: 7vw;
     line-height: 10vw;
     padding: 0 2rem;
 
