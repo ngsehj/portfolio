@@ -72,56 +72,21 @@ $home-m-padding: 0 1rem;
       font-weight: 400;
       text-align: left;
       line-height: 1.5;
-      transform: translate3d(0, 120%, 0) rotate(-10deg);
+      transform: translate3d(0, 120%, 0);
 
-      &.heading2 {
+      &.heading2,
+      &.heading3 {
         color: transparent;
         font-family: 'Playfair Display', serif;
-        font-size: 14vw;
+        font-size: 16vw;
         font-weight: 500;
         font-style: italic;
         line-height: 1;
+        letter-spacing: -0.4rem;
         text-transform: uppercase;
         transition: transform 0.5s ease;
         -webkit-text-stroke: 1px $dgray;
       }
-    }
-  }
-
-  .intro-circle {
-    z-index: 10;
-    // position: fixed;
-    // left: calc(50% - 80vw);
-    // bottom: -40vw;
-    display: inline-block;
-    width: 100vw;
-    height: 100vh;
-    // width: 160vw;
-    // height: 160vw;
-    // width: 100vw;
-    // height: 100vh;
-    // left: 50%;
-    // width: 100%;
-
-    background-color: $primary-color;
-    // border-radius: 50%;
-    // opacity: 0.8;
-    // transition: transfrom 0.3s ease;
-    will-change: transform;
-    animation: introCircle 2s ease both;
-  }
-
-  @keyframes introCircle {
-    70% {
-      position: fixed;
-      top: 0;
-      left: 0;
-      border-radius: 0;
-      // bottom: 0;
-    }
-    100% {
-      position: absolute;
-      top: -100vh;
     }
   }
 
@@ -142,17 +107,14 @@ $home-m-padding: 0 1rem;
 
       span {
         font-size: 1rem;
-      }
 
-      span.heading2 {
-        font-size: 12vw;
-        letter-spacing: -0.5rem;
+        &.heading2,
+        &.heading3 {
+          font-size: 12vw;
+          letter-spacing: -0.5rem;
+        }
       }
     }
-
-    // .intro-circle {
-    //   bottom: -100vw;
-    // }
   }
 }
 
@@ -286,10 +248,10 @@ $home-m-padding: 0 1rem;
   }
 
   .inflearn__item {
-    @include photo(80%, 250px);
+    @include photo(80%, 250px, 0);
     max-width: 250px;
     display: block;
-    margin: 4rem 1rem;
+    margin: 0 1rem 3rem;
 
     .hoverbox {
       z-index: 1;
@@ -343,16 +305,25 @@ $home-m-padding: 0 1rem;
     }
 
     .inflearn__item {
-      max-width: 400px;
-      padding-top: 400px;
-      margin: 5rem 10vw;
-
-      &:nth-child(even) {
-        align-self: flex-start;
+      &:not(:last-child) {
+        margin: 0 5rem -2rem;
+        margin-bottom: -5rem;
       }
 
       &:nth-child(odd) {
+        align-self: flex-start;
+      }
+
+      &:nth-child(even) {
         align-self: flex-end;
+      }
+
+      &:nth-child(4n - 1) {
+        margin-left: 25vw;
+      }
+
+      &:nth-child(4n) {
+        margin-right: 25vw;
       }
 
       .hoverbox {
@@ -420,7 +391,7 @@ $home-m-padding: 0 1rem;
     font-weight: 700;
     font-style: italic;
     transition: all 0.5s ease-out;
-    opacity: 0.4;
+    opacity: 0.2;
 
     &:nth-child(odd) {
       color: $primary-color;
@@ -450,7 +421,8 @@ $home-m-padding: 0 1rem;
     .is-animated-text {
       height: 25vh;
       line-height: 25vh;
-      font-size: 20vh;
+      font-size: 15vh;
+      opacity: 0.7;
     }
   }
 }

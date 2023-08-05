@@ -57,7 +57,11 @@ $modalup-height: 90vh;
   }
 
   .modal__content {
-    padding: 2rem;
+    padding: 2rem 1rem;
+
+    @include breakpoint(tablet) {
+      padding: 2rem;
+    }
   }
 }
 
@@ -158,8 +162,8 @@ $modalup-height: 90vh;
     .image {
       text-align: center;
       background-color: $white;
-      margin-bottom: 5rem;
-      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.13);
+      margin: 2.5rem 0;
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
     }
 
     img {
@@ -197,6 +201,10 @@ $modalup-height: 90vh;
 
     .work__photo {
       width: 60%;
+
+      .image {
+        margin: 0 0 5rem;
+      }
     }
   }
 }

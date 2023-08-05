@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from 'pages/home/Home';
 import Footer from 'components/Footer';
 import TopButton from 'components/TopButton';
+import Loading from 'components/Loading';
 
 export const GlobalDataContext = React.createContext();
 
@@ -37,16 +38,14 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <div className="App">
-          <GlobalDataContext.Provider value={globalData}>
-            {/* <Header /> */}
-            <Routes>
-              <Route path="/portfolio" element={<Home />} />
-            </Routes>
-            <Footer />
-            <TopButton />
-          </GlobalDataContext.Provider>
-        </div>
+        <GlobalDataContext.Provider value={globalData}>
+          <Loading />
+          <Routes>
+            <Route path="/portfolio" element={<Home />} />
+          </Routes>
+          <Footer />
+          <TopButton />
+        </GlobalDataContext.Provider>
       </BrowserRouter>
     </div>
   );
