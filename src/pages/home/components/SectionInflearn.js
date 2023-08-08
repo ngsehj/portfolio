@@ -70,7 +70,7 @@ const SectionInflearn = () => {
   };
 
   return (
-    <section className="section section__inflearn">
+    <section className="section section-inflearn">
       <div className="section__inner" {...animatedElement.sticky}>
         <div className="inflearn__bg">
           <div className="marquee">

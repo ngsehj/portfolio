@@ -6,12 +6,11 @@ import RotateCircleButton from 'components/RotateCircleButton';
 const SectionIntro = () => {
   const text = ['꾸준히 성장하는', '웹 퍼블리셔 이야기', 'Web Publisher', 'Portfolio'];
   const animatedElement = {
-    heading: useScrollCalc('opacity', { start: 2, end: 0 }),
-    bg: useScrollFadeIn('no', 1, 2),
-    0: useScrollTranslate(1, 2.25),
-    1: useScrollTranslate(1, 2.2),
-    2: useScrollTranslate(1, 2.1),
-    3: useScrollTranslate(1, 2),
+    heading: useScrollCalc('opacity', { start: 3, end: -1 }),
+    0: useScrollTranslate(1, 1.25),
+    1: useScrollTranslate(1, 1.2),
+    2: useScrollTranslate(1, 1.1),
+    3: useScrollTranslate(1, 1),
   };
 
   const scrollPageContext = useContext(ScrollPageContext);
@@ -23,12 +22,9 @@ const SectionIntro = () => {
   };
 
   return (
-    <section className="section section__intro" {...animatedElement.bg}>
+    <section className="section section-intro">
       <RotateCircleButton text="Go portfolio * Go Portfolio * Go Portfolio * * * * * * " handleClick={handleClick} />
-      <div className="intro-bg">
-        <span className="box" />
-      </div>
-      <h1 className="intro-heading" {...animatedElement.heading}>
+      <h1 className="intro__heading" {...animatedElement.heading}>
         {text.map((item, idx) => (
           <div className="inner" key={idx}>
             <span className={`heading${idx}`} {...animatedElement[idx]} key={item}>

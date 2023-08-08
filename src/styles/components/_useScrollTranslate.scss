@@ -3,11 +3,9 @@
   align-items: center;
   height: 15vw;
   padding: 5rem 1rem 2rem;
-
   .inner {
     overflow: hidden;
   }
-
   span {
     display: inline-block;
     color: $dgray;
@@ -16,7 +14,6 @@
     line-height: 1;
     transform: translate3d(0, 110%, 0) rotate(45deg);
   }
-
   @include breakpoint(tablet) {
     span {
       font-size: 12vw;

@@ -225,37 +225,39 @@ const SectionWork = () => {
   const { modalOpen, selected, setSelected, setModalState } = useModalWithData();
 
   return (
-    <section className="section section__work" ref={scrollPageContext.sectionWorkRef}>
+    <section className="section section-work" ref={scrollPageContext.sectionWorkRef}>
       <UstHeading words={headingText} />
-      <div className="card__list">
-        {works.map((item, idx) => (
-          <div
-            className="card__item cursor-clickable"
-            key={item.title}
-            ref={el => (modalOpenRefs.current[item.id] = el)}
-            role="button"
-            tabIndex={0}
-            onClick={() => {
-              setSelected(item);
-              setModalState(true);
-              window.setTimeout(() => modalRef.current.focus());
-            }}
-            onKeyDown={e => {
-              if (e.key === 'Enter' || e.keyCode === 32) {
+      <div className="section__inner">
+        <div className="work__list">
+          {works.map((item, idx) => (
+            <div
+              className="work__item cursor-clickable"
+              key={item.title}
+              ref={el => (modalOpenRefs.current[item.id] = el)}
+              role="button"
+              tabIndex={0}
+              onClick={() => {
                 setSelected(item);
                 setModalState(true);
                 window.setTimeout(() => modalRef.current.focus());
-              }
-            }}
-          >
-            <div className="image" {...animatedItem[idx]}>
-              <img src={item.thumb} alt={item.title} />
+              }}
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.keyCode === 32) {
+                  setSelected(item);
+                  setModalState(true);
+                  window.setTimeout(() => modalRef.current.focus());
+                }
+              }}
+            >
+              <div className="image" {...animatedItem[idx]}>
+                <img src={item.thumb} alt={item.title} />
+              </div>
+              <span className="type">{item.type}</span>
+              <strong className="heading">{item.title}</strong>
+              <span className="time">{item.time}</span>
             </div>
-            <span className="type">{item.type}</span>
-            <strong className="heading">{item.title}</strong>
-            <span className="time">{item.time}</span>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {modalOpen && (
@@ -274,7 +276,7 @@ const SectionWork = () => {
             }
           }}
         >
-          <div className="work__wrap">
+          <div className="work__grid">
             <div className="work__info">
               <p className="type">{selected.client}</p>
               <strong className="heading">{selected.title}</strong>

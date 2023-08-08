@@ -3,7 +3,7 @@ import { useScrollCount } from 'hooks';
 
 const Loading = () => {
   const [showLoading, setShowLoading] = useState(true);
-  const animatedItem = useScrollCount(100, 0, 1000);
+  const animatedItem = useScrollCount(100, 0, 500);
 
   useEffect(() => {
     document.body.style.cssText = `overflow: hidden;`;

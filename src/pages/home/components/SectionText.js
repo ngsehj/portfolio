@@ -16,10 +16,10 @@ const SectionText = () => {
   };
 
   return (
-    <section className="section section__text">
+    <section className="section section-text">
       {text.map((item, idx) => (
-        <div className="is-animated-text" {...animatedText[idx]} key={idx}>
-          <p>{item.text}</p>
+        <div className="is-animated" {...animatedText[idx]} key={idx}>
+          <p className="text">{item.text}</p>
         </div>
       ))}
     </section>
