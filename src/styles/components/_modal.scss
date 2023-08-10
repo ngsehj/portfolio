@@ -71,8 +71,7 @@ $modalup-height: 90vh;
     width: 100%;
     height: $modalup-height;
     border-radius: 1rem 1rem 0 0;
-    animation: modalUp 0.25s linear both;
-    animation-delay: 0.2s;
+    animation: modalUp 0.3s linear both;
   }
   .modal__header {
     display: none;

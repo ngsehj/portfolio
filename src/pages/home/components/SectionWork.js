@@ -3,6 +3,8 @@ import { GlobalDataContext } from 'App';
 import { ScrollPageContext } from 'pages/home/Home';
 import UstHeading from 'components/UstHeading';
 import ModalPortal, { useModalWithData } from 'components/ModalPortal';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
 
 const SectionWork = () => {
   const headingText = ['W', 'O', 'R', 'K'];
@@ -17,9 +19,8 @@ const SectionWork = () => {
       <UstHeading words={headingText} />
       <div className="section__inner">
         <div className="work__list">
-          {workData.map((item, idx) => (
+          {workData.map(item => (
             <div
-              //
               className="work__item cursor-clickable"
               key={item.title}
               ref={el => (modalOpenRefs.current[item.id] = el)}
@@ -39,7 +40,7 @@ const SectionWork = () => {
               }}
             >
               <div className="image">
-                <img src={item.thumb} alt={item.title} />
+                <LazyLoadImage src={item.thumb} alt={item.title} effect="opacity" />
               </div>
               <span className="type">{item.type}</span>
               <strong className="heading">{item.title}</strong>
@@ -83,7 +84,7 @@ const SectionWork = () => {
               {selected.imgs &&
                 selected.imgs.map((item, idx) => (
                   <div className="image" key={idx}>
-                    <img src={item} alt={selected.title} />
+                    <LazyLoadImage src={item} alt={selected.title} effect="opacity" />
                   </div>
                 ))}
             </div>
