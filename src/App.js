@@ -9,14 +9,14 @@ import Loading from 'components/Loading';
 export const GlobalDataContext = React.createContext();
 
 function App() {
-  const loadingRef = useRef(null);
-  const [loading, setLoading] = useState(true);
-  const [api, setApi] = useState(null);
   const initGlobalData = {
     viewportHeight: window.innerHeight,
     viewportWidth: window.innerWidth,
   };
   const [globalData, setGlobalData] = useState(initGlobalData);
+  const [workData, setWorkData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const loadingRef = useRef(null);
 
   const handleResize = useCallback(() => {
     const viewportHeight = window.innerHeight;
@@ -31,18 +31,17 @@ function App() {
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, [handleResize]);
 
-  const getApi = async () => {
+  const getData = async () => {
     setLoading(true);
+
     try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/comments');
-      const responseJson = await response.json();
-      setApi(responseJson);
+      const response = await fetch('https://ngsehj.github.io/portfolio/api/work.json').then(response => response.json());
+      setWorkData(response);
       window.setTimeout(() => {
         setLoading(false);
       }, 300);
@@ -52,19 +51,24 @@ function App() {
   };
 
   useEffect(() => {
-    getApi();
+    getData();
   }, []);
 
   return (
     <div className="App">
       <BrowserRouter>
-        <GlobalDataContext.Provider value={{ globalData, api }}>
-          {loading ? <Loading loadingRef={loadingRef} /> : null}
-          <Routes>
-            <Route path="/portfolio" element={<Home />} />
-          </Routes>
-          <Footer />
-          <TopButton />
+        <GlobalDataContext.Provider value={{ globalData, workData }}>
+          {loading ? (
+            <Loading loadingRef={loadingRef} />
+          ) : (
+            <>
+              <Routes>
+                <Route path="/portfolio" element={<Home />} />
+              </Routes>
+              <Footer />
+              <TopButton />
+            </>
+          )}
         </GlobalDataContext.Provider>
       </BrowserRouter>
     </div>
