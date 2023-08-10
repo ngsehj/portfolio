@@ -1,4 +1,5 @@
 import { useHoverOffset, useScrollFadeIn, useScrollCalc } from 'hooks';
+import { isMobile } from 'react-device-detect';
 
 const MarqueeItem = () => {
   const result = [];
@@ -59,14 +60,14 @@ const SectionInflearn = () => {
 
   const animatedElement = {
     sticky: useScrollCalc('width', { start: -0.5, end: 2.55 }, true),
-    inflearn0: useScrollFadeIn('left', 1, 0, '15rem'),
-    inflearn1: useScrollFadeIn('right', 1, 0, '15rem'),
-    inflearn2: useScrollFadeIn('left', 1, 0, '15rem'),
-    inflearn3: useScrollFadeIn('right', 1, 0, '15rem'),
-    inflearn4: useScrollFadeIn('left', 1, 0, '15rem'),
-    inflearn5: useScrollFadeIn('right', 1, 0, '15rem'),
-    inflearn6: useScrollFadeIn('left', 1, 0, '15rem'),
-    inflearn7: useScrollFadeIn('right', 1, 0, '15rem'),
+    inflearn0: useScrollFadeIn('left', 2, 0, '15rem'),
+    inflearn1: useScrollFadeIn('right', 2, 0, '15rem'),
+    inflearn2: useScrollFadeIn('left', 2, 0, '15rem'),
+    inflearn3: useScrollFadeIn('right', 2, 0, '15rem'),
+    inflearn4: useScrollFadeIn('left', 2, 0, '15rem'),
+    inflearn5: useScrollFadeIn('right', 2, 0, '15rem'),
+    inflearn6: useScrollFadeIn('left', 2, 0, '15rem'),
+    inflearn7: useScrollFadeIn('right', 2, 0, '15rem'),
   };
 
   return (
@@ -92,17 +93,28 @@ const SectionInflearn = () => {
         </div>
 
         <ul className="inflearn__list">
-          {items.map((item, idx) => (
-            <li className="inflearn__item cursor-clickable" key={idx} {...animatedElement[`inflearn${idx}`]}>
-              <a target="_blank" rel="noreferrer" ref={el => (targetRef.current[idx] = el)} href={item.url}>
-                <img src={item.img} alt="인프런 썸네일" />
-                <div className="hoverbox">
-                  <strong>{item.title}</strong>
-                </div>
-                <span className="hover" />
-              </a>
-            </li>
-          ))}
+          {items.map((item, idx) =>
+            isMobile ? (
+              <li className="inflearn__item" key={idx}>
+                <a target="_blank" rel="noreferrer" href={item.url}>
+                  <img src={item.img} alt="인프런 썸네일" />
+                  <div className="hoverbox">
+                    <strong>{item.title}</strong>
+                  </div>
+                </a>
+              </li>
+            ) : (
+              <li className="inflearn__item cursor-clickable" key={idx} {...animatedElement[`inflearn${idx}`]}>
+                <a target="_blank" rel="noreferrer" ref={el => (targetRef.current[idx] = el)} href={item.url}>
+                  <img src={item.img} alt="인프런 썸네일" />
+                  <div className="hoverbox">
+                    <strong>{item.title}</strong>
+                  </div>
+                  <span className="hover" />
+                </a>
+              </li>
+            ),
+          )}
         </ul>
       </div>
     </section>

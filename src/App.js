@@ -66,9 +66,9 @@ function App() {
                 <Route path="/portfolio" element={<Home />} />
               </Routes>
               <Footer />
-              <TopButton />
             </>
           )}
+          <TopButton />
         </GlobalDataContext.Provider>
       </BrowserRouter>
     </div>
