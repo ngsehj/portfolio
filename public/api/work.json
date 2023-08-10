@@ -1,0 +1,198 @@
+[
+  {
+    "id": "10",
+    "type": "PC · Responsive Web · WebView",
+    "title": "하이클래스 리뉴얼, 신규 서비스 구축 및 유지보수",
+    "time": "2020.09 ~ 2023.06",
+    "skill": "HTML, CSS, SCSS, JavaScript, jQuery, Vue.js, Zeplin, Figma, Photoshop, git",
+    "rate": "100%",
+    "client": "아이스크림 미디어",
+    "desc": "하이클래스는 학급 운영에 필요한 알림장, 게시판 기능을 비롯하여 하이톡과 가정통신문 등의 커뮤니티 서비스입니다.",
+    "works": [
+      "- 인덱스, GNB, 로그인, 메인, 게시판, 하이톡 등 UI 개선, 고도화 작업 및 학교 양식 신청서, 설문, 이벤트 화면 등을 신규 제작",
+      "- PC 웹 제작 & 인덱스, 메인, 게시글, 로그인, 이벤트, 웹뷰 등 일부 화면을 반응형 제작",
+      "- 인덱스 화면 경우 animation keyframe을 활용하여 동적인 화면 구현",
+      "- 최근 프로젝트에서 (설문, 게시판 고도화) Vue.js 산출물 작업",
+      "- vue-slick, vuedraggable, vue-chartjs, vue2-datepicker, vue-star-rating, cropperjs, vue-froala-wysiwyg 라이브러리 사용"
+    ],
+    "thumb": "https://ngsehj.github.io/portfolio/img/work09.jpg",
+    "imgs": [
+      "https://ngsehj.github.io/portfolio/img/p09-01.png",
+      "https://ngsehj.github.io/portfolio/img/p09-02.png",
+      "https://ngsehj.github.io/portfolio/img/p09-03.png",
+      "https://ngsehj.github.io/portfolio/img/p09-04.png"
+    ]
+  },
+  {
+    "id": "9",
+    "type": "Responsive Web",
+    "client": "아이스크림 에듀",
+    "title": "하이스토어 유지보수",
+    "time": "2020.06 ~ 2020.08",
+    "skill": "HTML, CSS, JavaScript, jQuery, Photoshop",
+    "rate": "100%",
+    "desc": "하이스토어는 학부모, 자녀에게 필요한 상품을 제공하는 쇼핑몰입니다.",
+    "works": ["- GNB, 메인, 체험학습, 장바구니, 주문결제 화면과 이메일 템플릿 UI를 개선", "- 불안정한 화면 수정 및 UX 개선 작업", "- 반응형 UI 제작"],
+    "thumb": "https://ngsehj.github.io/portfolio/img/work08.jpg",
+    "imgs": [
+      "https://ngsehj.github.io/portfolio/img/p08-03.png",
+      "https://ngsehj.github.io/portfolio/img/p08-02.png",
+      "https://ngsehj.github.io/portfolio/img/p08-04.png",
+      "https://ngsehj.github.io/portfolio/img/p08-05.png"
+    ]
+  },
+  {
+    "id": "8",
+    "type": "Responsive Web",
+    "client": "스토리앤브라더스",
+    "title": "사피언스 Qna 신규 구축",
+    "time": "2020.01 ~ 2020.02",
+    "skill": "HTML, CSS, JavaScript, jQuery, jsp, jstl, Photoshop, SVN",
+    "rate": "100%",
+    "desc": "사피언스 Qna는 박사 및 전문가들이 답해주는 지식 문답 서비스 입니다.",
+    "works": ["- 지식 문답 서비스를 반응형 UI로 신규 제작"],
+    "thumb": "https://ngsehj.github.io/portfolio/img/work07.jpg",
+    "imgs": [
+      "https://ngsehj.github.io/portfolio/img/p07-01.webp",
+      "https://ngsehj.github.io/portfolio/img/p07-02.webp",
+      "https://ngsehj.github.io/portfolio/img/p07-03.webp",
+      "https://ngsehj.github.io/portfolio/img/p07-04.webp"
+    ]
+  },
+  {
+    "id": "7",
+    "type": "Responsive Web",
+    "client": "스토리앤브라더스",
+    "title": "사피언스 (팀빌딩 플랫폼) 리뉴얼 및 유지보수",
+    "time": "2018.12 ~ 2019.12",
+    "skill": "HTML, CSS, JavaScript, jQuery, jsp, jstl, Photoshop, SVN",
+    "rate": "100%",
+    "desc": "사피언스는 사용자간의 채팅과 인공지능 성향 분석 매칭을 기반으로 고급기술인력들이 창업이나 프로젝트를 진행할 수 있도록 팀빌딩을 지원하고 프로젝트를 진행하는 플랫폼입니다.",
+    "works": ["- 전체 UI 개선 작업과 공모전 게시판, 이벤트 페이지를 신규 제작", "- 반응형 UI로 제작"],
+    "thumb": "https://ngsehj.github.io/portfolio/img/work06.jpg",
+    "imgs": [
+      "https://ngsehj.github.io/portfolio/img/p06-01.webp",
+      "https://ngsehj.github.io/portfolio/img/p06-02.webp",
+      "https://ngsehj.github.io/portfolio/img/p06-03.webp",
+      "https://ngsehj.github.io/portfolio/img/p06-04.webp",
+      "https://ngsehj.github.io/portfolio/img/p06-05.webp",
+      "https://ngsehj.github.io/portfolio/img/p06-06.webp"
+    ]
+  },
+  {
+    "id": "6",
+    "type": "PC · Mobile Web",
+    "client": "플라이프그래프",
+    "title": "플라이프그래프 (항공권 검색 및 예약 서비스) 리뉴얼 및 유지보수",
+    "desc": "플라이트 그래프는 항공권 검색 고수들이 찾아놓은 황금노선을 따라서 예약할 수 있게 돕는 기능인 팔로우온(FOLLOW ON)을 제공하는 항공권 예약 서비스입니다. ",
+    "time": "2017.12 ~ 2018.10",
+    "skill": "HTML, CSS, SCSS, JavaScript, jQuery, Photoshop, git, gulp",
+    "rate": "100%",
+    "works": ["- 전체 UI 개선 작업과 일부 서비스 추가 및 이벤트 페이지를 신규 제작", "- PC, Mobile웹을 따로 제작 하였으며 IE9 포함 크로스브라우징"],
+    "thumb": "https://ngsehj.github.io/portfolio/img/work05.jpg",
+    "imgs": [
+      "https://ngsehj.github.io/portfolio/img/p05-01.png",
+      "https://ngsehj.github.io/portfolio/img/p05-02.png",
+      "https://ngsehj.github.io/portfolio/img/p05-03.png",
+      "https://ngsehj.github.io/portfolio/img/p05-04.png"
+    ]
+  },
+  {
+    "id": "5",
+    "type": "PC · Mobile Web",
+    "client": "현대자동차",
+    "title": "제네시스 게이트 메인, 멤버십, 커넥티드 서비스 안내 신규 구축",
+    "time": "2017.06 ~ 2017.11",
+    "skill": "HTML, CSS, JavaScript, jQuery, Photoshop, SVN",
+    "rate": "100%",
+    "works": ["- 게이트 메인, GNB, 멤버십, 케넥티드 서비스, 이벤트 화면 등 신규 제작", "- PC, Mobile웹 제작", "- 한국어, 영문, 중동 등 기존 사이트 유지보수", "- 웹표준, IE9 포함 크로스브라우징"],
+    "thumb": "https://ngsehj.github.io/portfolio/img/work04.jpg",
+    "imgs": ["https://ngsehj.github.io/portfolio/img/p04.png"]
+  },
+  {
+    "id": "4",
+    "type": "PC · Mobile Web",
+    "client": "처브라이프생명보험주식회사",
+    "title": "에이스생명 홈페이지 유지보수",
+    "time": "2016.03 ~ 2016.09",
+    "skill": "HTML, CSS, jQuery, Photoshop",
+    "rate": "100%",
+    "works": ["- 홈페이지 유지보수 및 프로모션, 랜딩 페이지 퍼블리싱 작업", "- PC, Mobile웹 제작", "- 웹표준, IE8 포함 크로스 브라우징"],
+    "thumb": "https://ngsehj.github.io/portfolio/img/work03.jpg",
+    "imgs": ["https://ngsehj.github.io/portfolio/img/work03.jpg"]
+  },
+  {
+    "id": "3",
+    "type": "PC · Mobile Web",
+    "client": "한섬",
+    "title": "더 한섬닷컴 쇼핑몰 유지보수",
+    "time": "2016.02 ~ 2016.09",
+    "skill": "HTML, CSS, jQuery, Photoshop, SVN",
+    "rate": "100%",
+    "works": [
+      "- 쇼핑몰 유지보수 및 글로벌 사이트(모바일), 메인, 아울렛, 룩북, 비디오, 덱케 브랜드 메인, 인스타그램, 이벤트 페이지 등 신규 작업",
+      "- PC, Mobile웹 제작",
+      "- 한국어, 영문, 중국 총 3개 언어 사이트 작업",
+      "- 웹표준, IE8 포함 크로스 브라우징"
+    ],
+    "thumb": "https://ngsehj.github.io/portfolio/img/work02-2.jpg",
+    "imgs": ["https://ngsehj.github.io/portfolio/img/p02-2-pc.jpg", "https://ngsehj.github.io/portfolio/img/p02-2-m.jpg"]
+  },
+  {
+    "id": "2",
+    "type": "PC · Mobile Web",
+    "title": "더 한섬닷컴 쇼핑몰 신규 구축",
+    "client": "한섬",
+    "time": "2015.08 ~ 2016.01",
+    "skill": "HTML, CSS, jQuery, Photoshop, SVN",
+    "rate": "33%",
+    "works": [
+      "- 패션브랜드 한섬 소개 및 온라인 쇼핑몰로 구성된 사이트 신규 구축",
+      "- 글로벌 사이트(PC), 이벤트 템플릿, 푸터 메뉴 화면, 메일, CMS 페이지 담당",
+      "- PC, Mobile웹 제작",
+      "- 한국어, 영문, 중국 총 3개 언어 사이트 작업",
+      "- 웹표준, IE8 포함 크로스 브라우징"
+    ],
+    "thumb": "https://ngsehj.github.io/portfolio/img/p02-02.jpg",
+    "imgs": [
+      "https://ngsehj.github.io/portfolio/img/p02-01.jpg",
+      "https://ngsehj.github.io/portfolio/img/p02-02.jpg",
+      "https://ngsehj.github.io/portfolio/img/p02-03.jpg",
+      "https://ngsehj.github.io/portfolio/img/p02-04.jpg",
+      "https://ngsehj.github.io/portfolio/img/p02-05.jpg",
+      "https://ngsehj.github.io/portfolio/img/p02-06.jpg",
+      "https://ngsehj.github.io/portfolio/img/p02-07.jpg",
+      "https://ngsehj.github.io/portfolio/img/p02-m-01.jpg",
+      "https://ngsehj.github.io/portfolio/img/p02-m-02.jpg",
+      "https://ngsehj.github.io/portfolio/img/p02-m-03.jpg",
+      "https://ngsehj.github.io/portfolio/img/p02-m-04.jpg"
+    ]
+  },
+  {
+    "id": "1",
+    "type": "PC · Mobile Web",
+    "client": "GS리테일",
+    "title": "GS리테일 홈페이지 리뉴얼",
+    "time": "2015.04 ~ 2015.07",
+    "skill": "HTML, CSS, jQuery, Photoshop, SVN",
+    "rate": "25%",
+    "works": [
+      "- GS리테일, GS25, GS수퍼마켓, 왓슨스, POP카드 총 5개 홈페이지 리뉴얼 작업",
+      "- 푸터 메뉴 페이지와 서브 페이지 담당",
+      "- PC, Mobile웹 제작",
+      "- GS리테일 경우 한국어, 영문 총 2개 사이트 작업",
+      "- 웹표준, 웹접근성, IE8 포함 크로스브라우징"
+    ],
+    "thumb": "https://ngsehj.github.io/portfolio/img/work01.jpg",
+    "imgs": [
+      "https://ngsehj.github.io/portfolio/img/p01-pc.jpg",
+      "https://ngsehj.github.io/portfolio/img/p01-02.jpg",
+      "https://ngsehj.github.io/portfolio/img/p01-03.jpg",
+      "https://ngsehj.github.io/portfolio/img/p01-04.jpg",
+      "https://ngsehj.github.io/portfolio/img/p01-05.jpg",
+      "https://ngsehj.github.io/portfolio/img/p01-m.jpg",
+      "https://ngsehj.github.io/portfolio/img/p01-m-02.jpg",
+      "https://ngsehj.github.io/portfolio/img/p01-m-03.jpg"
+    ]
+  }
+]

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useScrollCalc, useScrollFadeIn, useScrollTranslate } from 'hooks';
+import { useScrollCalc, useScrollTranslate } from 'hooks';
 import { ScrollPageContext } from 'pages/home/Home';
 import RotateCircleButton from 'components/RotateCircleButton';
 
@@ -7,10 +7,10 @@ const SectionIntro = () => {
   const text = ['꾸준히 성장하는', '웹 퍼블리셔 이야기', 'Web Publisher', 'Portfolio'];
   const animatedElement = {
     heading: useScrollCalc('opacity', { start: 3, end: -1 }),
-    0: useScrollTranslate(1, 1.25),
-    1: useScrollTranslate(1, 1.2),
-    2: useScrollTranslate(1, 1.1),
-    3: useScrollTranslate(1, 1),
+    0: useScrollTranslate(1, 0.6),
+    1: useScrollTranslate(1, 0.5),
+    2: useScrollTranslate(1, 0.4),
+    3: useScrollTranslate(1, 0.3),
   };
 
   const scrollPageContext = useContext(ScrollPageContext);
