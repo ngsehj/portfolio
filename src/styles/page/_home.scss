@@ -31,8 +31,8 @@ $home-m-padding: 0 1rem;
   height: 100vh;
   max-height: 100vh;
   min-height: auto;
-  background: $dgray url('https://images.unsplash.com/photo-1633356122544-f134324a6cee') no-repeat;
-  background-attachment: fixed;
+  background: $dgray url('https://ngsehj.github.io/portfolio/img/bg-intro.jpeg.png') no-repeat;
+  // background-attachment: fixed;
   background-size: cover;
   background-position: left center;
   .btn-circle-rotate {
@@ -189,7 +189,6 @@ $home-m-padding: 0 1rem;
     @include photo(80%, 250px, 0);
     max-width: 250px;
     display: block;
-    border-radius: 50%;
     margin: 0 1rem 3rem;
     .hoverbox {
       z-index: 1;
@@ -239,7 +238,6 @@ $home-m-padding: 0 1rem;
     }
     .inflearn__item {
       padding-top: 300px;
-      border-radius: 0;
       &:not(:last-child) {
         margin: 0 2rem -5rem;
       }
