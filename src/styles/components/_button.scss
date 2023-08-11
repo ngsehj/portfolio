@@ -51,6 +51,7 @@
 
 /* top button */
 .btn-top {
+  z-index: 10;
   position: fixed;
   background-color: transparent;
   color: $lgray;
