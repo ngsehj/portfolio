@@ -32,7 +32,6 @@ $home-m-padding: 0 1rem;
   max-height: 100vh;
   min-height: auto;
   background: $dgray url('https://ngsehj.github.io/portfolio/img/bg-intro.jpeg') no-repeat;
-  background-attachment: fixed;
   background-size: cover;
   background-position: left center;
   .btn-circle-rotate {
@@ -85,6 +84,9 @@ $home-m-padding: 0 1rem;
         }
       }
     }
+  }
+  @include breakpoint(desktop) {
+    background-attachment: fixed;
   }
 }
 
