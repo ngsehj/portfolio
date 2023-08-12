@@ -14,7 +14,6 @@ const MarqueeItem = () => {
 };
 
 const SectionInflearn = () => {
-  const { targetRef } = useHoverOffset();
   const items = [
     {
       title: '만들면서 배우는 리액트 : 기초',
@@ -68,6 +67,14 @@ const SectionInflearn = () => {
     inflearn5: useScrollFadeIn('right', 2, 0.2, '15rem'),
     inflearn6: useScrollFadeIn('left', 2, 0.2, '15rem'),
     inflearn7: useScrollFadeIn('right', 2, 0.2, '15rem'),
+    hover0: useHoverOffset(),
+    hover1: useHoverOffset(),
+    hover2: useHoverOffset(),
+    hover3: useHoverOffset(),
+    hover4: useHoverOffset(),
+    hover5: useHoverOffset(),
+    hover6: useHoverOffset(),
+    hover7: useHoverOffset(),
   };
 
   return (
@@ -105,7 +112,7 @@ const SectionInflearn = () => {
               </li>
             ) : (
               <li className="inflearn__item cursor-clickable" key={idx} {...animatedElement[`inflearn${idx}`]}>
-                <a target="_blank" rel="noreferrer" ref={el => (targetRef.current[idx] = el)} href={item.url}>
+                <a target="_blank" rel="noreferrer" {...animatedElement[`hover${idx}`]} href={item.url}>
                   <img src={item.img} alt="인프런 썸네일" />
                   <div className="hoverbox">
                     <strong>{item.title}</strong>

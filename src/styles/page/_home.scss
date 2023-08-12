@@ -24,17 +24,15 @@ $home-m-padding: 0 1rem;
 
 .section-intro {
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
-  min-height: auto;
   background-color: $dgray;
   .section__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100vw;
     height: 100vh;
+    max-height: 100vh;
+    min-height: auto;
     background: url('https://ngsehj.github.io/portfolio/img/bg-intro.jpg') no-repeat;
     background-size: cover;
     background-position: left center;
@@ -237,7 +235,7 @@ $home-m-padding: 0 1rem;
       }
     }
   }
-  @include breakpoint(tablet) {
+  @include breakpoint(desktop) {
     .inflearn__bg {
       span {
         font-size: 5rem;

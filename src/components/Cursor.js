@@ -10,15 +10,6 @@ const Cursor = () => {
   let endX = useRef(0);
   let endY = useRef(0);
 
-  const onMouseMove = useCallback(({ clientX, clientY }) => {
-    setCoords({ x: clientX, y: clientY });
-    endX.current = clientX;
-    endY.current = clientY;
-  }, []);
-
-  const onMouseEnter = useCallback(() => setIsVisible(true), []);
-  const onMouseLeave = useCallback(() => setIsVisible(false), []);
-
   const animateCursor = useCallback(
     time => {
       if (previousTimeRef.current !== undefined) {
@@ -34,21 +25,22 @@ const Cursor = () => {
     [coords, requestRef],
   );
 
-  useEffect(() => {
-    requestRef.current = requestAnimationFrame(animateCursor);
-  }, [animateCursor]);
+  const onMouseEnter = useCallback(() => setIsVisible(true), []);
+  const onMouseLeave = useCallback(() => setIsVisible(false), []);
+  const onMouseMove = useCallback(({ clientX, clientY }) => {
+    setCoords({ x: clientX, y: clientY });
+    endX.current = clientX;
+    endY.current = clientY;
+  }, []);
 
-  useEffect(() => {
-    document.body.addEventListener('mouseenter', onMouseEnter);
-    document.body.addEventListener('mouseleave', onMouseLeave);
-    document.body.addEventListener('mousemove', onMouseMove);
-
-    return () => {
-      document.body.removeEventListener('mouseenter', onMouseEnter);
-      document.body.removeEventListener('mouseleave', onMouseLeave);
-      document.body.removeEventListener('mousemove', onMouseMove);
-    };
-  }, [onMouseEnter, onMouseLeave, onMouseMove]);
+  const onClickableMouseEnter = useCallback(() => {
+    cursorRef.current.classList.add('is-clickable');
+    setIsClickable(true);
+  }, []);
+  const onClickablMouseLeave = useCallback(() => {
+    cursorRef.current.classList.remove('is-clickable');
+    setIsClickable(false);
+  }, []);
 
   useEffect(() => {
     if (isVisible) {
@@ -59,27 +51,34 @@ const Cursor = () => {
   }, [isVisible]);
 
   useEffect(() => {
-    // const clickables = document.querySelectorAll('.cursor-clickable, ...');
-    const clickables = document.querySelectorAll('.cursor-clickable');
-
-    clickables.forEach(el => {
-      el.addEventListener('mouseover', () => {
-        setIsClickable(true);
-      });
-
-      el.addEventListener('mouseleave', () => {
-        setIsClickable(false);
-      });
-    });
-  });
+    requestRef.current = requestAnimationFrame(animateCursor);
+    return () => cancelAnimationFrame(requestRef.current);
+  }, [animateCursor]);
 
   useEffect(() => {
-    if (isClickable) {
-      cursorRef.current.classList.add('is-clickable');
-    } else {
-      cursorRef.current.classList.remove('is-clickable');
-    }
-  }, [isClickable]);
+    document.body.addEventListener('mouseenter', onMouseEnter);
+    document.body.addEventListener('mouseleave', onMouseLeave);
+    document.body.addEventListener('mousemove', onMouseMove);
+    return () => {
+      document.body.removeEventListener('mouseenter', onMouseEnter);
+      document.body.removeEventListener('mouseleave', onMouseLeave);
+      document.body.removeEventListener('mousemove', onMouseMove);
+    };
+  }, [onMouseEnter, onMouseLeave, onMouseMove]);
+
+  useEffect(() => {
+    const clickables = document.querySelectorAll('.cursor-clickable');
+    clickables.forEach(el => {
+      el.addEventListener('mouseover', onClickableMouseEnter);
+      el.addEventListener('mouseleave', onClickablMouseLeave);
+    });
+    return () => {
+      clickables.forEach(el => {
+        el.removeEventListener('mouseover', onClickableMouseEnter);
+        el.removeEventListener('mouseleave', onClickablMouseLeave);
+      });
+    };
+  }, [isClickable, onClickableMouseEnter, onClickablMouseLeave]);
 
   return <div className="cursor" ref={cursorRef} />;
 };

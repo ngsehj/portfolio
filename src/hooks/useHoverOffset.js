@@ -2,10 +2,11 @@ import { useCallback, useEffect, useRef } from 'react';
 import { isMobile } from 'react-device-detect';
 
 const useHoverOffset = () => {
-  const targetRef = useRef([]);
+  const element = useRef();
 
   const handleMouseenter = useCallback(e => {
-    const hover = e.target.querySelector('.hover');
+    const hover = element.current.querySelector('.hover');
+    // const hover = e.target.querySelector('.hover'); 위와 동일
     if (hover) {
       const pos = { x: e.offsetX, y: e.offsetY };
       hover.style.transform = `translate(${pos.x}px, ${pos.y}px) scale(100)`;
@@ -21,24 +22,20 @@ const useHoverOffset = () => {
   }, []);
 
   useEffect(() => {
-    if (isMobile) return null;
-
-    const targetRefs = targetRef.current;
-
-    targetRefs.forEach(target => {
+    if (!isMobile && element.current) {
+      const target = element.current;
       target.addEventListener('mouseenter', handleMouseenter);
       target.addEventListener('mouseleave', handleMouseleave);
-    });
-
-    return () => {
-      targetRefs.forEach(target => {
+      return () => {
         target.removeEventListener('mouseenter', handleMouseenter);
         target.removeEventListener('mouseleave', handleMouseleave);
-      });
-    };
+      };
+    }
   }, [handleMouseenter, handleMouseleave]);
 
-  return { targetRef };
+  return {
+    ref: element,
+  };
 };
 
 export default useHoverOffset;
