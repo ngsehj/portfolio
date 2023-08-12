@@ -60,14 +60,14 @@ const SectionInflearn = () => {
 
   const animatedElement = {
     sticky: useScrollCalc('width', { start: -0.5, end: 2.55 }, true),
-    inflearn0: useScrollFadeIn('left', 2, 0, '15rem'),
-    inflearn1: useScrollFadeIn('right', 2, 0, '15rem'),
-    inflearn2: useScrollFadeIn('left', 2, 0, '15rem'),
-    inflearn3: useScrollFadeIn('right', 2, 0, '15rem'),
-    inflearn4: useScrollFadeIn('left', 2, 0, '15rem'),
-    inflearn5: useScrollFadeIn('right', 2, 0, '15rem'),
-    inflearn6: useScrollFadeIn('left', 2, 0, '15rem'),
-    inflearn7: useScrollFadeIn('right', 2, 0, '15rem'),
+    inflearn0: useScrollFadeIn('left', 2, 0.2, '15rem'),
+    inflearn1: useScrollFadeIn('right', 2, 0.2, '15rem'),
+    inflearn2: useScrollFadeIn('left', 2, 0.2, '15rem'),
+    inflearn3: useScrollFadeIn('right', 2, 0.2, '15rem'),
+    inflearn4: useScrollFadeIn('left', 2, 0.2, '15rem'),
+    inflearn5: useScrollFadeIn('right', 2, 0.2, '15rem'),
+    inflearn6: useScrollFadeIn('left', 2, 0.2, '15rem'),
+    inflearn7: useScrollFadeIn('right', 2, 0.2, '15rem'),
   };
 
   return (

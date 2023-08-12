@@ -17,10 +17,10 @@
     ],
     "thumb": "https://ngsehj.github.io/portfolio/img/work09.jpg",
     "imgs": [
-      "https://ngsehj.github.io/portfolio/img/p09-01.png",
-      "https://ngsehj.github.io/portfolio/img/p09-02.png",
-      "https://ngsehj.github.io/portfolio/img/p09-03.png",
-      "https://ngsehj.github.io/portfolio/img/p09-04.png"
+      "https://ngsehj.github.io/portfolio/img/p09-01.jpg",
+      "https://ngsehj.github.io/portfolio/img/p09-02.jpg",
+      "https://ngsehj.github.io/portfolio/img/p09-03.jpg",
+      "https://ngsehj.github.io/portfolio/img/p09-04.jpg"
     ]
   },
   {
@@ -35,10 +35,10 @@
     "works": ["- GNB, 메인, 체험학습, 장바구니, 주문결제 화면과 이메일 템플릿 UI를 개선", "- 불안정한 화면 수정 및 UX 개선 작업", "- 반응형 UI 제작"],
     "thumb": "https://ngsehj.github.io/portfolio/img/work08.jpg",
     "imgs": [
-      "https://ngsehj.github.io/portfolio/img/p08-03.png",
-      "https://ngsehj.github.io/portfolio/img/p08-02.png",
-      "https://ngsehj.github.io/portfolio/img/p08-04.png",
-      "https://ngsehj.github.io/portfolio/img/p08-05.png"
+      "https://ngsehj.github.io/portfolio/img/p08-03.jpg",
+      "https://ngsehj.github.io/portfolio/img/p08-02.jpg",
+      "https://ngsehj.github.io/portfolio/img/p08-04.jpg",
+      "https://ngsehj.github.io/portfolio/img/p08-05.jpg"
     ]
   },
   {
@@ -91,10 +91,10 @@
     "works": ["- 전체 UI 개선 작업과 일부 서비스 추가 및 이벤트 페이지를 신규 제작", "- PC, Mobile웹을 따로 제작 하였으며 IE9 포함 크로스브라우징"],
     "thumb": "https://ngsehj.github.io/portfolio/img/work05.jpg",
     "imgs": [
-      "https://ngsehj.github.io/portfolio/img/p05-01.png",
-      "https://ngsehj.github.io/portfolio/img/p05-02.png",
-      "https://ngsehj.github.io/portfolio/img/p05-03.png",
-      "https://ngsehj.github.io/portfolio/img/p05-04.png"
+      "https://ngsehj.github.io/portfolio/img/p05-01.jpg",
+      "https://ngsehj.github.io/portfolio/img/p05-02.jpg",
+      "https://ngsehj.github.io/portfolio/img/p05-03.jpg",
+      "https://ngsehj.github.io/portfolio/img/p05-04.jpg"
     ]
   },
   {
@@ -107,7 +107,7 @@
     "rate": "100%",
     "works": ["- 게이트 메인, GNB, 멤버십, 케넥티드 서비스, 이벤트 화면 등 신규 제작", "- PC, Mobile웹 제작", "- 한국어, 영문, 중동 등 기존 사이트 유지보수", "- 웹표준, IE9 포함 크로스브라우징"],
     "thumb": "https://ngsehj.github.io/portfolio/img/work04.jpg",
-    "imgs": ["https://ngsehj.github.io/portfolio/img/p04.png"]
+    "imgs": ["https://ngsehj.github.io/portfolio/img/p04.jpg"]
   },
   {
     "id": "4",
