@@ -1,4 +1,4 @@
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useContext, useRef } from 'react';
 import { GlobalDataContext } from 'App';
 import { ScrollPageContext } from 'pages/home/Home';
@@ -10,7 +10,7 @@ import { useHoverTranslate } from 'hooks';
 
 const SectionWork = () => {
   const headingText = ['W', 'O', 'R', 'K'];
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const scrollPageContext = useContext(ScrollPageContext);
   const { workData } = useContext(GlobalDataContext);
   const modalRef = useRef(null);
@@ -25,14 +25,14 @@ const SectionWork = () => {
       <UstHeading words={headingText} />
       <div className="section__inner">
         <div className="work__list">
-          {/* <div className="work__item cursor-clickable uht-hover" {...animatedElement.hoverP} onClick={() => navigate('/portfolio/gsap')}>
+          <div className="work__item cursor-clickable uht-hover" {...animatedElement.hoverP} onClick={() => navigate('/portfolio/gsap')}>
             <div className="image">
               <LazyLoadImage src="https://ngsehj.github.io/portfolio/img/bg-intro.jpg" alt="portfolio" effect="opacity" />
             </div>
-            <span className="type">ResponsiveWeb</span>
+            <span className="type">Responsive Web</span>
             <strong className="heading">포트폴리오</strong>
             <span className="time">2023.07 ~ 2023.08</span>
-          </div> */}
+          </div>
           {workData.map(item => (
             <div
               className="work__item cursor-clickable"
@@ -81,8 +81,8 @@ const SectionWork = () => {
             }
           }}
         >
-          <div className="work__grid">
-            <div className="work__info">
+          <article className="work-detail">
+            <div className="work-detail__info">
               <p className="type">{selected.client}</p>
               <strong className="heading">{selected.title}</strong>
               <p className="desc">{selected.desc}</p>
@@ -95,7 +95,7 @@ const SectionWork = () => {
                 ))}
               </ul>
             </div>
-            <div className="work__photo">
+            <div className="work-detail__photo">
               {selected.imgs &&
                 selected.imgs.map((item, idx) => (
                   <div className="image" key={idx}>
@@ -103,7 +103,7 @@ const SectionWork = () => {
                   </div>
                 ))}
             </div>
-          </div>
+          </article>
         </ModalPortal>
       )}
     </section>

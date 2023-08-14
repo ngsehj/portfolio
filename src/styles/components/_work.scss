@@ -90,8 +90,8 @@
   }
 }
 
-.work__grid {
-  .work__info {
+.work-detail {
+  .work-detail__info {
     text-align: left;
     word-break: keep-all;
     .heading {
@@ -125,7 +125,7 @@
       margin-bottom: 0.5rem;
     }
   }
-  .work__photo {
+  .work-detail__photo {
     .image {
       text-align: center;
       background-color: $white;
@@ -139,10 +139,7 @@
   @include breakpoint(desktop) {
     display: flex;
     justify-content: space-between;
-    .work__wrap {
-      padding-top: 4rem;
-    }
-    .work__info {
+    .work-detail__info {
       @include scrollbar-default($dgray);
       overflow-y: auto;
       position: -webkit-sticky;
@@ -152,16 +149,14 @@
       height: calc(90vh - 6rem);
       padding-right: 2rem;
       margin-right: 2rem;
-
       .heading {
         font-size: 2rem;
       }
-
       .desc {
         font-size: 1.25rem;
       }
     }
-    .work__photo {
+    .work-detail__photo {
       width: 60%;
       .image {
         margin: 0 0 5rem;

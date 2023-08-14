@@ -45,7 +45,7 @@ const ModalPortal = ({ type, title, children, handleClose, handleFocusModal, mas
               {title}
             </strong>
           </header>
-          <section className="modal__content">{children}</section>
+          <div className="modal__content">{children}</div>
           {closeVisible && (
             <button type="button" className="modal-btn-close" aria-label="모달 닫기" onClick={handleClose} onKeyDown={handleFocusModal}>
               X

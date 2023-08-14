@@ -5,8 +5,9 @@ import Home from 'pages/home/Home';
 import Footer from 'components/Footer';
 import TopButton from 'components/TopButton';
 import Loading from 'components/Loading';
-// import Gsap from 'pages/gsap/Gsap';
+import Gsap from 'pages/gsap/Gsap';
 import Header from 'components/Header';
+import ScrollToTop from 'components/ScrollToTop';
 
 export const GlobalDataContext = React.createContext();
 
@@ -46,7 +47,7 @@ function App() {
       setWorkData(response);
       window.setTimeout(() => {
         setLoading(false);
-      }, 300);
+      }, 500);
     } catch (error) {
       window.alert(error);
     }
@@ -59,6 +60,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollToTop />
         <GlobalDataContext.Provider value={{ globalData, workData }}>
           {loading ? (
             <Loading loadingRef={loadingRef} />
@@ -67,7 +69,7 @@ function App() {
               <Header />
               <Routes>
                 <Route path="/portfolio" element={<Home />} />
-                {/* <Route path="/portfolio/gsap" element={<Gsap />} /> */}
+                <Route path="/portfolio/gsap" element={<Gsap />} />
               </Routes>
               <Footer />
             </>

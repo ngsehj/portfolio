@@ -24,8 +24,8 @@ const SectionIntro = () => {
 
   return (
     <section className="section section-intro">
+      <RotateCircleButton text="Go portfolio * Go Portfolio * Go Portfolio * * * * * * " handleClick={handleClick} />
       <div className="section__inner uht-hover" {...animatedElement.inner}>
-        <RotateCircleButton text="Go portfolio * Go Portfolio * Go Portfolio * * * * * * " handleClick={handleClick} />
         <h1 className="intro__heading" {...animatedElement.heading}>
           {text.map((item, idx) => (
             <div className="inner" key={idx}>

@@ -1,0 +1,134 @@
+.l-page-sub {
+  overflow-x: hidden;
+}
+
+.section-gsap:not(.section-slider-gsap) {
+  position: relative;
+  max-width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  .section__inner {
+    padding: $home-m-padding;
+    @include breakpoint(tablet) {
+      padding: $home-t-padding;
+    }
+    @include breakpoint(desktop) {
+      padding: $home-padding;
+    }
+  }
+}
+
+.section-gsap-intro {
+  background-color: $dgray;
+  color: $white;
+  .intro__heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .type {
+    opacity: 0;
+    z-index: 1;
+    position: relative;
+    color: $white;
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .heading {
+    opacity: 0;
+    z-index: 1;
+    position: relative;
+    color: $white;
+    font-size: 8vw;
+    margin-top: 1rem;
+    margin-bottom: -2rem;
+  }
+  dl {
+    opacity: 0;
+    width: 50%;
+    margin: 0 auto;
+  }
+  dt {
+    display: inline-block;
+    width: 10%;
+    color: $lgray;
+  }
+  dd {
+    display: inline-block;
+    width: 90%;
+    text-align: left;
+    margin: 0 0 2rem;
+  }
+  .image {
+    @include photo(100%, 100vh, 0);
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  img {
+    width: 80vw;
+    height: auto;
+  }
+}
+
+.section-gsap-slider {
+  width: 600vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  .heading {
+    font-size: 15vw;
+  }
+  .heading-sub {
+    font-size: 5vw;
+    line-height: 1.5;
+  }
+  .list {
+    border-top: 1px solid $dgray;
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 1px solid $line-color;
+    }
+  }
+  .panel {
+    padding: 0 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+  .box {
+    background-color: $line-color;
+    font-size: 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid $lgray;
+    border-radius: 0.5rem;
+  }
+}
+
+.lastContainer {
+  height: 100vh;
+}
+
+.lastContainer .panel {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel {
+  width: 100vw;
+  height: 100vh;
+}
