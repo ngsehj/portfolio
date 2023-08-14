@@ -33,7 +33,7 @@ $home-m-padding: 0 1rem;
     height: 100vh;
     max-height: 100vh;
     min-height: auto;
-    background: url('https://ngsehj.github.io/portfolio/img/bg-intro.jpg') no-repeat;
+    // background: url('https://ngsehj.github.io/portfolio/img/bg-intro.jpg') no-repeat;
     background-size: cover;
     background-position: left center;
     padding: 0;
@@ -55,7 +55,7 @@ $home-m-padding: 0 1rem;
     [class^='heading'] {
       position: relative;
       display: block;
-      color: $white;
+      color: $lgray;
       font-size: 0.75rem;
       font-weight: 400;
       text-align: left;
@@ -64,15 +64,13 @@ $home-m-padding: 0 1rem;
       &.heading2,
       &.heading3 {
         color: transparent;
-        font-family: 'Playfair Display', serif;
         font-size: 18vw;
         font-weight: 500;
-        font-style: italic;
         line-height: 1;
         letter-spacing: -0.4rem;
         text-transform: uppercase;
         transition: transform 0.5s ease;
-        -webkit-text-stroke: 1px $white;
+        -webkit-text-stroke: 0.0625rem $white;
       }
     }
   }
@@ -85,6 +83,7 @@ $home-m-padding: 0 1rem;
         &.heading3 {
           font-size: 12vw;
           letter-spacing: -0.5rem;
+          -webkit-text-stroke: 2px $white;
         }
       }
     }
@@ -194,8 +193,7 @@ $home-m-padding: 0 1rem;
     align-items: center;
   }
   .inflearn__item {
-    @include photo(80%, 250px, 0);
-    max-width: 250px;
+    @include photo(250px, 250px, 0);
     display: block;
     margin: 0 1rem 3rem;
     .hoverbox {
@@ -245,6 +243,7 @@ $home-m-padding: 0 1rem;
       align-items: baseline;
     }
     .inflearn__item {
+      width: 300px;
       padding-top: 300px;
       &:not(:last-child) {
         margin: 0 2rem -5rem;
@@ -330,10 +329,8 @@ $home-m-padding: 0 1rem;
       margin-right: -30%;
     }
     .text {
-      font-family: 'Playfair Display', serif;
       font-size: 10vh;
       font-weight: 700;
-      font-style: italic;
       line-height: 25vw;
       white-space: nowrap;
       opacity: 0.2;

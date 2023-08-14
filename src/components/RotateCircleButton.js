@@ -1,6 +1,11 @@
+import { useScrollFadeIn } from 'hooks';
+
 const RotateCircleButton = ({ text, handleClick }) => {
+  const animatedElement = {
+    button: useScrollFadeIn('no', 1, 0.3),
+  };
   return (
-    <button className="btn-circle-rotate" onClick={handleClick}>
+    <button className="btn-circle-rotate" onClick={handleClick} {...animatedElement.button}>
       <div className="rotate">
         <svg version="1.1" x="0px" y="0px" viewBox="0 0 268.6 268.7" space="preserve">
           <defs>
