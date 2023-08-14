@@ -11,7 +11,7 @@ const Loading = ({ loadingRef }) => {
   return (
     <div className="loading loading-rotation" ref={loadingRef}>
       <div className="loading__inner">
-        <span className="loader">LEEHYEJIN_P</span>
+        <span className="loader">E_HYEJIN_P</span>
         <span className="loader">RTF</span>
         <span className="loader">LI</span>
         <span>.JSX</span>

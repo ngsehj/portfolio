@@ -5,6 +5,8 @@ import Home from 'pages/home/Home';
 import Footer from 'components/Footer';
 import TopButton from 'components/TopButton';
 import Loading from 'components/Loading';
+// import Gsap from 'pages/gsap/Gsap';
+import Header from 'components/Header';
 
 export const GlobalDataContext = React.createContext();
 
@@ -62,8 +64,10 @@ function App() {
             <Loading loadingRef={loadingRef} />
           ) : (
             <>
+              <Header />
               <Routes>
                 <Route path="/portfolio" element={<Home />} />
+                {/* <Route path="/portfolio/gsap" element={<Gsap />} /> */}
               </Routes>
               <Footer />
             </>
