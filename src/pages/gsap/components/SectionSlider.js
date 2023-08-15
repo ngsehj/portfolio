@@ -8,22 +8,32 @@ const SectionSlider = () => {
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
       const pixelsPause = 300;
-      let panels = gsap.utils.toArray('.section-gsap-slider .panel');
+      let panels = gsap.utils.toArray('.section-slider .panel');
+
+      gsap.to(panels[0], {
+        color: '#fff',
+        backgroundColor: '#58b0ba',
+        scrollTrigger: {
+          trigger: panels[0],
+          start: 'bottom bottom',
+        },
+      });
+
       gsap.to(panels, {
         xPercent: -100 * (panels.length - 1),
         scrollTrigger: {
           trigger: sectionRef.current,
           scrub: true,
-          // snap: 1 / (panels.length - 1),
           start: `top+=${pixelsPause} top`,
           end: () => '+=' + window.innerWidth * panels.length,
-          markers: { startColor: 'fuchsia', endColor: 'fuchsia', indent: 200 },
+          // markers: { startColor: 'fuchsia', endColor: 'fuchsia', indent: 200 },
         },
       });
+
       ScrollTrigger.create({
         trigger: sectionRef.current,
+        backgroundColor: 'yellow',
         end: () => '+=' + (window.innerWidth * panels.length + pixelsPause),
-        markers: true,
         pin: true,
       });
     }, sectionRef);
@@ -31,48 +41,22 @@ const SectionSlider = () => {
   });
 
   return (
-    <section className="sectio-gsap section-gsap-slider" ref={sectionRef}>
+    <section className="section-gsap section-slider" ref={sectionRef}>
       <div className="panel">
-        <strong className="heading">Create React App</strong>
+        <strong className="heading">Animation</strong>
       </div>
       <div className="panel">
-        <strong className="heading-sub">Setting</strong>
-        <ul className="list">
-          <li>
-            <p>CRA로 프로젝트 생성하기</p>
-            <div className="box">npx create-react-app portfolio</div>
-          </li>
-          <li>
-            <p>절대 경로 및 gitignore 파일 설정</p>
-            <div className="box">jsconfig.json 및 .gitignore</div>
-          </li>
-          <li>
-            <p>react-router-dom 설치</p>
-            <div className="box">npm install --save react-router-dom</div>
-          </li>
-          <li>
-            <p>SASS 설치</p>
-            <div className="box">npm install --save node-sass</div>
-          </li>
-          <li>
-            <p>eslint 와 prettier를 연동</p>
-            <div className="box">npm i prettier eslint-config-prettier eslint-plugin-prettier -D</div>
-          </li>
-          <li>
-            <p>react-device-detect 설치</p>
-            <div className="box">npm install react-device-detect --save</div>
-          </li>
-          <li>
-            <p>react-lazy-load-image-component 설치</p>
-            <div className="box">npm i --save react-lazy-load-image-component</div>
-          </li>
-        </ul>
+        <strong className="heading-sub">React Custom Hooks</strong>
+        <p class="text-gsap">React Custom Hook으로 스크롤과 마우스 애니메이션을 재사용 가능하게 만들었습니다.</p>
+        <a className="link" href="https://github.com/jus0k/scroll-hooks" target="_blank" rel="noreferrer">
+          참고자료
+        </a>
+        <img src="https://ngsehj.github.io/portfolio/img/inflearn03.gif" alt="인프런 썸네일" />
       </div>
       <div className="panel">
-        <strong className="heading-sub">Animation</strong>
-      </div>
-      <div className="panel">
-        <strong className="heading-sub">Modal</strong>
+        <strong className="heading-sub">GSAP</strong>
+        <p className="text-gsap">GSAP ScrollTrigger, Timeline을 사용하여 애니메이션을 구현했습니다.</p>
+        <img src="https://ngsehj.github.io/portfolio/img/inflearn03.gif" alt="인프런 썸네일" />
       </div>
     </section>
   );

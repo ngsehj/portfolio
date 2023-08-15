@@ -157,10 +157,13 @@ $home-m-padding: 0 1rem;
       padding: 80px 0;
       .career__heading {
         width: 50%;
-        font-size: 56px;
+        font-size: 3.5rem;
+        padding-right: 2%;
+        box-sizing: border-box;
       }
       .career__info {
-        font-size: 32px;
+        width: 50%;
+        font-size: 2rem;
       }
     }
   }
@@ -249,7 +252,7 @@ $home-m-padding: 0 1rem;
       }
     }
   }
-  @include breakpoint(desktop) {
+  @include breakpoint(laptop) {
     .inflearn__bg {
       span {
         font-size: 5rem;
