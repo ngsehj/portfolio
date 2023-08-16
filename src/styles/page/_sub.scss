@@ -1,5 +1,8 @@
 .l-page-sub {
-  overflow-x: hidden;
+  .container {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
 }
 
 .gsap-section {
