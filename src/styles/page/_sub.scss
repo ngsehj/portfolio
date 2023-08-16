@@ -26,15 +26,9 @@
     font-size: 2rem;
     line-height: 1.5;
     margin-bottom: 1rem;
-    &:not(:first-of-type) {
-      margin-top: 5rem;
-    }
-    & + .gsap-heading-sub {
-      margin-top: 0;
-    }
   }
   .gsap-text {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     line-height: 1.5;
     word-break: keep-all;
     margin: 0 0 1.5rem;
@@ -51,11 +45,12 @@
       font-size: 1.25rem;
       line-height: 1.5;
       word-break: keep-all;
+      margin-bottom: 0.5rem;
     }
   }
   img {
     width: auto;
-    max-width: 100%;
+    max-width: 800px;
   }
   .is-show {
     opacity: 0;
@@ -148,7 +143,13 @@
 }
 
 .section-setting {
-  padding: 10vw 15vw;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 5rem;
+  box-sizing: border-box;
+  img {
+    margin-bottom: 5rem;
+  }
 }
 .setting__list {
   border-top: 1px solid $dgray;

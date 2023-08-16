@@ -34,7 +34,7 @@ const SectionIntro = () => {
   }, []);
 
   return (
-    <section className="section-gsap section-gsap-intro" ref={sectionRef}>
+    <section className="gsap-section gsap-section-intro" ref={sectionRef}>
       <div className="intro__heading">
         <span className="type">React</span>
         <h2 className="heading">Portfolio</h2>

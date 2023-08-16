@@ -22,7 +22,7 @@ const SectionWork = () => {
   const handleClose = useCallback(() => {
     setModalState(false);
     window.setTimeout(() => modalOpenRefs.current[selected.id].focus());
-  }, [setModalState]);
+  }, [setModalState, selected]);
 
   const handleOpen = useCallback(
     item => {
@@ -30,7 +30,7 @@ const SectionWork = () => {
       setModalState(true);
       window.setTimeout(() => modalRef.current.focus());
     },
-    [setModalState],
+    [setModalState, setSelected],
   );
 
   return (

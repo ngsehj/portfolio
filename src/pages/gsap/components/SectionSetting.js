@@ -105,7 +105,10 @@ const SectionSetting = () => {
         <img className="is-show" src="https://ngsehj.github.io/portfolio/img/code-modal02.jpg" alt="react modal component code" />
 
         <strong className="gsap-heading-sub is-show">focus & keydown</strong>
-        <p className="gsap-text is-show">모달을 열었을 때 모달 컴포넌트로 포커스 설정</p>
+        <ul className="gsap-text__list is-show">
+          <li>- 모달을 열었을 때 모달 컴포넌트로 포커스 설정</li>
+          <li>- 모달을 닫았을 때 focus를 모달을 열었던 버튼으로 설정</li>
+        </ul>
         <img className="is-show" src="https://ngsehj.github.io/portfolio/img/code-modal03.jpg" alt="react modal component code" />
 
         <ul className="gsap-text__list is-show">
@@ -114,11 +117,8 @@ const SectionSetting = () => {
         </ul>
         <img className="is-show" src="https://ngsehj.github.io/portfolio/img/code-modal04.jpg" alt="react modal component code" />
 
-        <p className="gsap-text is-show">모달을 닫았을 때 focus를 모달을 열었던 버튼으로 설정</p>
-        <img className="is-show" src="https://ngsehj.github.io/portfolio/img/code-modal05.jpg" alt="react modal component code" />
-
         <p className="gsap-text is-show">ESC 키를 누르면 모달이 닫힘</p>
-        <img className="is-show" src="https://ngsehj.github.io/portfolio/img/code-modal06.jpg" alt="react modal component code" />
+        <img className="is-show" src="https://ngsehj.github.io/portfolio/img/code-modal05.jpg" alt="react modal component code" />
       </section>
     </>
   );
