@@ -214,7 +214,7 @@ $home-m-padding: 0 1rem;
     align-items: center;
   }
   .inflearn__item {
-    @include photo(250px, 250px, 0);
+    @include thumbnail(250px, 250px, 0);
     display: block;
     margin: 0 1rem 3rem;
     .hoverbox {

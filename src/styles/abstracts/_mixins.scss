@@ -22,7 +22,7 @@
   }
 }
 
-@mixin photo($width, $height: $width, $radius: 50%) {
+@mixin thumbnail($width, $height: $width, $radius: 50%) {
   overflow: hidden;
   position: relative;
   display: inline-block;
@@ -30,6 +30,7 @@
   padding-top: $height;
   border-radius: $radius;
   vertical-align: middle;
+  video,
   img {
     position: absolute;
     left: 50%;

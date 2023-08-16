@@ -27,7 +27,7 @@
     }
   }
   .image {
-    @include photo(100%, 60%, 0);
+    @include thumbnail(100%, 60%, 0);
     &::after {
       content: '';
       position: absolute;

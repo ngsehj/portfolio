@@ -53,13 +53,20 @@ const SectionSlider = () => {
             참고
           </a>
         </p>
-
-        <img src="https://ngsehj.github.io/portfolio/img/code-modal05.jpg" alt="인프런 썸네일" />
+        <div className="video">
+          <div className="video__inner">
+            <video src="https://ngsehj.github.io/portfolio/img/video01.mp4" autoPlay playsInline loop muted></video>
+          </div>
+        </div>
       </div>
       <div className="panel">
         <strong className="gsap-heading">GSAP</strong>
-        <p className="gsap-text">react-gsap를 적용후 ScrollTrigger, Timeline을 사용하여 애니메이션을 구현했습니다.</p>
-        <img src="https://ngsehj.github.io/portfolio/img/code-modal05.jpg" alt="인프런 썸네일" />
+        <p className="gsap-text">react-gsap 패키지 설치 후 ScrollTrigger, Timeline을 사용하여 애니메이션을 구현했습니다.</p>
+        <div className="video">
+          <div className="video__inner">
+            <video src="https://ngsehj.github.io/portfolio/img/video02.mp4" autoPlay playsInline loop muted></video>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -60,7 +60,6 @@
   }
   .is-show {
     opacity: 0;
-    transform: translate(-3rem, 0);
   }
   @include breakpoint(tablet) {
     .gsap-heading {
@@ -113,7 +112,7 @@
     font-size: 4rem;
   }
   .image {
-    @include photo(100%, 100vh, 0);
+    @include thumbnail(100%, 100vh, 0);
     position: absolute;
     left: 0;
     top: 0;
@@ -174,10 +173,13 @@
   align-items: center;
   padding: 0 5%;
   .heading {
-    font-size: 12vw;
+    font-size: 20vw;
   }
   @include breakpoint(tablet) {
     padding: 0 15%;
+    .heading {
+      font-size: 12vw;
+    }
   }
 }
 
@@ -321,7 +323,7 @@
   display: flex;
   flex-wrap: wrap;
   .heading {
-    font-size: 12vw;
+    font-size: 15vw;
     align-self: center;
   }
   .heading-sub {
@@ -336,10 +338,25 @@
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    padding: 0 10vw;
+    padding: $home-m-padding;
     box-sizing: border-box;
-    &:not(:first-of-type) {
-      padding: 0 20vw;
+  }
+  .video {
+    .video__inner {
+      @include thumbnail(100%, 56.25%, 0);
+    }
+  }
+  @include breakpoint(tablet) {
+    .panel {
+      padding: $home-padding;
+    }
+  }
+  @include breakpoint(desktop) {
+    .panel {
+      padding: 0 10vw;
+    }
+    .video {
+      width: 800px;
     }
   }
 }

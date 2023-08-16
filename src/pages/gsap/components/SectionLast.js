@@ -20,7 +20,7 @@ const SectionLast = () => {
           if (e.key === 'Enter' || e.key === ' ') goHome();
         }}
       >
-        🏠 Go Home
+        🏠 홈으로 가기
       </button>
     </section>
   );
