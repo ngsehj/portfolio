@@ -38,11 +38,11 @@ const SectionSetting = () => {
 
   return (
     <>
-      <section className="section-gsap section-heading" ref={sectionRef}>
+      <section className="gsap-section section-heading" ref={sectionRef}>
         <strong className="heading">Create React App</strong>
       </section>
-      <section className="section-gsap section-setting" ref={pinRef}>
-        <strong className="heading-gsap is-show" ref={headingRef}>
+      <section className="gsap-section section-setting" ref={pinRef}>
+        <strong className="gsap-heading is-show" ref={headingRef}>
           Setting
         </strong>
         <ul className="setting__list is-show">
@@ -75,7 +75,7 @@ const SectionSetting = () => {
             <div className="box">npm i --save react-lazy-load-image-component</div>
           </li>
         </ul>
-        <strong className="heading-gsap is-show">Directory</strong>
+        <strong className="gsap-heading is-show">Directory</strong>
         <div className="folder is-show">
           <h4 className="heading-folder">📂 public</h4>
           <ul className="folder__list">
@@ -90,13 +90,35 @@ const SectionSetting = () => {
           </ul>
         </div>
 
-        <strong className="heading-gsap is-show">Modal Component</strong>
-        <p className="text-gsap is-show">Portal을 사용하여 Modal component를 부모 컴포넌트 바깥으로 렌더링 해주었습니다.</p>
+        <strong className="gsap-heading is-show">Modal Component</strong>
+        <p className="gsap-heading-sub is-show">1. React portal을 사용했습니다.</p>
+        <p className="gsap-text is-show">React portal을 사용하여 Modal component를 부모 컴포넌트 바깥으로 렌더링 해주었습니다.</p>
         <img className="is-show" src="https://ngsehj.github.io/portfolio/img/code-modal01.jpg" alt="react modal component code" />
-        <br />
-        <br />
-        <p className="text-gsap is-show">Modal의 웹 접근성을 고려했습니다.</p>
+
+        <p className="gsap-heading-sub is-show">2. Modal component의 접근성을 높였습니다.</p>
+        <p className="gsap-heading-sub is-show">Attributes</p>
+        <ul className="gsap-text__list is-show">
+          <li>- ARIA Attributes 설정</li>
+          <li>- role="dialog" : 모달의 역할을 명시</li>
+          <li>- tabIndex="0" : 기본적으로 focus를 받을 수 없는 요소에 받을 수 있게 처리</li>
+        </ul>
         <img className="is-show" src="https://ngsehj.github.io/portfolio/img/code-modal02.jpg" alt="react modal component code" />
+
+        <strong className="gsap-heading-sub is-show">focus & keydown</strong>
+        <p className="gsap-text is-show">모달을 열었을 때 모달 컴포넌트로 포커스 설정</p>
+        <img className="is-show" src="https://ngsehj.github.io/portfolio/img/code-modal03.jpg" alt="react modal component code" />
+
+        <ul className="gsap-text__list is-show">
+          <li>- 모달 컴포넌트에서 shitf + tab 눌렀을 때 닫기 버튼 포커스로 이동</li>
+          <li>- tab키로 모달 내부 탐색 순환</li>
+        </ul>
+        <img className="is-show" src="https://ngsehj.github.io/portfolio/img/code-modal04.jpg" alt="react modal component code" />
+
+        <p className="gsap-text is-show">모달을 닫았을 때 focus를 모달을 열었던 버튼으로 설정</p>
+        <img className="is-show" src="https://ngsehj.github.io/portfolio/img/code-modal05.jpg" alt="react modal component code" />
+
+        <p className="gsap-text is-show">ESC 키를 누르면 모달이 닫힘</p>
+        <img className="is-show" src="https://ngsehj.github.io/portfolio/img/code-modal06.jpg" alt="react modal component code" />
       </section>
     </>
   );

@@ -1,31 +1,51 @@
 import { useNavigate } from 'react-router-dom';
-import { useContext, useRef } from 'react';
+import { useContext, useRef, useCallback } from 'react';
 import { GlobalDataContext } from 'App';
 import { ScrollPageContext } from 'pages/home/Home';
 import UstHeading from 'components/UstHeading';
 import ModalPortal, { useModalWithData } from 'components/ModalPortal';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
-import { useHoverTranslate } from 'hooks';
 
 const SectionWork = () => {
-  const headingText = ['W', 'O', 'R', 'K'];
   const navigate = useNavigate();
+  const headingText = ['W', 'O', 'R', 'K'];
   const scrollPageContext = useContext(ScrollPageContext);
   const { workData } = useContext(GlobalDataContext);
+
   const modalRef = useRef(null);
   const modalOpenRefs = useRef([]);
   const { modalOpen, selected, setSelected, setModalState } = useModalWithData();
-  const animatedElement = {
-    hoverP: useHoverTranslate(),
-  };
+
+  const goGsapPage = () => navigate('/portfolio/gsap');
+
+  const handleClose = useCallback(() => {
+    setModalState(false);
+    window.setTimeout(() => modalOpenRefs.current[selected.id].focus());
+  }, [setModalState]);
+
+  const handleOpen = useCallback(
+    item => {
+      setSelected(item);
+      setModalState(true);
+      window.setTimeout(() => modalRef.current.focus());
+    },
+    [setModalState],
+  );
 
   return (
     <section className="section section-work" ref={scrollPageContext.sectionWorkRef}>
       <UstHeading words={headingText} />
       <div className="section__inner">
         <div className="work__list">
-          <div className="work__item cursor-clickable uht-hover" {...animatedElement.hoverP} onClick={() => navigate('/portfolio/gsap')}>
+          <div
+            className="work__item cursor-clickable uht-hover"
+            tabIndex={0}
+            onClick={goGsapPage}
+            onKeyDown={e => {
+              if (e.key === 'Enter' || e.key === ' ') goGsapPage();
+            }}
+          >
             <div className="image">
               <LazyLoadImage src="https://ngsehj.github.io/portfolio/img/bg-intro.jpg" alt="portfolio" effect="opacity" />
             </div>
@@ -38,19 +58,13 @@ const SectionWork = () => {
               className="work__item cursor-clickable"
               key={item.title}
               ref={el => (modalOpenRefs.current[item.id] = el)}
+              aria-haspopup="true"
               role="button"
               tabIndex={0}
-              {...animatedElement[`hover${item.id}`]}
-              onClick={() => {
-                setSelected(item);
-                setModalState(true);
-                window.setTimeout(() => modalRef.current.focus());
-              }}
+              onClick={() => handleOpen(item)}
               onKeyDown={e => {
-                if (e.key === 'Enter' || e.keyCode === 32) {
-                  setSelected(item);
-                  setModalState(true);
-                  window.setTimeout(() => modalRef.current.focus());
+                if (e.key === 'Enter' || e.key === ' ') {
+                  handleOpen(item);
                 }
               }}
             >
@@ -66,21 +80,7 @@ const SectionWork = () => {
       </div>
 
       {modalOpen && (
-        <ModalPortal
-          type="up"
-          title={selected.title}
-          modalRef={modalRef}
-          handleClose={() => {
-            setModalState(false);
-            window.setTimeout(() => modalOpenRefs.current[selected.id].focus());
-          }}
-          handleFocusModal={e => {
-            if (!e.shiftKey && e.keyCode === 9) {
-              e.preventDefault();
-              window.setTimeout(() => modalRef.current.focus());
-            }
-          }}
-        >
+        <ModalPortal type="up" title={selected.title} modalRef={modalRef} handleClose={handleClose} modalOpen={modalOpen} setModalState={setModalState}>
           <article className="work-detail">
             <div className="work-detail__info">
               <p className="type">{selected.client}</p>
