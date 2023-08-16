@@ -11,7 +11,7 @@ const SectionIntro = () => {
     tl.to('.image', { y: 0, opacity: 0.3, scale: 0.6, ease: Power3, duration: 0.7, delay: 0.5 });
     tl.to('.type', { y: -20, opacity: 1, ease: Elastic });
     tl.to('.heading', { y: -20, opacity: 1, ease: Elastic }, '-=0.3');
-    tl.to('dl', { y: -100, opacity: 1, ease: Elastic }, '<');
+    tl.to('dl', { yPercent: -30, opacity: 1, ease: Elastic }, '<');
 
     let ctx = gsap.context(() => {
       gsap.to(sectionRef.current, {

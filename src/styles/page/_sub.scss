@@ -6,7 +6,7 @@
   &:not(.gsap-section-intro) {
     background-color: $bg-color;
   }
-  &:not(.section-slider) {
+  &:not(.gsap-section-slider) {
     position: relative;
     max-width: 100vw;
     min-height: 100vh;
@@ -14,27 +14,28 @@
   }
   .gsap-heading {
     display: block;
-    font-size: 5rem;
+    font-size: 2rem;
     line-height: 1.5;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     &:not(:first-of-type) {
-      margin-top: 10rem;
+      margin-top: 5rem;
     }
   }
   .gsap-heading-sub {
     display: block;
-    font-size: 2rem;
+    font-size: 1.25rem;
     line-height: 1.5;
+    word-break: keep-all;
     margin-bottom: 1rem;
   }
   .gsap-text {
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 1.5;
     word-break: keep-all;
     margin: 0 0 1.5rem;
     a {
       color: $primary-color;
-      font-size: 1.25rem;
+      font-size: inherit;
       text-decoration: underline;
       margin-left: 0.25rem;
     }
@@ -42,23 +43,42 @@
   .gsap-text__list {
     margin-bottom: 1.5rem;
     li {
-      font-size: 1.25rem;
+      font-size: 1rem;
       line-height: 1.5;
       word-break: keep-all;
+      text-indent: -1rem;
+      padding-left: 1rem;
       margin-bottom: 0.5rem;
     }
   }
   img {
     width: auto;
-    max-width: 800px;
+    max-width: 100%;
   }
   .is-show {
     opacity: 0;
-    transform: translate(0, 3rem);
+    transform: translate(-3rem, 0);
   }
-  @include breakpoint(laptop) {
-    .is-show {
-      transform: translate(0, 5rem);
+  @include breakpoint(tablet) {
+    .gsap-heading {
+      font-size: 5rem;
+      margin-bottom: 3rem;
+      &:not(:first-of-type) {
+        margin-top: 10rem;
+      }
+    }
+    .gsap-heading-sub {
+      font-size: 2rem;
+    }
+    .gsap-text {
+      font-size: 1.25rem;
+    }
+    .gsap-text__list {
+      li {
+        font-size: 1.25rem;
+        text-indent: -1.25rem;
+        padding-left: 1.25rem;
+      }
     }
   }
 }
@@ -66,7 +86,6 @@
 .gsap-section-intro {
   background-color: $dgray;
   color: $white;
-  padding-bottom: 5rem;
   .intro__heading {
     display: flex;
     flex-direction: column;
@@ -79,10 +98,8 @@
     z-index: 1;
     position: relative;
     color: $white;
-    font-size: 6vw;
+    font-size: 1.5rem;
     font-weight: 500;
-    -webkit-text-stroke: 1px $dgray;
-    text-shadow: 0.25rem 0.25rem $dgray;
     margin-bottom: 1rem;
   }
   .heading {
@@ -90,9 +107,7 @@
     z-index: 1;
     position: relative;
     color: $white;
-    font-size: 12vw;
-    text-shadow: 0.25rem 0.25rem $dgray;
-    -webkit-text-stroke: 1px $dgray;
+    font-size: 4rem;
   }
   .image {
     @include photo(100%, 100vh, 0);
@@ -101,64 +116,96 @@
     top: 0;
     transform: translate(0, 0) scale(1);
     opacity: 1;
-    img {
-      width: 80vw;
-      height: auto;
-    }
   }
   .intro__inner {
     opacity: 0;
-    width: 90%;
-    margin: 0 auto;
-    @include breakpoint(desktop) {
-      width: 70%;
-    }
+    padding: $home-m-padding;
   }
   dt,
   dd {
-    display: inline-block;
-    font-size: 1.25rem;
+    display: block;
     text-align: left;
     line-height: 1.5;
     word-break: keep-all;
-    margin: 0 0 2rem;
-    vertical-align: middle;
   }
   dt {
     color: $lgray;
-    width: 20%;
+    font-size: 0.75rem;
+    padding: 0 0 0.5rem;
   }
   dd {
-    width: 80%;
+    font-size: 1rem;
+    padding: 0 0 1rem;
+  }
+  @include breakpoint(tablet) {
+    .type {
+      font-size: 6vw;
+    }
+    .heading {
+      font-size: 12vw;
+    }
+    .intro__inner {
+      width: 70%;
+      margin: 0 auto;
+    }
+    dt,
+    dd {
+      display: inline-block;
+      font-size: 1.25rem;
+      padding: 0 0 2rem;
+      vertical-align: middle;
+    }
+    dt {
+      width: 20%;
+    }
+    dd {
+      width: 80%;
+      padding-left: 2rem;
+      box-sizing: border-box;
+    }
   }
 }
 
-.section-heading {
+.gsap-section-heading {
   display: flex;
   align-items: center;
-  padding: 0 10vw;
+  padding: 0 5%;
   .heading {
-    font-size: 10vw;
+    font-size: 12vw;
+  }
+  @include breakpoint(tablet) {
+    padding: 0 15%;
   }
 }
 
-.section-setting {
-  width: 1200px;
-  margin: 0 auto;
-  padding: 5rem;
+.gsap-section-setting {
+  padding: $home-m-padding;
+  padding-top: 3rem;
   box-sizing: border-box;
   img {
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
+  }
+  @include breakpoint(tablet) {
+    padding: $home-padding;
+    padding-top: 5rem;
+    img {
+      max-width: 640px;
+      margin-bottom: 8rem;
+    }
+  }
+  @include breakpoint(desktop) {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 5rem 0;
   }
 }
+
 .setting__list {
   border-top: 1px solid $dgray;
   li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.25rem;
-    padding: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 1rem 0.5rem;
     border-bottom: 1px solid $line-color;
   }
   .box {
@@ -167,69 +214,111 @@
     padding: 0.75rem;
     border: 1px solid $lgray;
     border-radius: 0.5rem;
+    margin: 0.5rem 0 0;
   }
-}
-.folder {
-  border-left: 1px solid $dgray;
-}
-.heading-folder {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  &::before {
-    content: '';
-    display: inline-block;
-    width: 2rem;
-    height: 1px;
-    background-color: $dgray;
-    border-radius: 50%;
-    margin-right: 0.5rem;
-    vertical-align: middle;
-  }
-}
-.folder__list {
-  margin-left: 3.5rem;
-  margin-bottom: 2rem;
-  li {
-    position: relative;
-    font-size: 1.25rem;
-    line-height: 2;
-    padding-left: 3rem;
-    text-indent: -3rem;
-    &:not(:last-child) {
-      margin-bottom: 0.5rem;
+  @include breakpoint(tablet) {
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.25rem;
+      padding: 1.25rem;
     }
-    &::before {
-      content: '';
-      display: inline-block;
-      width: 1rem;
-      height: 1px;
-      background-color: $dgray;
-      border-radius: 50%;
-      margin-right: 0.5rem;
-      vertical-align: middle;
-    }
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: -1.6rem;
-      display: inline-block;
-      width: 1px;
-      height: 3rem;
-      background-color: $dgray;
-      border-radius: 50%;
-      margin-right: 0.5rem;
+    .box {
+      max-width: 50%;
+      margin: 0 0 0 1rem;
     }
   }
 }
 
-.section-slider {
+.folder {
+  border-left: 1px solid $dgray;
+  .heading-folder {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 0.5rem;
+      height: 1px;
+      background-color: $dgray;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+  }
+  .folder__list {
+    position: relative;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -0.7rem;
+      display: inline-block;
+      width: 1px;
+      height: 100%;
+      background-color: $dgray;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+    }
+    li {
+      position: relative;
+      font-size: 1rem;
+      line-height: 1.5;
+      padding-left: 1.5rem;
+      text-indent: -1.5rem;
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 0.5rem;
+        height: 1px;
+        background-color: $dgray;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        vertical-align: middle;
+      }
+    }
+  }
+  @include breakpoint(tablet) {
+    margin-left: 3.5rem;
+    margin-bottom: 2rem;
+    .heading-folder {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      &::before {
+        width: 2rem;
+      }
+    }
+    .folder__list {
+      margin-left: 3.5rem;
+      margin-bottom: 2rem;
+      &::after {
+        top: -1.2rem;
+      }
+      li {
+        font-size: 1.25rem;
+        line-height: 2;
+        padding-left: 3rem;
+        text-indent: -3rem;
+        &::before {
+          width: 2rem;
+        }
+      }
+    }
+  }
+}
+
+.gsap-section-slider {
   width: 600vw;
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
   .heading {
-    font-size: 10vw;
+    font-size: 12vw;
     align-self: center;
   }
   .heading-sub {
@@ -248,6 +337,26 @@
     box-sizing: border-box;
     &:not(:first-of-type) {
       padding: 0 20vw;
+    }
+  }
+}
+
+.gsap-section-last {
+  background: linear-gradient(180deg, #fcfafb 0%, white 30%);
+  padding: 10rem 5rem;
+  text-align: center;
+  .btn-back {
+    width: 15rem;
+    height: 4rem;
+    background-color: transparent;
+    color: $primary-color;
+    font-size: 1.5rem;
+    border: 1px solid $primary-color;
+    border-radius: 4rem;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: $primary-color;
+      color: $white;
     }
   }
 }

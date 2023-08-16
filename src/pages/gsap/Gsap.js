@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import SectionIntro from 'pages/gsap/components/SectionIntro';
 import SectionSlider from 'pages/gsap/components/SectionSlider';
 import SectionSetting from 'pages/gsap/components/SectionSetting';
+import SectionLast from './components/SectionLast';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,6 +23,7 @@ const Gsap = () => {
       <SectionIntro />
       <SectionSetting />
       <SectionSlider />
+      <SectionLast />
     </article>
   );
 };

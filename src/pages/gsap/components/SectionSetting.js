@@ -25,8 +25,8 @@ const SectionSetting = () => {
     gsap.utils.toArray('.is-show').forEach(item => {
       gsap.to(item, {
         opacity: 1,
-        y: 0,
-        delay: 0.2,
+        x: 0,
+        delay: 0.1,
         scrollTrigger: {
           trigger: item,
         },
@@ -38,10 +38,10 @@ const SectionSetting = () => {
 
   return (
     <>
-      <section className="gsap-section section-heading" ref={sectionRef}>
+      <section className="gsap-section gsap-section-heading" ref={sectionRef}>
         <strong className="heading">Create React App</strong>
       </section>
-      <section className="gsap-section section-setting" ref={pinRef}>
+      <section className="gsap-section gsap-section-setting" ref={pinRef}>
         <strong className="gsap-heading is-show" ref={headingRef}>
           Setting
         </strong>
@@ -91,8 +91,8 @@ const SectionSetting = () => {
         </div>
 
         <strong className="gsap-heading is-show">Modal Component</strong>
-        <p className="gsap-heading-sub is-show">1. React portal을 사용했습니다.</p>
-        <p className="gsap-text is-show">React portal을 사용하여 Modal component를 부모 컴포넌트 바깥으로 렌더링 해주었습니다.</p>
+        <p className="gsap-heading-sub  is-show">1. React portal을 사용했습니다.</p>
+        <p className="gsap-text  is-show">React portal을 사용하여 Modal component를 부모 컴포넌트 바깥으로 렌더링 해주었습니다.</p>
         <img className="is-show" src="https://ngsehj.github.io/portfolio/img/code-modal01.jpg" alt="react modal component code" />
 
         <p className="gsap-heading-sub is-show">2. Modal component의 접근성을 높였습니다.</p>
