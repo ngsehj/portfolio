@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const navigate = useNavigate();
-  const goHome = () => navigate('/portfolio');
+  const goHome = () => navigate('/');
 
   const animatedElement = {
     logo: useHoverTranslate(),

@@ -17,7 +17,7 @@ const SectionWork = () => {
   const modalOpenRefs = useRef([]);
   const { modalOpen, selected, setSelected, setModalState } = useModalWithData();
 
-  const goGsapPage = () => navigate('/portfolio/gsap');
+  const goGsapPage = () => navigate('/gsap');
 
   const handleClose = useCallback(() => {
     setModalState(false);

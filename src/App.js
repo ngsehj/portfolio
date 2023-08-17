@@ -1,6 +1,6 @@
 import './App.scss';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import Home from 'pages/home/Home';
 import Footer from 'components/Footer';
 import TopButton from 'components/TopButton';
@@ -59,7 +59,8 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      {/* github pages에서 BrowswerRouter 보다 HashRouter를 권장 */}
+      <HashRouter>
         <ScrollToTop />
         <GlobalDataContext.Provider value={{ globalData, workData }}>
           {loading ? (
@@ -68,15 +69,15 @@ function App() {
             <>
               <Header />
               <Routes>
-                <Route path="/portfolio" element={<Home />} />
-                <Route path="/portfolio/gsap" element={<Gsap />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/gsap" element={<Gsap />} />
               </Routes>
               <Footer />
             </>
           )}
           <TopButton />
         </GlobalDataContext.Provider>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }

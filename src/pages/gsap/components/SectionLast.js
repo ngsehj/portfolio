@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const SectionLast = () => {
   const navigate = useNavigate();
-  const goHome = () => navigate('/portfolio');
+  const goHome = () => navigate('/');
 
   const animatedElement = {
     button: useHoverTranslate(),
