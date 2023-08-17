@@ -33,6 +33,12 @@ const Cursor = () => {
     endY.current = clientY;
   }, []);
 
+  const onInit = useCallback(() => {
+    if (!isVisible) {
+      cursorRef.current.style.opacity = 1;
+    }
+  }, []);
+
   const onClickableMouseEnter = useCallback(() => {
     cursorRef.current.classList.add('is-clickable');
     setIsClickable(true);
@@ -43,12 +49,11 @@ const Cursor = () => {
   }, []);
 
   useEffect(() => {
-    if (isVisible) {
-      cursorRef.current.style.opacity = 1;
-    } else {
-      cursorRef.current.style.opacity = 0;
-    }
-  }, [isVisible]);
+    document.body.addEventListener('mouseenter', onInit);
+    return () => {
+      document.body.removeEventListener('mouseenter', onInit);
+    };
+  }, []);
 
   useEffect(() => {
     requestRef.current = requestAnimationFrame(animateCursor);

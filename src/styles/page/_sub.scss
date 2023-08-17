@@ -18,7 +18,7 @@
   .gsap-heading {
     display: block;
     font-size: 2rem;
-    line-height: 1.5;
+    line-height: 1.2;
     margin-bottom: 2rem;
     &:not(:first-of-type) {
       margin-top: 5rem;
@@ -186,22 +186,20 @@
 .gsap-section-setting {
   padding: $home-m-padding;
   padding-top: 3rem;
+  padding-bottom: 5rem;
   box-sizing: border-box;
-  img {
-    margin-bottom: 4rem;
-  }
   @include breakpoint(tablet) {
     padding: $home-padding;
     padding-top: 5rem;
+    padding-bottom: 5rem;
     img {
       max-width: 640px;
-      margin-bottom: 8rem;
     }
   }
   @include breakpoint(desktop) {
     width: 1200px;
     margin: 0 auto;
-    padding: 5rem 5rem 0;
+    padding: 5rem;
   }
 }
 
