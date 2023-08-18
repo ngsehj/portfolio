@@ -188,12 +188,20 @@
   padding-top: 3rem;
   padding-bottom: 5rem;
   box-sizing: border-box;
+  .image {
+    @include thumbnail(100%, 10rem, 0);
+    background-color: $dgray;
+    margin-bottom: 5rem;
+    img {
+      object-fit: contain;
+    }
+  }
   @include breakpoint(tablet) {
     padding: $home-padding;
     padding-top: 5rem;
     padding-bottom: 5rem;
-    img {
-      max-width: 640px;
+    .image {
+      padding-top: 30rem;
     }
   }
   @include breakpoint(desktop) {
@@ -349,7 +357,7 @@
       padding: $home-padding;
     }
   }
-  @include breakpoint(desktop) {
+  @include breakpoint(laptop) {
     .panel {
       padding: 0 10vw;
     }

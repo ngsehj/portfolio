@@ -30,13 +30,16 @@ const ModalPortal = ({ type, title, children, handleClose, maskClosable = true, 
   const closeRef = useRef();
 
   // 모달 포커스 이동 핸들러
-  const handleFocusModal = useCallback(e => {
-    // [shift]키를 누르지 않고 [tab}키만 눌럿을 때
-    if (!e.shiftKey && e.keyCode === 9) {
-      e.preventDefault();
-      window.setTimeout(() => modalRef.current.focus());
-    }
-  }, []);
+  const handleFocusModal = useCallback(
+    e => {
+      // [shift]키를 누르지 않고 [tab}키만 눌럿을 때
+      if (!e.shiftKey && e.keyCode === 9) {
+        e.preventDefault();
+        window.setTimeout(() => modalRef.current.focus());
+      }
+    },
+    [modalRef],
+  );
 
   // 닫기 버튼 포커스 이동 핸들러
   const handleFocusClose = useCallback(e => {
@@ -54,7 +57,7 @@ const ModalPortal = ({ type, title, children, handleClose, maskClosable = true, 
     };
     window.addEventListener('keydown', handleEscCloseModal);
     return () => window.removeEventListener('keydown', handleEscCloseModal);
-  }, [setModalState]);
+  }, [setModalState, modalOpen, handleClose]);
 
   useEffect(() => {
     document.body.style.cssText = `overflow: hidden`;
@@ -82,7 +85,16 @@ const ModalPortal = ({ type, title, children, handleClose, maskClosable = true, 
             </strong>
           </header>
           <div className="modal__content">{children}</div>
-          {closeVisible && <button type="button" className="modal-btn-close" aria-label="모달 닫기" ref={closeRef} onClick={handleClose} onKeyDown={handleFocusModal} />}
+          {closeVisible && (
+            <button
+              type="button"
+              className="modal-btn-close"
+              aria-label="모달 닫기"
+              ref={closeRef}
+              onClick={handleClose}
+              onKeyDown={handleFocusModal} // key
+            />
+          )}
         </div>
       </div>
     </Portal>

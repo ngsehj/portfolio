@@ -2,6 +2,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLayoutEffect, useRef } from 'react';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const SectionSlider = () => {
   const sectionRef = useRef();
 
@@ -21,9 +23,11 @@ const SectionSlider = () => {
 
       gsap.to(panels, {
         xPercent: -100 * (panels.length - 1),
+        ease: 'none',
         scrollTrigger: {
           trigger: sectionRef.current,
           scrub: true,
+          snap: 1 / (panels.length - 1),
           start: `top+=${pixelsPause} top`,
           end: () => '+=' + window.innerWidth * panels.length,
           // markers: { startColor: 'fuchsia', endColor: 'fuchsia', indent: 200 },
@@ -32,9 +36,9 @@ const SectionSlider = () => {
 
       ScrollTrigger.create({
         trigger: sectionRef.current,
-        backgroundColor: 'yellow',
         end: () => '+=' + (window.innerWidth * panels.length + pixelsPause),
         pin: true,
+        // markers: true,
       });
     }, sectionRef);
     return () => ctx.revert();
@@ -55,7 +59,7 @@ const SectionSlider = () => {
         </p>
         <div className="video">
           <div className="video__inner">
-            <video src="https://ngsehj.github.io/portfolio/img/video01.mp4" autoPlay playsInline loop muted></video>
+            <video src="https://ngsehj.github.io/portfolio/img/video01.mp4" autoPlay playsInline loop muted />
           </div>
         </div>
       </div>
@@ -64,7 +68,7 @@ const SectionSlider = () => {
         <p className="gsap-text">GSAP의 ScrollTrigger, Timeline을 사용하여 애니메이션을 구현했습니다.</p>
         <div className="video">
           <div className="video__inner">
-            <video src="https://ngsehj.github.io/portfolio/img/video02.mp4" autoPlay playsInline loop muted></video>
+            <video src="https://ngsehj.github.io/portfolio/img/video02.mp4" autoPlay playsInline loop muted />
           </div>
         </div>
       </div>

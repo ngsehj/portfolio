@@ -2,13 +2,15 @@ import { Elastic, Power3, gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLayoutEffect, useRef } from 'react';
 import { isMobile } from 'react-device-detect';
+
+gsap.registerPlugin(ScrollTrigger);
+
 const SectionIntro = () => {
-  gsap.registerPlugin(ScrollTrigger);
   const sectionRef = useRef();
 
   useLayoutEffect(() => {
     let tl = gsap.timeline({ paused: false });
-    tl.to('.image', { y: 0, opacity: 0.3, scale: 0.6, ease: Power3, duration: 0.7, delay: 0.5 });
+    tl.to('.gsap-section-intro .image', { y: 0, opacity: 0.3, scale: 0.6, ease: Power3, duration: 0.7, delay: 0.5 });
     tl.to('.type', { y: -20, opacity: 1, ease: Elastic });
     tl.to('.heading', { y: -20, opacity: 1, ease: Elastic }, '-=0.3');
     tl.to('dl', { yPercent: -30, opacity: 1, ease: Elastic }, '<');
@@ -23,10 +25,6 @@ const SectionIntro = () => {
           start: sectionRef.current.offsetHeight * 0.1,
           end: sectionRef.current.offsetHeight * 0.15,
         },
-      });
-      ScrollTrigger.create({
-        // trigger: sectionRef.current,
-        // end: sectionRef.current.offsetHeight * 0.3,
       });
     }, sectionRef);
 
@@ -54,7 +52,7 @@ const SectionIntro = () => {
         <dt>배포</dt>
         <dd>Github Pages</dd>
         <dt>기간</dt>
-        <dd>2023.07.17 ~ 2023.08.17</dd>
+        <dd>약 한달</dd>
       </dl>
     </section>
   );
