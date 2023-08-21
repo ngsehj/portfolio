@@ -189,7 +189,7 @@
   padding-bottom: 5rem;
   box-sizing: border-box;
   .image {
-    @include thumbnail(100%, 10rem, 0);
+    @include thumbnail(100%, 80%, 0);
     background-color: $dgray;
     margin-bottom: 5rem;
     img {
@@ -201,7 +201,7 @@
     padding-top: 5rem;
     padding-bottom: 5rem;
     .image {
-      padding-top: 30rem;
+      padding-top: 60%;
     }
   }
   @include breakpoint(desktop) {

@@ -34,9 +34,7 @@ const Cursor = () => {
   }, []);
 
   const onInit = useCallback(() => {
-    if (!isVisible) {
-      cursorRef.current.style.opacity = 1;
-    }
+    cursorRef.current.style.opacity = 1;
   }, []);
 
   const onClickableMouseEnter = useCallback(() => {
@@ -53,7 +51,16 @@ const Cursor = () => {
     return () => {
       document.body.removeEventListener('mouseenter', onInit);
     };
-  }, []);
+  });
+
+  // 브라우저 화면 바깥으로 나가면 커서 사라짐
+  useEffect(() => {
+    if (isVisible) {
+      cursorRef.current.style.opacity = 1;
+    } else {
+      cursorRef.current.style.opacity = 0;
+    }
+  }, [isVisible]);
 
   useEffect(() => {
     requestRef.current = requestAnimationFrame(animateCursor);

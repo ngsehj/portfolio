@@ -41,6 +41,7 @@ const SectionWork = () => {
           <div
             className="work__item cursor-clickable uht-hover"
             tabIndex={0}
+            role="button"
             onClick={goGsapPage}
             onKeyDown={e => {
               if (e.key === 'Enter' || e.key === ' ') goGsapPage();
