@@ -1,3 +1,4 @@
+import './App.css';
 import './App.scss';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
